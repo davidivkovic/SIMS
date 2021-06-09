@@ -1,0 +1,62 @@
+@font-face {
+  font-family: Inter;
+  src: url("../fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype-variations");
+  font-weight: 125 950;
+  font-style: oblique 0deg 12deg;
+}
+
+/* * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+html,
+body {
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+}
+
+a,
+.btn-link {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.content {
+  padding-top: 1.1rem;
+}
+
+.valid.modified:not([type="checkbox"]) {
+  outline: 1px solid #26b050;
+}
+
+.invalid {
+  outline: 1px solid red;
+}
+
+.validation-message {
+  color: red;
+}
+
+#blazor-error-ui {
+  background: lightyellow;
+  bottom: 0;
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+  display: none;
+  left: 0;
+  padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+  cursor: pointer;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.5rem;
+}
