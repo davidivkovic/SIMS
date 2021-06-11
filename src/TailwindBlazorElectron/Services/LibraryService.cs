@@ -11,6 +11,11 @@ namespace TailwindBlazorElectron.Services
     {
         private readonly ApplicationDbContext _dbContext;
 
+        public LibraryService(ApplicationDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public User SignIn(string email, string password)
         {
             var user = _dbContext.Accounts.FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
