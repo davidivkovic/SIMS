@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,7 +19,9 @@ namespace TailwindBlazorElectron.Services
 
         public User SignIn(string email, string password)
         {
-            var user = _dbContext.Accounts.FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
+            var user = _dbContext.Accounts
+                                 .Include(a => a.User)
+                                 .FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
             return user;
         }
 
