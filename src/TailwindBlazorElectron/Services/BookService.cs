@@ -30,7 +30,7 @@ namespace TailwindBlazorElectron.Services
 
         public void SeedBooks() 
         {
-            string json = File.ReadAllText(@"E:\Projects\goodreads-scraper\new_books\all_books.json");
+            string json = File.ReadAllText("Data/all_books.json");
             var books = JsonSerializer.Deserialize<List<Book>>(json);
             _dbContext.Books.AddRange(books);
             _dbContext.SaveChanges();

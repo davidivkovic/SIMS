@@ -1,1352 +1,243 @@
 [
-    {
-        "IdTitle": "10210.Jane_Eyre",
-        "Id": "10210",
-        "Title": "Jane Eyre",
-        "Series": "",
-        "ISBN": "1551111802",
-        "ISBN13": "9781551111803",
-        "YearPublished": "1846",
-        "Author": "Charlotte Bront\u00eb",
-        "NumberOfPages": 532,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Historical > Historical Fiction",
-            "Gothic",
-            "Literature",
-            "Historical",
-            "Literature > 19th Century",
-            "Academic > School",
-            "Classics > Classic Literature"
-        ],
-        "NumberOfRatings": "1717578",
-        "AverageRating": "4.13",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1557343311l/10210._SY475_.jpg",
-        "Description": "Orphaned as a child, Jane has felt an outcast her whole young life. Her courage is tested once again when she arrives at Thornfield Hall, where she has been hired by the brooding, proud Edward Rochester to care for his ward Ad\u00e8le. Jane finds herself drawn to his troubled yet kind spirit. She falls in love. Hard. But there is a terrifying secret inside the gloomy, forbidding Thornfield Hall. Is Rochester hiding from Jane? Will Jane be left heartbroken and exiled once again?"
-    },
-    {
-        "IdTitle": "12296.The_Scarlet_Letter",
-        "Id": "12296",
-        "Title": "The Scarlet Letter",
-        "Series": "",
-        "ISBN": "0679783385",
-        "ISBN13": "9780679783381",
-        "YearPublished": "1850",
-        "Author": "Nathaniel Hawthorne",
-        "NumberOfPages": 279,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Academic > School",
-            "Literature",
-            "Young Adult > High School",
-            "Academic > Read For School",
-            "Historical",
-            "Classics > Classic Literature",
-            "Novels"
-        ],
-        "NumberOfRatings": "735845",
-        "AverageRating": "3.42",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1404810944l/12296.jpg",
-        "Description": "Set in 17th-century Puritan Boston, Massachusetts, during the years 1642 to 1649, it tells the story of Hester Prynne, who conceives a daughter through an affair and will not reveal her lover\u2019s identity. The scarlet letter A (for adultery) she has to wear on her clothes, along with her public shaming, is her punishment for her sin and her secrecy. She struggles to create a new life of repentance and dignity. Throughout the book, Hawthorne explores themes of legalism, sin, and guilt."
-    },
-    {
-        "IdTitle": "13079982-fahrenheit-451",
-        "Id": "13079982",
-        "Title": "Fahrenheit 451",
-        "Series": "",
-        "ISBN": "0307347974",
-        "ISBN13": "9780307347978",
-        "YearPublished": "1953",
-        "Author": "Ray Bradbury",
-        "NumberOfPages": 194,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Science Fiction",
-            "Science Fiction > Dystopia",
-            "Academic > School",
-            "Literature",
-            "Novels",
-            "Fantasy",
-            "Adult",
-            "Science Fiction Fantasy"
-        ],
-        "NumberOfRatings": "1812233",
-        "AverageRating": "3.99",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1383718290l/13079982.jpg",
-        "Description": "Sixty years after its originally publication, Ray Bradbury\u2019s internationally acclaimed novel Fahrenheit 451 stands as a classic of world literature set in a bleak, dystopian future. Today its message has grown more relevant than ever before. Guy Montag is a fireman. His job is to destroy the most illegal of commodities, the printed book, along with the houses in which they are hidden. Montag never questions the destruction and ruin his actions produce, returning each day to his bland life and wife, Mildred, who spends all day with her television \u201cfamily.\u201d But when he meets an eccentric young neighbor, Clarisse, who introduces him to a past where people didn\u2019t live in fear and to a present where one sees the world through the ideas in books instead of the mindless chatter of television, Montag begins to question everything he has ever known."
-    },
-    {
-        "IdTitle": "1371.The_Iliad",
-        "Id": "1371",
-        "Title": "The Iliad",
-        "Series": "",
-        "ISBN": "0471377589",
-        "ISBN13": "9780471377580",
-        "YearPublished": "800",
-        "Author": "Homer",
-        "NumberOfPages": 683,
-        "Genres": [
-            "Classics",
-            "Poetry",
-            "Fiction",
-            "Fantasy > Mythology",
-            "Literature",
-            "Fantasy",
-            "Historical > Historical Fiction",
-            "Academic > School",
-            "War",
-            "Epic"
-        ],
-        "NumberOfRatings": "371169",
-        "AverageRating": "3.88",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388188509l/1371.jpg",
-        "Description": "Dating to the ninth century B.C., Homer\u2019s timeless poem still vividly conveys the horror and heroism of men and gods wrestling with towering emotions and battling amidst devastation and destruction, as it moves inexorably to the wrenching, tragic conclusion of the Trojan War. Renowned classicist Bernard Knox observes in his superb introduction that although the violence of the Iliad is grim and relentless, it coexists with both images of civilized life and a poignant yearning for peace. Combining the skills of a poet and scholar, Robert Fagles, winner of the PEN/Ralph Manheim Medal for Translation and a 1996 Academy Award in Literature from the American Academy of Arts and Letters, brings the energy of contemporary language to this enduring heroic epic. He maintains the drive and metric music of Homer\u2019s poetry, and evokes the impact and nuance of the Iliad\u2019s mesmerizing repeated phrases in what Peter Levi calls \u201can astonishing performance.\u201d"
-    },
-    {
-        "IdTitle": "1381.The_Odyssey",
-        "Id": "1381",
-        "Title": "The Odyssey",
-        "Series": "",
-        "ISBN": "0140268863",
-        "ISBN13": "9780140268867",
-        "YearPublished": "800",
-        "Author": "Homer",
-        "NumberOfPages": 541,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Poetry",
-            "Fantasy > Mythology",
-            "Fantasy",
-            "Academic > School",
-            "Literature",
-            "Adventure",
-            "Academic > Read For School",
-            "Historical > Historical Fiction"
-        ],
-        "NumberOfRatings": "901206",
-        "AverageRating": "3.78",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390173285l/1381.jpg",
-        "Description": "Sing to me of the man, Muse, the man of twists and turnsdriven time and again off course, once he had plunderedthe hallowed heights of Troy.So begins Robert Fagles' magnificent translation of the Odyssey.If the Iliad is the world's greatest war epic, then the Odyssey is literature's grandest evocation of everyman's journey though life. Odysseus' reliance on his wit and wiliness for survival in his encounters with divine and natural forces, during his ten-year voyage home to Ithaca after the Trojan War, is at once a timeless human story and an individual test of moral endurance. In the myths and legends that are retold here, Fagles has captured the energy and poetry of Homer's original in a bold, contemporary idiom, and given us an Odyssey to read aloud, to savor, and to treasure for its sheer lyrical mastery.Renowned classicist Bernard Knox's superb Introduction and textual commentary provide new insights and background information for the general reader and scholar alike, intensifying the strength of Fagles' translation.This is an Odyssey to delight both the classicist and the public at large, and to captivate a new generation of Homer's students.--Robert Fagles, winner of the PEN/Ralph Manheim Medal for Translation and a 1996 Academy Award in Literature from the American Academy of Arts and Letters, presents us with Homer's best-loved and most accessible poem in a stunning new modern-verse translation."
-    },
-    {
-        "IdTitle": "1420.Hamlet",
-        "Id": "1420",
-        "Title": "Hamlet",
-        "Series": "",
-        "ISBN": "0312055447",
-        "ISBN13": "9780312055448",
-        "YearPublished": "1603",
-        "Author": "William Shakespeare",
-        "NumberOfPages": 289,
-        "Genres": [
-            "Classics",
-            "Plays",
-            "Fiction",
-            "Drama",
-            "Academic > School",
-            "Literature",
-            "Plays > Theatre",
-            "Academic > Read For School",
-            "Young Adult > High School",
-            "Poetry"
-        ],
-        "NumberOfRatings": "771909",
-        "AverageRating": "4.03",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1351051208l/1420.jpg",
-        "Description": "Among Shakespeare's plays, \"Hamlet\" is considered by many his masterpiece. Among actors, the role of Hamlet, Prince of Denmark, is considered the jewel in the crown of a triumphant theatrical career. Now Kenneth Branagh plays the leading role and co-directs a brillant ensemble performance. Three generations of legendary leading actors, many of whom first assembled for the Oscar-winning film \"Henry V\", gather here to perform the rarely heard complete version of the play. This clear, subtly nuanced, stunning dramatization, presented by The Renaissance Theatre Company in association with \"Bbc\" Broadcasting, features such luminaries as Sir John Gielgud, Derek Jacobi, Emma Thompson and Christopher Ravenscroft. It combines a full cast with stirring music and sound effects to bring this magnificent Shakespearen classic vividly to life. Revealing new riches with each listening, this production of \"Hamlet\" is an invaluable aid for students, teachers and all true lovers of Shakespeare - a recording to be treasured for decades to come."
-    },
-    {
-        "IdTitle": "14935.Sense_and_Sensibility",
-        "Id": "14935",
-        "Title": "Sense and Sensibility",
-        "Series": "",
-        "ISBN": "0192804782",
-        "ISBN13": "9780192804785",
-        "YearPublished": "1811",
-        "Author": "Jane Austen",
-        "NumberOfPages": 409,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Historical",
-            "Classics > Classic Literature",
-            "Literature > 19th Century",
-            "Audiobook",
-            "European Literature > British Literature"
-        ],
-        "NumberOfRatings": "1004523",
-        "AverageRating": "4.08",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1397245675l/14935._SY475_.jpg",
-        "Description": "Alternate cover edition of ISBN 9780141439662'The more I know of the world, the more am I convinced that I shall never see a man whom I can really love. I require so much!'Marianne Dashwood wears her heart on her sleeve, and when she falls in love with the dashing but unsuitable John Willoughby she ignores her sister Elinor's warning that her impulsive behaviour leaves her open to gossip and innuendo. Meanwhile Elinor, always sensitive to social convention, is struggling to conceal her own romantic disappointment, even from those closest to her. Through their parallel experience of love\u2014and its threatened loss\u2014the sisters learn that sense must mix with sensibility if they are to find personal happiness in a society where status and money govern the rules of love.This edition includes explanatory notes, textual variants between the first and second editions, and Tony Tanner's introduction to the original Penguin Classic edition."
-    },
-    {
-        "IdTitle": "153747.Moby_Dick_or_the_Whale",
-        "Id": "153747",
-        "Title": "Moby-Dick or, the Whale",
-        "Series": "",
-        "ISBN": "0553213113",
-        "ISBN13": "9780553213119",
-        "YearPublished": "1851",
-        "Author": "Herman Melville",
-        "NumberOfPages": 654,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Literature",
-            "Adventure",
-            "Novels",
-            "Historical > Historical Fiction",
-            "Literature > American",
-            "Literature > 19th Century",
-            "Classics > Classic Literature",
-            "Audiobook"
-        ],
-        "NumberOfRatings": "494983",
-        "AverageRating": "3.52",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327940656l/153747.jpg",
-        "Description": "\"It is the horrible texture of a fabric that should be woven of ships' cables and hawsers. A Polar wind blows through it, and birds of prey hover over it.\" So Melville wrote of his masterpiece, one of the greatest works of imagination in literary history. In part, Moby-Dick is the story of an eerily compelling madman pursuing an unholy war against a creature as vast and dangerous and unknowable as the sea itself. But more than just a novel of adventure, more than an encyclopaedia of whaling lore and legend, the book can be seen as part of its Author's lifelong meditation on America. Written with wonderfully redemptive humour, Moby-Dick is also a profound inquiry into character, faith, and the nature of perception.This edition of Moby-Dick, which reproduces the definitive text of the novel, includes invaluable explanatory notes, along with maps, illustrations, and a glossary of nautical terms."
-    },
-    {
-        "IdTitle": "157993.The_Little_Prince",
-        "Id": "157993",
-        "Title": "The Little Prince",
-        "Series": "",
-        "ISBN": "0156013924",
-        "ISBN13": "9780156013925",
-        "YearPublished": "1943",
-        "Author": "Antoine de Saint-Exup\u00e9ry",
-        "NumberOfPages": 93,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Fantasy",
-            "Childrens",
-            "Cultural > France",
-            "Young Adult",
-            "Philosophy",
-            "Literature",
-            "Childrens > Middle Grade",
-            "European Literature > French Literature"
-        ],
-        "NumberOfRatings": "1509448",
-        "AverageRating": "4.31",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1367545443l/157993.jpg",
-        "Description": "A PBS Great American Read Top 100 PickFew stories are as widely read and as universally cherished by children and adults alike as The Little Prince. Richard Howard's translation of the beloved classic beautifully reflects Saint-Exup\u00e9ry's unique and gifted style. Howard, an acclaimed poet and one of the preeminent translators of our time, has excelled in bringing the English text as close as possible to the French, in language, style, and most important, spirit. The artwork in this edition has been restored to match in detail and in color Saint-Exup\u00e9ry's original artwork. Combining Richard Howard's translation with restored original art, this definitive English-language edition of The Little Prince will capture the hearts of readers of all ages."
-    },
-    {
-        "IdTitle": "15823480-anna-karenina",
-        "Id": "15823480",
-        "Title": "Anna Karenina",
-        "Series": "",
-        "ISBN": "0451528611",
-        "ISBN13": "9780451528612",
-        "YearPublished": "1877",
-        "Author": "Leo Tolstoy",
-        "NumberOfPages": 964,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Cultural > Russia",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Literature > Russian Literature",
-            "Novels",
-            "Literature > 19th Century",
-            "Historical"
-        ],
-        "NumberOfRatings": "703944",
-        "AverageRating": "4.06",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601352433l/15823480._SY475_.jpg",
-        "Description": "Acclaimed by many as the world's greatest novel, Anna Karenina provides a vast panorama of contemporary life in Russia and of humanity in general. In it Tolstoy uses his intense imaginative insight to create some of the most memorable characters in all of literature. Anna is a sophisticated woman who abandons her empty existence as the wife of Karenin and turns to Count Vronsky to fulfil her passionate nature - with tragic consequences. Levin is a reflection of Tolstoy himself, often expressing the Author's own views and convictions.Throughout, Tolstoy points no moral, merely inviting us not to judge but to watch. As Rosemary Edmonds comments, 'He leaves the shifting patterns of the kaleidoscope to bring home the meaning of the brooding words following the Title, 'Vengeance is mine, and I will repay."
-    },
-    {
-        "IdTitle": "1622.A_Midsummer_Night_s_Dream",
-        "Id": "1622",
-        "Title": "A Midsummer Night's Dream",
-        "Series": "",
-        "ISBN": "1903436605",
-        "ISBN13": "9781903436608",
-        "YearPublished": "1595",
-        "Author": "William Shakespeare",
-        "NumberOfPages": 240,
-        "Genres": [
-            "Classics",
-            "Plays",
-            "Fiction",
-            "Drama",
-            "Fantasy",
-            "Academic > School",
-            "Romance",
-            "Plays > Theatre",
-            "Literature",
-            "Poetry"
-        ],
-        "NumberOfRatings": "463046",
-        "AverageRating": "3.95",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327874534l/1622.jpg",
-        "Description": "Shakespeare's intertwined love polygons begin to get complicated from the start--Demetrius and Lysander both want Hermia but she only has eyes for Lysander. Bad news is, Hermia's father wants Demetrius for a son-in-law. On the outside is Helena, whose unreturned love burns hot for Demetrius. Hermia and Lysander plan to flee from the city under cover of darkness but are pursued by an enraged Demetrius (who is himself pursued by an enraptured Helena). In the forest, unbeknownst to the mortals, Oberon and Titania (King and Queen of the faeries) are having a spat over a servant boy. The plot twists up when Oberon's head mischief-maker, Puck, runs loose with a flower which causes people to fall in love with the first thing they see upon waking. Throw in a group of labourers preparing a play for the Duke's wedding (one of whom is given a donkey's head and Titania for a lover by Puck) and the complications become fantastically funny."
-    },
-    {
-        "IdTitle": "170448.Animal_Farm",
-        "Id": "170448",
-        "Title": "Animal Farm",
-        "Series": "",
-        "ISBN": "0452284244",
-        "ISBN13": "9780452284241",
-        "YearPublished": "1945",
-        "Author": "George Orwell",
-        "NumberOfPages": 141,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Science Fiction > Dystopia",
-            "Fantasy",
-            "Literature",
-            "Politics",
-            "Academic > School",
-            "Science Fiction",
-            "Novels",
-            "Academic > Read For School"
-        ],
-        "NumberOfRatings": "2949668",
-        "AverageRating": "3.96",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1325861570l/170448.jpg",
-        "Description": "Librarian's note: There is an Alternate Cover Edition for this edition of this book here.A farm is taken over by its overworked, mistreated animals. With flaming idealism and stirring slogans, they set out to create a paradise of progress, justice, and equality. Thus the stage is set for one of the most telling satiric fables ever penned \u2013a razor-edged fairy tale for grown-ups that records the evolution from revolution against tyranny to a totalitarianism just as terrible. When Animal Farm was first published, Stalinist Russia was seen as its target. Today it is devastatingly clear that wherever and whenever freedom is attacked, under whatever banner, the cutting clarity and savage comedy of George Orwell\u2019s masterpiece have a meaning and message still ferociously fresh."
-    },
-    {
-        "IdTitle": "17245.Dracula",
-        "Id": "17245",
-        "Title": "Dracula",
-        "Series": "",
-        "ISBN": "0743477367",
-        "ISBN13": "9780743477369",
-        "YearPublished": "1897",
-        "Author": "Bram Stoker",
-        "NumberOfPages": 488,
-        "Genres": [
-            "Classics",
-            "Horror",
-            "Fiction",
-            "Fantasy",
-            "Paranormal > Vampires",
-            "Gothic",
-            "Fantasy > Paranormal",
-            "Literature",
-            "Audiobook",
-            "Literature > 19th Century"
-        ],
-        "NumberOfRatings": "1001691",
-        "AverageRating": "4.00",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1387151694l/17245.jpg",
-        "Description": "You can find an alternative cover edition for this ISBN here and here.A rich selection of background and source materials is provided in three areas: Contexts includes probable inspirations for Dracula in the earlier works of James Malcolm Rymer and Emily Gerard. Also included are a discussion of Stoker's working notes for the novel and \"Dracula's Guest,\" the original opening chapter to Dracula. Reviews and Reactions reprints five early reviews of the novel. \"Dramatic and Film Variations\" focuses on theater and film adaptations of Dracula, two indications of the novel's unwavering appeal. David J. Skal, Gregory A. Waller, and Nina Auerbach offer their varied perspectives. Checklists of both dramatic and film adaptations are included.Criticism collects seven theoretical interpretations of Dracula by Phyllis A. Roth, Carol A. Senf, Franco Moretti, Christopher Craft, Bram Dijkstra, Stephen D. Arata, and Talia Schaffer.A Chronology and a Selected Bibliography are included."
-    },
-    {
-        "IdTitle": "18114322-the-grapes-of-wrath",
-        "Id": "18114322",
-        "Title": "The Grapes of Wrath",
-        "Series": "",
-        "ISBN": "0143039431",
-        "ISBN13": "9780143039433",
-        "YearPublished": "1939",
-        "Author": "John Steinbeck",
-        "NumberOfPages": 479,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Novels",
-            "Academic > School",
-            "Literature > American",
-            "Historical",
-            "Classics > Classic Literature",
-            "Young Adult > High School"
-        ],
-        "NumberOfRatings": "784170",
-        "AverageRating": "3.98",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1375670575l/18114322.jpg",
-        "Description": "The Pulitzer Prize-winning epic of the Great Depression, a book that galvanized\u2014and sometimes outraged\u2014millions of readers.First published in 1939, Steinbeck\u2019s Pulitzer Prize-winning epic of the Great Depression chronicles the Dust Bowl migration of the 1930s and tells the story of one Oklahoma farm family, the Joads\u2014driven from their homestead and forced to travel west to the promised land of California. Out of their trials and their repeated collisions against the hard realities of an America divided into Haves and Have-Nots evolves a drama that is intensely human yet majestic in its scale and moral vision, elemental yet plainspoken, tragic but ultimately stirring in its human dignity. A portrait of the conflict between the powerful and the powerless, of one man\u2019s fierce reaction to injustice, and of one woman\u2019s stoical strength, the novel captures the horrors of the Great Depression and probes into the very nature of equality and justice in America. At once a naturalistic epic, captivity narrative, road novel, and transcendental gospel, Steinbeck\u2019s powerful landmark novel is perhaps the most American of American Classics."
-    },
-    {
-        "IdTitle": "18135.Romeo_and_Juliet",
-        "Id": "18135",
-        "Title": "Romeo and Juliet",
-        "Series": "",
-        "ISBN": "0486275574",
-        "ISBN13": "9780486275574",
-        "YearPublished": "1597",
-        "Author": "William Shakespeare",
-        "NumberOfPages": 301,
-        "Genres": [
-            "Classics",
-            "Plays",
-            "Fiction",
-            "Romance",
-            "Academic > School",
-            "Drama",
-            "Academic > Read For School",
-            "Literature",
-            "Young Adult > High School",
-            "Poetry"
-        ],
-        "NumberOfRatings": "2154952",
-        "AverageRating": "3.75",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572098085l/18135._SY475_.jpg",
-        "Description": "In Romeo and Juliet, Shakespeare creates a violent world, in which two young people fall in love. It is not simply that their families disapprove; the Montagues and the Capulets are engaged in a blood feud.In this death-filled setting, the movement from love at first sight to the lovers\u2019 final union in death seems almost inevitable. And yet, this play set in an extraordinary world has become the quintessential story of young love. In part because of its exquisite language, it is easy to respond as if it were about all young lovers."
-    },
-    {
-        "IdTitle": "18405.Gone_with_the_Wind",
-        "Id": "18405",
-        "Title": "Gone with the Wind",
-        "Series": "",
-        "ISBN": "1416548890",
-        "ISBN13": "9781416548898",
-        "YearPublished": "1936",
-        "Author": "Margaret Mitchell",
-        "NumberOfPages": 1037,
-        "Genres": [
-            "Classics",
-            "Historical > Historical Fiction",
-            "Fiction",
-            "Romance",
-            "Historical",
-            "War",
-            "Literature",
-            "Military History > Civil War",
-            "Romance > Historical Romance",
-            "Novels"
-        ],
-        "NumberOfRatings": "1110290",
-        "AverageRating": "4.30",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1551144577l/18405._SY475_.jpg",
-        "Description": "Scarlett O'Hara, the beautiful, spoiled daughter of a well-to-do Georgia plantation owner, must use every means at her disposal to claw her way out of the poverty she finds herself in after Sherman's March to the Sea."
-    },
-    {
-        "IdTitle": "1885.Pride_and_Prejudice",
-        "Id": "1885",
-        "Title": "Pride and Prejudice",
-        "Series": "",
-        "ISBN": "0553213105",
-        "ISBN13": "9780553213102",
-        "YearPublished": "1813",
-        "Author": "Jane Austen",
-        "NumberOfPages": 279,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Historical",
-            "Novels",
-            "Romance > Historical Romance",
-            "Adult",
-            "Audiobook"
-        ],
-        "NumberOfRatings": "3232150",
-        "AverageRating": "4.27",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1320399351l/1885.jpg",
-        "Description": "Alternate cover edition of ISBN 9780679783268Since its immediate success in 1813, Pride and Prejudice has remained one of the most popular novels in the English language. Jane Austen called this brilliant work \"her own darling child\" and its vivacious heroine, Elizabeth Bennet, \"as delightful a creature as ever appeared in print.\" The romantic clash between the opinionated Elizabeth and her proud beau, Mr. Darcy, is a splendid performance of civilized sparring. And Jane Austen's radiant wit sparkles as her characters dance a delicate quadrille of flirtation and intrigue, making this book the most superb comedy of manners of Regency England."
-    },
-    {
-        "IdTitle": "1934.Little_Women",
-        "Id": "1934",
-        "Title": "Little Women",
-        "Series": "Little Women #1",
-        "ISBN": "0517214628",
-        "ISBN13": "9780517214626",
-        "YearPublished": "1868",
-        "Author": "Louisa May Alcott",
-        "NumberOfPages": 449,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Young Adult",
-            "Romance",
-            "Historical",
-            "Literature",
-            "Childrens",
-            "Classics > Classic Literature",
-            "Novels"
-        ],
-        "NumberOfRatings": "1776811",
-        "AverageRating": "4.10",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1562690475l/1934._SY475_.jpg",
-        "Description": "Generations of readers young and old, male and female, have fallen in love with the March sisters of Louisa May Alcott\u2019s most popular and enduring novel, Little Women. Here are talented tomboy and Author-to-be Jo, tragically frail Beth, beautiful Meg, and romantic, spoiled Amy, united in their devotion to each other and their struggles to survive in New England during the Civil War.It is no secret that Alcott based Little Women on her own early life. While her father, the freethinking reformer and abolitionist Bronson Alcott, hobnobbed with such eminent male authors as Emerson, Thoreau, and Hawthorne, Louisa supported herself and her sisters with \"woman\u2019s work,\u201d including sewing, doing laundry, and acting as a domestic servant. But she soon discovered she could make more money writing. Little Women brought her lasting fame and fortune, and far from being the \"girl\u2019s book\u201d her publisher requested, it explores such timeless themes as love and death, war and peace, the conflict between personal ambition and family responsibilities, and the clash of cultures between Europe and America."
-    },
-    {
-        "IdTitle": "1953.A_Tale_of_Two_Cities",
-        "Id": "1953",
-        "Title": "A Tale of Two Cities",
-        "Series": "",
-        "ISBN": "0553211765",
-        "ISBN13": "9780553211764",
-        "YearPublished": "1859",
-        "Author": "Charles Dickens",
-        "NumberOfPages": 489,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Historical",
-            "Novels",
-            "Academic > School",
-            "Classics > Classic Literature",
-            "Literature > 19th Century",
-            "European Literature > British Literature"
-        ],
-        "NumberOfRatings": "839766",
-        "AverageRating": "3.85",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1344922523l/1953.jpg",
-        "Description": "A Tale of Two Cities is Charles Dickens\u2019s great historical novel, set against the violent upheaval of the French Revolution. The most famous and perhaps the most popular of his works, it compresses an event of immense complexity to the scale of a family history, with a cast of characters that includes a bloodthirsty ogress and an antihero as believably flawed as any in modern fiction. Though the least typical of the Author\u2019s novels, A Tale of Two Cities still underscores many of his enduring themes\u2014imprisonment, injustice, social anarchy, resurrection, and the renunciation that fosters renewal."
-    },
-    {
-        "IdTitle": "2156.Persuasion",
-        "Id": "2156",
-        "Title": "Persuasion",
-        "Series": "",
-        "ISBN": "0141439688",
-        "ISBN13": "9780141439686",
-        "YearPublished": "1817",
-        "Author": "Jane Austen",
-        "NumberOfPages": 249,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Historical",
-            "Literature > 19th Century",
-            "European Literature > British Literature",
-            "Classics > Classic Literature",
-            "Audiobook"
-        ],
-        "NumberOfRatings": "553561",
-        "AverageRating": "4.14",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1385172413l/2156.jpg",
-        "Description": "Twenty-seven-year old Anne Elliot is Austen's most adult heroine. Eight years before the story proper begins, she is happily betrothed to a naval officer, Frederick Wentworth, but she precipitously breaks off the engagement when persuaded by her friend Lady Russell that such a match is unworthy. The breakup produces in Anne a deep and long-lasting regret. When later Wentworth returns from sea a rich and successful captain, he finds Anne's family on the brink of financial ruin and his own sister a tenant in Kellynch Hall, the Elliot estate. All the tension of the novel revolves around one question: Will Anne and Wentworth be reunited in their love?Jane Austen once compared her writing to painting on a little bit of ivory, 2 inches square. Readers of Persuasion will discover that neither her skill for delicate, ironic observations on social custom, love, and marriage nor her ability to apply a sharp focus lens to English manners and morals has deserted her in her final finished work."
-    },
-    {
-        "IdTitle": "2165.The_Old_Man_and_the_Sea",
-        "Id": "2165",
-        "Title": "The Old Man and the Sea",
-        "Series": "",
-        "ISBN": "0099908409",
-        "ISBN13": "9780099908401",
-        "YearPublished": "1952",
-        "Author": "Ernest Hemingway",
-        "NumberOfPages": 96,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Literature",
-            "Novels",
-            "Literature > American",
-            "Academic > School",
-            "Adventure",
-            "Classics > Classic Literature",
-            "Literary Fiction",
-            "Literature > 20th Century"
-        ],
-        "NumberOfRatings": "890938",
-        "AverageRating": "3.79",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1329189714l/2165.jpg",
-        "Description": "Librarian's note: An alternate cover edition can be found hereThis short novel, already a modern classic, is the superbly told, tragic story of a Cuban fisherman in the Gulf Stream and the giant Marlin he kills and loses\u2014specifically referred to in the citation accompanying the Author's Nobel Prize for literature in 1954."
-    },
-    {
-        "IdTitle": "24213.Alice_s_Adventures_in_Wonderland_Through_the_Looking_Glass",
-        "Id": "24213",
-        "Title": "Alice's Adventures in Wonderland / Through the Looking-Glass",
-        "Series": "Alice's Adventures in Wonderland #1-2",
-        "ISBN": "0785824464",
-        "ISBN13": "9780785824466",
-        "YearPublished": "1871",
-        "Author": "Lewis Carroll",
-        "NumberOfPages": 239,
-        "Genres": [
-            "Classics",
-            "Fantasy",
-            "Fiction",
-            "Childrens",
-            "Young Adult",
-            "Literature",
-            "Adventure",
-            "Childrens > Middle Grade",
-            "Novels",
-            "Literature > 19th Century"
-        ],
-        "NumberOfRatings": "484520",
-        "AverageRating": "4.06",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327872220l/24213.jpg",
-        "Description": "\"I can't explain myself, I'm afraid, sir,\" said Alice, \"Because I'm not myself, you see.\"When Alice sees a white rabbit take a watch out of its waistcoat pocket she decides to follow it, and a sequence of most unusual events is set in motion. This mini book contains the entire topsy-turvy stories of Alice's Adventures in Wonderland and Through the Looking-Glass, accompanied by practical notes and Martina Pelouso's memorable full-colour illustrations."
-    },
-    {
-        "IdTitle": "24280.Les_Mis_rables",
-        "Id": "24280",
-        "Title": "Les Mis\u00e9rables",
-        "Series": "",
-        "ISBN": "0375403175",
-        "ISBN13": "9780375403170",
-        "YearPublished": "1862",
-        "Author": "Victor Hugo",
-        "NumberOfPages": 1463,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Cultural > France",
-            "Historical",
-            "Novels",
-            "European Literature > French Literature",
-            "Romance",
-            "Classics > Classic Literature"
-        ],
-        "NumberOfRatings": "708708",
-        "AverageRating": "4.18",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1411852091l/24280.jpg",
-        "Description": "Librarian's Note: this is an alternate cover edition for ISBN 9780451525260.Victor Hugo's tale of injustice, heroism and love follows the fortunes of Jean Valjean, an escaped convict determined to put his criminal past behind him. But his attempts to become a respected member of the community are constantly put under threat: by his own conscience, when, owing to a case of mistaken identity, another man is arrested in his place; and by the relentless investigations of the dogged Inspector Javert. It is not simply for himself that Valjean must stay free, however, for he has sworn to protect the baby daughter of Fantine, driven to prostitution by poverty."
-    },
-    {
-        "IdTitle": "24583.The_Adventures_of_Tom_Sawyer",
-        "Id": "24583",
-        "Title": "The Adventures of Tom Sawyer",
-        "Series": "Adventures of Tom and Huck #1",
-        "ISBN": "0520235754",
-        "ISBN13": "9780520235755",
-        "YearPublished": "1876",
-        "Author": "Mark Twain",
-        "NumberOfPages": 244,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Adventure",
-            "Young Adult",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Childrens",
-            "Academic > School",
-            "Novels",
-            "Literature > American"
-        ],
-        "NumberOfRatings": "797016",
-        "AverageRating": "3.92",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1404811979l/24583.jpg",
-        "Description": "The Adventures of Tom Sawyer revolves around the youthful adventures of the novel's schoolboy protagonist, Thomas Sawyer, whose reputation precedes him for causing mischief and strife. Tom lives with his Aunt Polly, half-brother Sid, and cousin Mary in the quaint town of St. Petersburg, just off the shore of the Mississippi River. St. Petersburg is described as a typical small-town atmosphere where the Christian faith is predominant, the social network is close-knit, and familiarity resides.  Unlike his brother Sid, Tom receives \"lickings\" from his Aunt Polly; ever the mischief-maker, would rather play hooky than attend school and often sneaks out his bedroom window at night to adventure with his friend, Huckleberry Finn \u00ad the town's social outcast. Tom, despite his dread of schooling, is extremely clever and would normally get away with his pranks if Sid were not such a \"tattle-tale.\"  As punishment for skipping school to go swimming, Aunt Polly assigns Tom the chore of whitewashing the fence surrounding the house. In a brilliant scheme, Tom is able to con the neighborhood boys into completing the chore for him, managing to convince them of the joys of whitewashing. At school, Tom is equally as flamboyant, and attracts attention by chasing other boys, yelling, and running around. With his usual antics, Tom attempts to catch the eye of Becky Thatcher, a new girl in town, and persuades her to get \"engaged\" by kissing him. But their romance collapses when she learns Tom has been \"engaged\" previously to Amy Lawrence. Shortly after Becky shuns him, he accompanies Huckleberry Finn to the graveyard at night, where they witness the murder of Dr. Robinson.Excerpt:\"TOM!\" No answer. \"TOM!\" No answer. \"What's gone with that boy, \u00a0I wonder? You TOM!\" No answer. The old lady pulled her spectacles down and looked over them about the room; then she put them up and looked out under them. She seldom or never looked\u00a0through\u00a0them for so small a thing as a boy; they were her state pair, the pride of her heart, and were built for \"style,\" not service\u2014she could have seen through a pair of stove-lids just as well. She looked perplexed for a moment, and then said, not fiercely, but still loud enough for the furniture to hear: \"Well, I lay if I get hold of you I'll\u2014\" She did not finish, for by this time she was bending down and punching under the bed with the broom, and so she needed breath to punctuate the punches with. She resurrected nothing but the cat. \"I never did see the beat of that boy!\""
-    },
-    {
-        "IdTitle": "2623.Great_Expectations",
-        "Id": "2623",
-        "Title": "Great Expectations",
-        "Series": "",
-        "ISBN": "0141439564",
-        "ISBN13": "9780141439563",
-        "YearPublished": "1860",
-        "Author": "Charles Dickens",
-        "NumberOfPages": 505,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Literature",
-            "Historical > Historical Fiction",
-            "Academic > School",
-            "Novels",
-            "Literature > 19th Century",
-            "Classics > Classic Literature",
-            "European Literature > British Literature",
-            "Historical > Victorian"
-        ],
-        "NumberOfRatings": "684308",
-        "AverageRating": "3.78",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327920219l/2623.jpg",
-        "Description": "'In what may be Dickens's best novel, humble, orphaned Pip is apprenticed to the dirty work of the forge but dares to dream of becoming a gentleman \u2014 and one day, under sudden and enigmatic circumstances, he finds himself in possession of \"great expectations.\" In this gripping tale of crime and guilt, revenge and reward, the compelling characters include Magwitch, the fearful and fearsome convict; Estella, whose beauty is excelled only by her haughtiness; and the embittered Miss Havisham, an eccentric jilted bride"
-    },
-    {
-        "IdTitle": "2657.To_Kill_a_Mockingbird",
-        "Id": "2657",
-        "Title": "To Kill a Mockingbird",
-        "Series": "To Kill a Mockingbird",
-        "ISBN": "1439550417",
-        "ISBN13": "9781439550410",
-        "YearPublished": "1960",
-        "Author": "Harper Lee",
-        "NumberOfPages": 324,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Academic > School",
-            "Literature",
-            "Young Adult",
-            "Historical",
-            "Novels",
-            "Academic > Read For School",
-            "Young Adult > High School"
-        ],
-        "NumberOfRatings": "4806100",
-        "AverageRating": "4.28",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1553383690l/2657.jpg",
-        "Description": "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it. \"To Kill A Mockingbird\" became both an instant bestseller and a critical success when it was first published in 1960. It went on to win the Pulitzer Prize in 1961 and was later made into an Academy Award-winning film, also a classic.Compassionate, dramatic, and deeply moving, \"To Kill A Mockingbird\" takes readers to the roots of human behavior - to innocence and experience, kindness and cruelty, love and hatred, humor and pathos. Now with over 18 million copies in print and translated into forty languages, this regional story by a young Alabama woman claims universal appeal. Harper Lee always considered her book to be a simple love story. Today it is regarded as a masterpiece of American literature."
-    },
-    {
-        "IdTitle": "2956.The_Adventures_of_Huckleberry_Finn",
-        "Id": "2956",
-        "Title": "The Adventures of Huckleberry Finn",
-        "Series": "Adventures of Tom and Huck #2",
-        "ISBN": "0520228383",
-        "ISBN13": "9780520228382",
-        "YearPublished": "1884",
-        "Author": "Mark Twain",
-        "NumberOfPages": 327,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Young Adult",
-            "Adventure",
-            "Academic > School",
-            "Novels",
-            "Academic > Read For School",
-            "Literature > American"
-        ],
-        "NumberOfRatings": "1181671",
-        "AverageRating": "3.82",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546096879l/2956.jpg",
-        "Description": "A nineteenth-century boy from a Mississippi River town recounts his adventures as he travels down the river with a runaway slave, encountering a family involved in a feud, two scoundrels pretending to be royalty, and Tom Sawyer's aunt who mistakes him for Tom."
-    },
-    {
-        "IdTitle": "2998.The_Secret_Garden",
-        "Id": "2998",
-        "Title": "The Secret Garden",
-        "Series": "",
-        "ISBN": "0397321651",
-        "ISBN13": "9780064401883",
-        "YearPublished": "1910",
-        "Author": "Frances Hodgson Burnett",
-        "NumberOfPages": 331,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Childrens",
-            "Young Adult",
-            "Historical > Historical Fiction",
-            "Childrens > Middle Grade",
-            "Fantasy",
-            "Literature",
-            "Historical",
-            "Audiobook"
-        ],
-        "NumberOfRatings": "955277",
-        "AverageRating": "4.13",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327873635l/2998.jpg",
-        "Description": "\"One of the most delightful and enduring classics of children's literature, The Secret Garden by Victorian Author Frances Hodgson Burnett has remained a firm favorite with children the world over ever since it made its first appearance. Initially published as a serial story in 1910 in The American Magazine, it was brought out in novel form in 1911.  The plot centers round Mary Lennox, a young English girl who returns to England from India, having suffered the immense trauma by losing both her parents in a cholera epidemic. However, her memories of her parents are not pleasant, as they were a selfish, neglectful and pleasure-seeking couple. Mary is given to the care of her uncle Archibald Craven, whom she has never met. She travels to his home, Misselthwaite Manor located in the gloomy Yorkshire, a vast change from the sunny and warm climate she was used to. When she arrives, she is a rude, stubborn and given to stormy temper tantrums. However, her nature undergoes a gradual transformation when she learns of the tragedies that have befallen her strict and disciplinarian uncle whom she earlier feared and despised. Once when he's away from home, Mary discovers a charming walled garden which is always kept locked. The mystery deepens when she hears sounds of sobbing from somewhere within her uncle's vast mansion. The kindly servants ignore her queries or pretend they haven't heard, spiking Mary's curiosity.  The Secret Garden appeals to both young and old alike. It has wonderful elements of mystery, spirituality, charming characters and an authentic rendering of childhood emotions and experiences. Commonsense, truth and kindness, compassion and a belief in the essential goodness of human beings lie at the heart of this unforgettable story. It is the best known of Frances Hodgson Burnett's works, though most of us have definitely heard of, if not read, her other novel Little Lord Fauntleroy.  The book has been adapted extensively on stage, film and television and translated into all the world's major languages. In 1991, a Japanese anime version was launched for television in Japan. It remains a popular and beloved story of a child's journey into maturity, and a must-read for every child, parent, teacher and anyone who would enjoy this fascinating glimpse of childhood. One of the most delightful and enduring classics of children's literature, The Secret Garden by Victorian Author Frances Hodgson Burnett has remained a firm favorite with children the world over ever since it made its first appearance. Initially published as a serial story in 1910 in The American Magazine, it was brought out in novel form in 1911.\""
-    },
-    {
-        "IdTitle": "35031085-frankenstein",
-        "Id": "35031085",
-        "Title": "Frankenstein: The 1818 Text",
-        "Series": "",
-        "ISBN": "0141439475",
-        "ISBN13": "9780141439471",
-        "YearPublished": "1818",
-        "Author": "Mary Wollstonecraft Shelley",
-        "NumberOfPages": 260,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Horror",
-            "Science Fiction",
-            "Gothic",
-            "Fantasy",
-            "Academic > School",
-            "Literature",
-            "Novels",
-            "Academic > Read For School"
-        ],
-        "NumberOfRatings": "1234161",
-        "AverageRating": "3.82",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1498841231l/35031085.jpg",
-        "Description": "Mary Shelley's seminal novel of the scientist whose creation becomes a monsterThis edition is the original 1818 text, which preserves the hard-hitting and politically charged aspects of Shelley's original writing, as well as her unflinching wit and strong female voice. This edition also includes a new introduction and suggestions for further reading by Author and Shelley expert Charlotte Gordon, literary excerpts and reviews selected by Gordon and a chronology and essay by preeminent Shelley scholar Charles E. Robinson."
-    },
-    {
-        "IdTitle": "40961427-1984",
-        "Id": "40961427",
-        "Title": "1984",
-        "Series": "",
-        "ISBN": "0141036141",
-        "ISBN13": "9780141036144",
-        "YearPublished": "1949",
-        "Author": "George Orwell",
-        "NumberOfPages": 298,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Science Fiction",
-            "Science Fiction > Dystopia",
-            "Literature",
-            "Novels",
-            "Politics",
-            "Academic > School",
-            "Fantasy",
-            "Adult"
-        ],
-        "NumberOfRatings": "3412281",
-        "AverageRating": "4.19",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1532714506l/40961427._SX318_.jpg",
-        "Description": "Among the seminal texts of the 20th century, Nineteen Eighty-Four is a rare work that grows more haunting as its futuristic purgatory becomes more real. Published in 1949, the book offers political satirist George Orwell's nightmarish vision of a totalitarian, bureaucratic world and one poor stiff's attempt to find individuality. The brilliance of the novel is Orwell's prescience of modern life\u2014the ubiquity of television, the distortion of the language\u2014and his ability to construct such a thorough version of hell. Required reading for students since it was published, it ranks among the most terrifying novels ever written."
-    },
-    {
-        "IdTitle": "45032.Mansfield_Park",
-        "Id": "45032",
-        "Title": "Mansfield Park",
-        "Series": "",
-        "ISBN": "1593081545",
-        "ISBN13": "9780192802644",
-        "YearPublished": "1814",
-        "Author": "Jane Austen",
-        "NumberOfPages": 488,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Literature > 19th Century",
-            "Historical",
-            "European Literature > British Literature",
-            "Classics > Classic Literature",
-            "Audiobook"
-        ],
-        "NumberOfRatings": "297352",
-        "AverageRating": "3.86",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1397063295l/45032.jpg",
-        "Description": "Adopted into the household of her uncle, Sir Thomas Bertram, Fanny Price grows up a meek outsider among her cousins in the unaccustomed elegance of Mansfield Park. Soon after Sir Thomas absents himself on estate business in Antigua (the family's investment in slavery and sugar is considered in the Introduction in a new, post-colonial light), Mary Crawford and her brother Henry arrive at Mansfield, bringing with them London glamour, and the seductive taste for flirtation and theatre that precipitates a crisis. While Mansfield Park appears in some ways to continue where Pride and Prejudice left off, it is, as Kathryn Sutherland shows in her illuminating Introduction, a much darker work, which challenges 'the very values (of tradition, stability, retirement and faithfulness) it appears to endorse'. This new edition provides an accurate text based, for the first time since its original publication, on the first edition of 1814."
-    },
-    {
-        "IdTitle": "4671.The_Great_Gatsby",
-        "Id": "4671",
-        "Title": "The Great Gatsby",
-        "Series": "",
-        "ISBN": "0684801523",
-        "ISBN13": "9780684801520",
-        "YearPublished": "1925",
-        "Author": "F. Scott Fitzgerald",
-        "NumberOfPages": 200,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Academic > School",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Romance",
-            "Novels",
-            "Academic > Read For School",
-            "Young Adult > High School",
-            "Literature > American"
-        ],
-        "NumberOfRatings": "4026476",
-        "AverageRating": "3.93",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1490528560l/4671._SY475_.jpg",
-        "Description": "Alternate Cover Edition ISBN: 0743273567 (ISBN13: 9780743273565)The Great Gatsby, F. Scott Fitzgerald's third book, stands as the supreme achievement of his career. This exemplary novel of the Jazz Age has been acclaimed by generations of readers. The story is of the fabulously wealthy Jay Gatsby and his new love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted \"gin was the national drink and sex the national obsession,\" it is an exquisitely crafted tale of America in the 1920s.The Great Gatsby is one of the great classics of twentieth-century literature.(back cover)"
-    },
-    {
-        "IdTitle": "48855.The_Diary_of_a_Young_Girl",
-        "Id": "48855",
-        "Title": "The Diary of a Young Girl",
-        "Series": "",
-        "ISBN": "0330107372",
-        "ISBN13": "9780330107372",
-        "YearPublished": "1947",
-        "Author": "Anne Frank",
-        "NumberOfPages": 283,
-        "Genres": [
-            "Nonfiction",
-            "Classics",
-            "History",
-            "Biography",
-            "Autobiography > Memoir",
-            "Historical",
-            "World War II > Holocaust",
-            "Biography > Autobiography",
-            "War",
-            "War > World War II"
-        ],
-        "NumberOfRatings": "2951338",
-        "AverageRating": "4.16",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1560816565l/48855.jpg",
-        "Description": "Discovered in the attic in which she spent the last years of her life, Anne Frank\u2019s remarkable diary has become a world classic\u2014a powerful reminder of the horrors of war and an eloquent testament to the human spirit. In 1942, with the Nazis occupying Holland, a thirteen-year-old Jewish girl and her family fled their home in Amsterdam and went into hiding. For the next two years, until their whereabouts were betrayed to the Gestapo, the Franks and another family lived cloistered in the \u201cSecret Annexe\u201d of an old office building. Cut off from the outside world, they faced hunger, boredom, the constant cruelties of living in confined quarters, and the ever-present threat of discovery and death. In her diary Anne Frank recorded vivid impressions of her experiences during this period. By turns thoughtful, moving, and surprisingly humorous, her account offers a fascinating commentary on human courage and frailty and a compelling self-portrait of a sensitive and spirited young woman whose promise was tragically cut short.--back cover"
-    },
-    {
-        "IdTitle": "4981.Slaughterhouse_Five",
-        "Id": "4981",
-        "Title": "Slaughterhouse-Five",
-        "Series": "",
-        "ISBN": "0440180295",
-        "ISBN13": "9780440180296",
-        "YearPublished": "1969",
-        "Author": "Kurt Vonnegut Jr.",
-        "NumberOfPages": 275,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Science Fiction",
-            "War",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Novels",
-            "Science Fiction > Time Travel",
-            "Literature > American",
-            "Fantasy"
-        ],
-        "NumberOfRatings": "1182813",
-        "AverageRating": "4.08",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1606208827l/4981._SY475_.jpg",
-        "Description": "Selected by the Modern Library as one of the 100 best novels of all time, Slaughterhouse-Five, an American classic, is one of the world's great antiwar books. Centering on the infamous firebombing of Dresden, Billy Pilgrim's odyssey through time reflects the mythic journey of our own fractured lives as we search for meaning in what we fear most."
-    },
-    {
-        "IdTitle": "50398.Northanger_Abbey",
-        "Id": "50398",
-        "Title": "Northanger Abbey",
-        "Series": "",
-        "ISBN": "0375759174",
-        "ISBN13": "9780375759178",
-        "YearPublished": "1818",
-        "Author": "Jane Austen",
-        "NumberOfPages": 260,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Historical > Historical Fiction",
-            "Gothic",
-            "Literature",
-            "Literature > 19th Century",
-            "Historical",
-            "European Literature > British Literature",
-            "Classics > Classic Literature"
-        ],
-        "NumberOfRatings": "320937",
-        "AverageRating": "3.83",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388201718l/50398.jpg",
-        "Description": "A wonderfully entertaining coming-of-age story, Northanger Abbey is often referred to as Jane Austen's \"Gothic parody.\" Decrepit castles, locked rooms, mysterious chests, cryptic notes, and tyrannical fathers give the story an uncanny air, but one with a decidedly satirical twist.The story's unlikely heroine is Catherine Morland, a remarkably innocent seventeen-year-old woman from a country parsonage. While spending a few weeks in Bath with a family friend, Catherine meets and falls in love with Henry Tilney, who invites her to visit his family estate, Northanger Abbey. Once there, Catherine, a great reader of Gothic thrillers, lets the shadowy atmosphere of the old mansion fill her mind with terrible suspicions. What is the mystery surrounding the death of Henry's mother? Is the family concealing a terrible secret within the elegant rooms of the Abbey? Can she trust Henry, or is he part of an evil conspiracy? Catherine finds dreadful portents in the most prosaic events, until Henry persuades her to see the peril in confusing life with art.Executed with high-spirited gusto, Northanger Abbey is a lighthearted, yet unsentimental commentary on love and marriage."
-    },
-    {
-        "IdTitle": "5107.The_Catcher_in_the_Rye",
-        "Id": "5107",
-        "Title": "The Catcher in the Rye",
-        "Series": "",
-        "ISBN": "0316769487",
-        "ISBN13": "9780316769488",
-        "YearPublished": "1951",
-        "Author": "J.D. Salinger",
-        "NumberOfPages": 277,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Young Adult",
-            "Literature",
-            "Academic > School",
-            "Novels",
-            "Young Adult > Coming Of Age",
-            "Young Adult > High School",
-            "Literature > American",
-            "Academic > Read For School"
-        ],
-        "NumberOfRatings": "2885731",
-        "AverageRating": "3.81",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1398034300l/5107.jpg",
-        "Description": "The hero-narrator of The Catcher in the Rye is an ancient child of sixteen, a native New Yorker named Holden Caulfield. Through circumstances that tend to preclude adult, secondhand Description, he leaves his prep school in Pennsylvania and goes underground in New York City for three days. The boy himself is at once too simple and too complex for us to make any final comment about him or his story. Perhaps the safest thing we can say about Holden is that he was born in the world not just strongly attracted to beauty but, almost, hopelessly impaled on it. There are many voices in this novel: children's voices, adult voices, underground voices-but Holden's voice is the most eloquent of all. Transcending his own vernacular, yet remaining marvelously faithful to it, he issues a perfectly articulated cry of mixed pain and pleasure. However, like most lovers and clowns and poets of the higher orders, he keeps most of the pain to, and for, himself. The pleasure he gives away, or sets aside, with all his heart. It is there for the reader who can handle it to keep. J.D. Salinger's classic novel of teenage angst and rebellion was first published in 1951. The novel was included on Time's 2005 list of the 100 best English-language novels written since 1923. It was named by Modern Library and its readers as one of the 100 best English-language novels of the 20th century. It has been frequently challenged in the court for its liberal use of profanity and portrayal of sexuality and in the 1950's and 60's it was the novel that every teenage boy wants to read."
-    },
-    {
-        "IdTitle": "5129.Brave_New_World",
-        "Id": "5129",
-        "Title": "Brave New World",
-        "Series": "",
-        "ISBN": "0060850523",
-        "ISBN13": "9780060850524",
-        "YearPublished": "1932",
-        "Author": "Aldous Huxley",
-        "NumberOfPages": 268,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Science Fiction",
-            "Science Fiction > Dystopia",
-            "Literature",
-            "Novels",
-            "Academic > School",
-            "Fantasy",
-            "Philosophy",
-            "Science Fiction Fantasy"
-        ],
-        "NumberOfRatings": "1525298",
-        "AverageRating": "3.99",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1575509280l/5129._SY475_.jpg",
-        "Description": "Brave New World is a dystopian novel by English Author Aldous Huxley, written in 1931 and published in 1932. Largely set in a futuristic World State, inhabited by genetically modified citizens and an intelligence-based social hierarchy, the novel anticipates huge scientific advancements in reproductive technology, sleep-learning, psychological manipulation and classical conditioning that are combined to make a dystopian society which is challenged by only a single individual: the story's protagonist."
-    },
-    {
-        "IdTitle": "51496.The_Strange_Case_of_Dr_Jekyll_and_Mr_Hyde",
-        "Id": "51496",
-        "Title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
-        "Series": "",
-        "ISBN": "0141389508",
-        "ISBN13": "9780141389509",
-        "YearPublished": "1886",
-        "Author": "Robert Louis Stevenson",
-        "NumberOfPages": 144,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Horror",
-            "Science Fiction",
-            "Mystery",
-            "Gothic",
-            "Fantasy",
-            "Literature",
-            "Literature > 19th Century",
-            "Academic > School"
-        ],
-        "NumberOfRatings": "419830",
-        "AverageRating": "3.83",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1318116526l/51496.jpg",
-        "Description": "Strange Case of Dr Jekyll and Mr Hyde is the original Title of a novella written by the famous Scottish Author Robert Louis Stevenson that was first published in 1886. The work is commonly known today as The Strange Case of Dr Jekyll and Mr Hyde, Dr Jekyll and Mr Hyde, or simply Jekyll & Hyde. It is about a London lawyer named John Gabriel Utterson who investigates strange occurrences between his old friend, Dr Henry Jekyll, and the evil Edward Hyde."
-    },
-    {
-        "IdTitle": "5297.The_Picture_of_Dorian_Gray",
-        "Id": "5297",
-        "Title": "The Picture of Dorian Gray",
-        "Series": "",
-        "ISBN": "1593080255",
-        "ISBN13": "9789580462163",
-        "YearPublished": "1890",
-        "Author": "Oscar Wilde",
-        "NumberOfPages": 272,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Horror",
-            "Fantasy",
-            "Literature",
-            "Gothic",
-            "Novels",
-            "Literature > 19th Century",
-            "LGBT",
-            "Classics > Classic Literature"
-        ],
-        "NumberOfRatings": "1052721",
-        "AverageRating": "4.09",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546103428l/5297.jpg",
-        "Description": "Written in his distinctively dazzling manner, Oscar Wilde\u2019s story of a fashionable young man who sells his soul for eternal youth and beauty is the Author\u2019s most popular work. The tale of Dorian Gray\u2019s moral disintegration caused a scandal when it \ufb01rst appeared in 1890, but though Wilde was attacked for the novel\u2019s corrupting in\ufb02uence, he responded that there is, in fact, \u201ca terrible moral in Dorian Gray.\u201d Just a few years later, the book and the aesthetic/moral dilemma it presented became issues in the trials occasioned by Wilde\u2019s homosexual liaisons, which resulted in his imprisonment. Of Dorian Gray\u2019s relationship to autobiography, Wilde noted in a letter, \u201cBasil Hallward is what I think I am: Lord Henry what the world thinks me: Dorian what I would like to be\u2014in other ages, perhaps."
-    },
-    {
-        "IdTitle": "5326.A_Christmas_Carol",
-        "Id": "5326",
-        "Title": "A Christmas Carol",
-        "Series": "",
-        "ISBN": "1580495796",
-        "ISBN13": "9781580495790",
-        "YearPublished": "1843",
-        "Author": "Charles Dickens",
-        "NumberOfPages": 104,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Holiday > Christmas",
-            "Fantasy",
-            "Literature",
-            "Audiobook",
-            "Historical > Historical Fiction",
-            "Holiday",
-            "Literature > 19th Century",
-            "Classics > Classic Literature"
-        ],
-        "NumberOfRatings": "650300",
-        "AverageRating": "4.07",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1406512317l/5326.jpg",
-        "Description": "'If I had my way, every idiot who goes around with Merry Christmas on his lips, would be boiled with his own pudding, and buried with a stake of holly through his heart. Merry Christmas? Bah humbug!'Introduction and Afterword by Joe WheelerTo bitter, miserly Ebenezer Scrooge, Christmas is just another day. But all that changes when the ghost of his long-dead business partner appears, warning Scrooge to change his ways before it's too late. Part of the Focus on the Family Great Stories collection, this abridged edition features an in-depth introduction and discussion questions by Joe Wheeler to provide greater understanding for today's reader. \"A Christmas Carol\" captures the heart of the holidays like no other novel."
-    },
-    {
-        "IdTitle": "5907.The_Hobbit_or_There_and_Back_Again",
-        "Id": "5907",
-        "Title": "The Hobbit, or There and Back Again",
-        "Series": "The Hobbit",
-        "ISBN": "0618002219",
-        "ISBN13": "9780618002214",
-        "YearPublished": "1937",
-        "Author": "J.R.R. Tolkien",
-        "NumberOfPages": 366,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Adventure",
-            "Young Adult",
-            "Science Fiction Fantasy",
-            "Fantasy > High Fantasy",
-            "Childrens",
-            "Fantasy > Epic Fantasy",
-            "Novels",
-            "Fantasy > Dragons"
-        ],
-        "NumberOfRatings": "3076838",
-        "AverageRating": "4.28",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1546071216l/5907.jpg",
-        "Description": "In a hole in the ground there lived a hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort.Written for J.R.R. Tolkien\u2019s own children, The Hobbit met with instant critical acclaim when it was first published in 1937. Now recognized as a timeless classic, this introduction to the hobbit Bilbo Baggins, the wizard Gandalf, Gollum, and the spectacular world of Middle-earth recounts of the adventures of a reluctant hero, a powerful and dangerous ring, and the cruel dragon Smaug the Magnificent. The text in this 372-page paperback edition is based on that first published in Great Britain by Collins Modern Classics (1998), and includes a note on the text by Douglas A. Anderson (2001)."
-    },
-    {
-        "IdTitle": "6185.Wuthering_Heights",
-        "Id": "6185",
-        "Title": "Wuthering Heights",
-        "Series": "",
-        "ISBN": "0553212583",
-        "ISBN13": "9780553212587",
-        "YearPublished": "1847",
-        "Author": "Emily Bront\u00eb",
-        "NumberOfPages": 464,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Gothic",
-            "Literature",
-            "Historical > Historical Fiction",
-            "Literature > 19th Century",
-            "Novels",
-            "Classics > Classic Literature",
-            "Historical"
-        ],
-        "NumberOfRatings": "1425658",
-        "AverageRating": "3.87",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388212715l/6185._SY475_.jpg",
-        "Description": "You can find the redesigned cover of this edition HERE.This best-selling Norton Critical Edition is based on the 1847 first edition of the novel. For the Fourth Edition, the editor has collated the 1847 text with several modern editions and has corrected a number of variants, including accidentals. The text is accompanied by entirely new explanatory annotations.New to the fourth Edition are twelve of Emily Bronte's letters regarding the publication of the 1847 edition of Wuthering Heights as well as the evolution of the 1850 edition, prose and poetry selections by the Author, four reviews of the novel, and poetry selections by the Author, four reviews of the novel, and Edward Chitham's insightful and informative chronology of the creative process behind the beloved work.Five major critical interpretations of Wuthering Heights are included, three of them new to the Fourth Edition. A Stuart Daley considers the importance of chronology in the novel. J. Hillis Miller examines Wuthering Heights's problems of genre and critical reputation. Sandra M. Gilbert assesses the role of Victorian Christianity plays in the novel, while Martha Nussbaum traces the novel's romanticism. Finally, Lin Haire-Sargeant scrutinizes the role of Heathcliff in film adaptations of Wuthering Heights. A Chronology and updated Selected Bibliography are also included."
-    },
-    {
-        "IdTitle": "6969.Emma",
-        "Id": "6969",
-        "Title": "Emma",
-        "Series": "",
-        "ISBN": "0553212737",
-        "ISBN13": "9780553212730",
-        "YearPublished": "1815",
-        "Author": "Jane Austen",
-        "NumberOfPages": 474,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Romance",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Historical",
-            "Literature > 19th Century",
-            "Audiobook",
-            "Classics > Classic Literature",
-            "Novels"
-        ],
-        "NumberOfRatings": "696355",
-        "AverageRating": "4.02",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1373627931l/6969.jpg",
-        "Description": "An alternative cover of this ISBN can be found here.Emma Woodhouse is one of Austen's most captivating and vivid characters. Beautiful, spoilt, vain and irrepressibly witty, Emma organizes the lives of the inhabitants of her sleepy little village and plays matchmaker with devastating effect."
-    },
-    {
-        "IdTitle": "7126.The_Count_of_Monte_Cristo",
-        "Id": "7126",
-        "Title": "The Count of Monte Cristo",
-        "Series": "",
-        "ISBN": "8817009679",
-        "ISBN13": "9780375760303",
-        "YearPublished": "1844",
-        "Author": "Alexandre Dumas",
-        "NumberOfPages": 1276,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Historical > Historical Fiction",
-            "Adventure",
-            "Literature",
-            "Historical",
-            "Cultural > France",
-            "Classics > Classic Literature",
-            "Novels",
-            "Romance"
-        ],
-        "NumberOfRatings": "779538",
-        "AverageRating": "4.26",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1611834134l/7126.jpg",
-        "Description": "Thrown in prison for a crime he has not committed, Edmond Dantes is confined to the grim fortress of If. There he learns of a great hoard of treasure hidden on the Isle of Monte Cristo and he becomes determined not only to escape, but also to unearth the treasure and use it to plot the destruction of the three men responsible for his incarceration. Dumas\u2019 epic tale of suffering and retribution, inspired by a real-life case of wrongful imprisonment, was a huge popular success when it was first serialized in the 1840s.Robin Buss\u2019s lively English translation is complete and unabridged, and remains faithful to the style of Dumas\u2019s original. This edition includes an introduction, explanatory notes and suggestions for further reading."
-    },
-    {
-        "IdTitle": "7144.Crime_and_Punishment",
-        "Id": "7144",
-        "Title": "Crime and Punishment",
-        "Series": "",
-        "ISBN": "0679420290",
-        "ISBN13": "9780679420293",
-        "YearPublished": "1866",
-        "Author": "Fyodor Dostoyevsky",
-        "NumberOfPages": 671,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Cultural > Russia",
-            "Literature",
-            "Literature > Russian Literature",
-            "Novels",
-            "Philosophy",
-            "Mystery > Crime",
-            "Literature > 19th Century",
-            "Academic > School"
-        ],
-        "NumberOfRatings": "676657",
-        "AverageRating": "4.23",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1382846449l/7144.jpg",
-        "Description": "Raskolnikov, a destitute and desperate former student, wanders through the slums of St Petersburg and commits a random murder without remorse or regret. He imagines himself to be a great man, a Napoleon: acting for a higher purpose beyond conventional moral law. But as he embarks on a dangerous game of cat and mouse with a suspicious police investigator, Raskolnikov is pursued by the growing voice of his conscience and finds the noose of his own guilt tightening around his neck. Only Sonya, a downtrodden sex worker, can offer the chance of redemption."
-    },
-    {
-        "IdTitle": "7604.Lolita",
-        "Id": "7604",
-        "Title": "Lolita",
-        "Series": "",
-        "ISBN": "0679723161",
-        "ISBN13": "9780679723165",
-        "YearPublished": "1955",
-        "Author": "Vladimir Nabokov",
-        "NumberOfPages": 331,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Literature",
-            "Novels",
-            "Cultural > Russia",
-            "Romance",
-            "Literature > Russian Literature",
-            "Literary Fiction",
-            "Literature > 20th Century",
-            "Adult"
-        ],
-        "NumberOfRatings": "696703",
-        "AverageRating": "3.89",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1377756377l/7604.jpg",
-        "Description": "Humbert Humbert - scholar, aesthete and romantic - has fallen completely and utterly in love with Lolita Haze, his landlady's gum-snapping, silky skinned twelve-year-old daughter. Reluctantly agreeing to marry Mrs Haze just to be close to Lolita, Humbert suffers greatly in the pursuit of romance; but when Lo herself starts looking for attention elsewhere, he will carry her off on a desperate cross-country misadventure, all in the name of Love. Hilarious, flamboyant, heart-breaking and full of ingenious word play, Lolita is an immaculate, unforgettable masterpiece of obsession, delusion and lust."
-    },
-    {
-        "IdTitle": "7624.Lord_of_the_Flies",
-        "Id": "7624",
-        "Title": "Lord of the Flies",
-        "Series": "",
-        "ISBN": "0399501487",
-        "ISBN13": "9780399501487",
-        "YearPublished": "1954",
-        "Author": "William Golding",
-        "NumberOfPages": 182,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Young Adult",
-            "Academic > School",
-            "Literature",
-            "Science Fiction > Dystopia",
-            "Novels",
-            "Academic > Read For School",
-            "Young Adult > High School",
-            "Adventure"
-        ],
-        "NumberOfRatings": "2386564",
-        "AverageRating": "3.69",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1327869409l/7624.jpg",
-        "Description": "At the dawn of the next world war, a plane crashes on an uncharted island, stranding a group of schoolboys. At first, with no adult supervision, their freedom is something to celebrate; this far from civilization the boys can do anything they want. Anything. They attempt to forge their own society, failing, however, in the face of terror, sin and evil. And as order collapses, as strange howls echo in the night, as terror begins its reign, the hope of adventure seems as far from reality as the hope of being rescued. Labeled a parable, an allegory, a myth, a morality tale, a parody, a political treatise, even a vision of the apocalypse, Lord of the Flies is perhaps our most memorable novel about \u201cthe end of innocence, the darkness of man\u2019s heart.\u201d"
-    },
-    {
-        "IdTitle": "8127.Anne_of_Green_Gables",
-        "Id": "8127",
-        "Title": "Anne of Green Gables",
-        "Series": "Anne of Green Gables #1",
-        "ISBN": "0147514002",
-        "ISBN13": "9780553213133",
-        "YearPublished": "1908",
-        "Author": "L.M. Montgomery",
-        "NumberOfPages": 320,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Young Adult",
-            "Childrens",
-            "Historical > Historical Fiction",
-            "Childrens > Middle Grade",
-            "Historical",
-            "Audiobook",
-            "Cultural > Canada",
-            "Young Adult > Coming Of Age"
-        ],
-        "NumberOfRatings": "784871",
-        "AverageRating": "4.26",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1615094578l/8127._SY475_.jpg",
-        "Description": "This heartwarming story has beckoned generations of readers into the special world of Green Gables, an old-fashioned farm outside a town called Avonlea. Anne Shirley, an eleven-year-old orphan, has arrived in this verdant corner of Prince Edward Island only to discover that the Cuthberts\u2014elderly Matthew and his stern sister, Marilla\u2014want to adopt a boy, not a feisty redheaded girl. But before they can send her back, Anne\u2014who simply must have more scope for her imagination and a real home\u2014wins them over completely. A much-loved classic that explores all the vulnerability, expectations, and dreams of a child growing up, Anne of Green Gables is also a wonderful portrait of a time, a place, a family\u2026 and, most of all, love. WITH AN AFTERWORD BY JENNIFER LEE CARELL"
-    },
-    {
-        "IdTitle": "8852.Macbeth",
-        "Id": "8852",
-        "Title": "Macbeth",
-        "Series": "",
-        "ISBN": "0521606861",
-        "ISBN13": "9780521606868",
-        "YearPublished": "1606",
-        "Author": "William Shakespeare",
-        "NumberOfPages": 249,
-        "Genres": [
-            "Classics",
-            "Plays",
-            "Fiction",
-            "Drama",
-            "Academic > School",
-            "Literature",
-            "Academic > Read For School",
-            "Plays > Theatre",
-            "Young Adult > High School",
-            "Poetry"
-        ],
-        "NumberOfRatings": "714082",
-        "AverageRating": "3.91",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1459795224l/8852._SY475_.jpg",
-        "Description": "One night on the heath, the brave and respected general Macbeth encounters three witches who foretell that he will become king of Scotland. At first sceptical, he\u2019s urged on by the ruthless, single-minded ambitions of Lady Macbeth, who suffers none of her husband\u2019s doubt. But seeing the prophecy through to the bloody end leads them both spiralling into paranoia, tyranny, madness, and murder.This shocking tragedy - a violent caution to those seeking power for its own sake - is, to this day, one of Shakespeare\u2019s most popular and influential masterpieces."
-    },
-    {
-        "IdTitle": "890.Of_Mice_and_Men",
-        "Id": "890",
-        "Title": "Of Mice and Men",
-        "Series": "",
-        "ISBN": "9751409071",
-        "ISBN13": "9789751412386",
-        "YearPublished": "1937",
-        "Author": "John Steinbeck",
-        "NumberOfPages": 103,
-        "Genres": [
-            "Classics",
-            "Fiction",
-            "Academic > School",
-            "Historical > Historical Fiction",
-            "Literature",
-            "Academic > Read For School",
-            "Novels",
-            "Young Adult > High School",
-            "Literature > American",
-            "Classics > Classic Literature"
-        ],
-        "NumberOfRatings": "2048934",
-        "AverageRating": "3.88",
-        "CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1511302904l/890._SX318_.jpg",
-        "Description": "An intimate portrait of two men who cherish the slim bond between them and the dream they share in a world marred by petty tyranny, misunderstanding, jealousy, and callousness. Clinging to each other in their loneliness and alienation, George and his simple-minded friend Lennie dream, as drifters will, of a place to call their own\u2014a couple of acres and a few pigs, chickens, and rabbits back in Hill Country where land is cheap. But after they come to work on a ranch in the fertile Salinas Valley of California, their hopes, like \"the best laid schemes o' mice an' men,\" begin to go awry.Of Mice and Men also represents an experiment in form, as Steinbeck described his work, \"a kind of playable novel, written in novel form but so scened and set that it can be played as it stands.\" A rarity in American letters, it achieved remarkable success as a novel, a Broadway play, and three acclaimed films. Steinbeck's tale of commitment, loneliness, hope, and loss remains one of America's most widely read and beloved novels.--front flap"
-    }
+	{
+		"IdTitle": "11870085-the-fault-in-our-stars",
+		"GoodReadsId": "11870085",
+		"Title": "The Fault in Our Stars",
+		"Series": "",
+		"ISBN": "8415594011",
+		"ISBN13": "9780142424179",
+		"YearPublished": "2012",
+		"Author": {
+			"Id": "5767207F-D1ED-4CE9-BD7C-66EABC626B27",
+			"Name": "John Green",
+			"ImageUrl": "",
+			"NumberOfReads": 0,
+			"NumberOfBooks": 1
+		},
+		"NumberOfPages": 313,
+		"Genres": [
+			{
+				"Name": "Young Adult"
+			},
+			{
+				"Name": "Romance"
+			},
+			{
+				"Name": "Fiction"
+			},
+			{
+				"Name": "Contemporary"
+			},
+			{
+				"Name": "Realistic Fiction"
+			},
+			{
+				"Name": "Young Adult > Teen"
+			},
+			{
+				"Name": "Young Adult > Coming Of Age"
+			},
+			{
+				"Name": "Novels"
+			},
+			{
+				"Name": "Drama"
+			},
+			{
+				"Name": "Love"
+			}
+		],
+		"NumberOfRatings": 3838402,
+		"AverageRating": 4.19,
+		"CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1360206420l/11870085.jpg",
+		"Description": "Despite the tumor-shrinking medical miracle that has bought her a few years, Hazel has never been anything but terminal, her final chapter inscribed upon diagnosis. But when a gorgeous plot twist named Augustus Waters suddenly appears at Cancer Kid Support Group, Hazel's story is about to be completely rewritten.Insightful, bold, irreverent, and raw, The Fault in Our Stars is award-winning author John Green's most ambitious and heartbreaking work yet, brilliantly exploring the funny, thrilling, and tragic business of being alive and in love."
+	},
+	{
+		"IdTitle": "40664387-reasons-to-be-cheerful",
+		"GoodReadsId": "40664387",
+		"Title": "Reasons to Be Cheerful",
+		"Series": "Lizzie Vogel #3",
+		"ISBN": "0316309370",
+		"ISBN13": "9780316309370",
+		"YearPublished": "2014",
+		"Author": {
+			"Id": "5E8AA602-A1B8-4A6C-822B-9F5E521141AE",
+			"Name": "Nina Stibbe",
+			"ImageUrl": "",
+			"NumberOfReads": 0,
+			"NumberOfBooks": 1
+		},
+		"NumberOfPages": 288,
+		"Genres": [
+			{
+				"Name": "Fiction"
+			},
+			{
+				"Name": "Humor"
+			},
+			{
+				"Name": "Contemporary"
+			},
+			{
+				"Name": "Adult Fiction"
+			},
+			{
+				"Name": "Humor > Comedy"
+			},
+			{
+				"Name": "Audiobook"
+			},
+			{
+				"Name": "Young Adult > Coming Of Age"
+			},
+			{
+				"Name": "Womens"
+			},
+			{
+				"Name": "European Literature > British Literature"
+			},
+			{
+				"Name": "Novels"
+			}
+		],
+		"NumberOfRatings": 2759,
+		"AverageRating": 3.53,
+		"CoverImage": "https://images-na.ssl-images-amazon.com/images/I/71h7QXoX7wL.jpg",
+		"Description": "'When people in the village heard I was about to start working in the city they tried to unsettle me with tales of woe. The sun, blotted out by the tall buildings, couldn't shine and the rain was poisoned by the toxic fumes that poured from the sock factories. My skin would be covered in pimples from the hell of it all'So begins a young woman's journey to adulthood. Lizzie Vogel leaves her alcoholic, novel-writing mother and heads for Leicester to work for a racist, barely competent dentist obsessed with joining the freemasons.Soon Lizzie is heading reluctantly, if at top speed, into the murky depths of adult life: where her driving instructor becomes her best friend; her first boyfriend prefers birdwatching to sex and where independence for a teenage girl might just be another word for loneliness.In Reasons to Be Cheerful Nina Stibbe shows her extraordinary gift for illuminating the vital details which make us human. She is that rare writer who makes us laugh whilst reminding us of the joy, and the pain, of being alive."
+	},
+	{
+		"IdTitle": "43418427-fresh-face",
+		"GoodReadsId": "43418427",
+		"Title": "Fresh Face",
+		"Series": "",
+		"ISBN": "isbn not found",
+		"ISBN13": "9785001690405",
+		"YearPublished": "2016",
+		"Author": {
+			"Id": "15840557-45D4-46E3-BD6F-DB06156F3AEB",
+			"Name": "Mandi Nyambi",
+			"ImageUrl": "",
+			"NumberOfReads": 0,
+			"NumberOfBooks": 1
+		},
+		"NumberOfPages": 200,
+		"Genres": [
+			{
+				"Name": "Nonfiction"
+			},
+			{
+				"Name": "Health"
+			}
+		],
+		"NumberOfRatings": 85,
+		"AverageRating": 3.13,
+		"CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1561621463l/43418427.jpg",
+		"Description": "Fresh Face offers countless ideas, tips, and tricks for maintaining healthy, radiant skin.This lovely guide to skin care features more than 30 stress-free routines for every skin type and every life moment.Whether you're prepping for a big event, calming a breakout, traveling on a long flight, or indulging on a night in, Fresh Face has you covered.\u2022 Filled with tips for all kinds of skin types: dry, oily, combination, and aging\u2022 Advice on how to care for your skin from the inside out\u2022 Teeming with routines for a healthy and natural facial glowFresh Face is a refreshing go-to skin care book for beauty enthusiasts who want to look and feel their best.With its emphasis on accessible skin care that will appeal to both the barefaced and the cosmetics-obsessed, this is a sweet and simple beauty bible for women of all ages.\u2022 Great for those who adore all things beauty, DIY, and skin care, as well as readers of magazines like Glamour and Instyle\u2022 Features gorgeous illustrations and a die-cut cover, making it a deluxe gift for moms, daughters, sisters, and girlfriends, or as a self-buyAdd it to the shelf with books like The Little Book of Skin Care: Korean Beauty Secrets for Healthy, Glowing Skin by Charlotte Cho, Skin Rules: Trade Secrets from a Top New York Dermatologist by Debra Jaliman, MD, and The Skincare Bible: Your No-Nonsense Guide to Great Skin by Anjali Mahto"
+	},
+	{
+		"IdTitle": "41817486-a-clockwork-orange",
+		"GoodReadsId": "41817486",
+		"Title": "A Clockwork Orange",
+		"Series": "",
+		"ISBN": "0141182601",
+		"ISBN13": "9780141182605",
+		"YearPublished": "1962",
+		"Author": {
+			"Id": "F693D386-077F-4E2B-AB6E-DA5692C7BC7C",
+			"Name": "Anthony Burgess",
+			"ImageUrl": "",
+			"NumberOfReads": 0,
+			"NumberOfBooks": 1
+		},
+		"NumberOfPages": 213,
+		"Genres": [
+			{
+				"Name": "Classics"
+			},
+			{
+				"Name": "Fiction"
+			},
+			{
+				"Name": "Science Fiction"
+			},
+			{
+				"Name": "Science Fiction > Dystopia"
+			},
+			{
+				"Name": "Literature"
+			},
+			{
+				"Name": "Novels"
+			},
+			{
+				"Name": "Horror"
+			},
+			{
+				"Name": "Thriller"
+			},
+			{
+				"Name": "Mystery > Crime"
+			},
+			{
+				"Name": "Classics > Modern Classics"
+			}
+		],
+		"NumberOfRatings": 630850,
+		"AverageRating": 3.99,
+		"CoverImage": "https://thebobsphere.files.wordpress.com/2018/09/cover-clockwork.png",
+		"Description": "In Anthony Burgess's influential nightmare vision of the future, criminals take over after dark. Teen gang leader Alex narrates in fantastically inventive slang that echoes the violent intensity of youth rebelling against society. Dazzling and transgressive, A Clockwork Orange is a frightening fable about good and evil and the meaning of human freedom. This edition includes the controversial last chapter not published in the first edition, and Burgess\u2019s introduction, \u201cA Clockwork Orange Resucked.\u201d"
+	},
+	{
+		"IdTitle": "18007564-the-martian",
+		"GoodReadsId": "18007564",
+		"Title": "The Martian",
+		"Series": "The Martian #1",
+		"ISBN": "0091956145",
+		"ISBN13": "9780091956141",
+		"YearPublished": "2011",
+		"Author": {
+			"Id": "9832E009-B8F1-4505-A706-846BDE72468E",
+			"Name": "Andy Weir",
+			"ImageUrl": "",
+			"NumberOfReads": 0,
+			"NumberOfBooks": 1
+		},
+		"NumberOfPages": 384,
+		"Genres": [
+			{
+				"Name": "Science Fiction"
+			},
+			{
+				"Name": "Fiction"
+			},
+			{
+				"Name": "Audiobook"
+			},
+			{
+				"Name": "Adventure"
+			},
+			{
+				"Name": "Space"
+			},
+			{
+				"Name": "Adult"
+			},
+			{
+				"Name": "Science Fiction Fantasy"
+			},
+			{
+				"Name": "Thriller"
+			},
+			{
+				"Name": "Humor"
+			},
+			{
+				"Name": "Adventure > Survival"
+			}
+		],
+		"NumberOfRatings": 876201,
+		"AverageRating": 4.40,
+		"CoverImage": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1413706054l/18007564.jpg",
+		"Description": "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars. Now, he\u2019s sure he\u2019ll be the first person to die there.After a dust storm nearly kills him and forces his crew to evacuate while thinking him dead, Mark finds himself stranded and completely alone with no way to even signal Earth that he\u2019s alive\u2014and even if he could get word out, his supplies would be gone long before a rescue could arrive. Chances are, though, he won\u2019t have time to starve to death. The damaged machinery, unforgiving environment, or plain-old \u201chuman error\u201d are much more likely to kill him first. But Mark isn\u2019t ready to give up yet. Drawing on his ingenuity, his engineering skills \u2014 and a relentless, dogged refusal to quit \u2014 he steadfastly confronts one seemingly insurmountable obstacle after the next. Will his resourcefulness be enough to overcome the impossible odds against him?"
+	}
 ]
