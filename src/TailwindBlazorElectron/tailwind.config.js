@@ -8,7 +8,7 @@ module.exports = {
       screens: {
         "3xl": "1600px",
         "4xl": "1700px",
-        "5xl": "1750px"
+        "5xl": "1750px",
       },
       colors: {
         palegreen: "#52d246",
@@ -25,7 +25,7 @@ module.exports = {
         violet: colors.violet,
         fuchsia: colors.fuchsia,
         pink: colors.pink,
-        rose: colors.rose
+        rose: colors.rose,
       },
       spacing: {
         px: "1px",
@@ -44,7 +44,7 @@ module.exports = {
         4: "1rem",
         5: "1.25rem",
         5.5: "1.375rem",
-        6.5: "1.625rem"
+        6.5: "1.625rem",
       },
       fontSize: {
         xxxs: ["0.75rem", { lineHeight: "1rem" }],
@@ -63,15 +63,13 @@ module.exports = {
         "7xl": ["3.75rem", { lineHeight: "1" }],
         "8xl": ["4.5rem", { lineHeight: "1" }],
         "9xl": ["6rem", { lineHeight: "1" }],
-        "10xl": ["8rem", { lineHeight: "1" }]
-      }
-    }
+        "10xl": ["8rem", { lineHeight: "1" }],
+      },
+    },
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
+  plugins: [require("@tailwindcss/forms")],
   fontFamily: {
-    sans: ["Inter", "sans-serif"]
+    sans: ["Inter", "sans-serif"],
   },
   variants: {
     accessibility: ["responsive", "hover", "focus-within", "focus"],
@@ -215,6 +213,6 @@ module.exports = {
     whitespace: ["responsive", "hover"],
     width: ["responsive", "hover"],
     wordBreak: ["responsive", "hover"],
-    zIndex: ["responsive", "hover", "focus-within", "focus"]
-  }
+    zIndex: ["responsive", "hover", "focus-within", "focus"],
+  },
 };
