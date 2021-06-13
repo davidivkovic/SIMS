@@ -27,10 +27,15 @@ namespace TailwindBlazorElectron
             services.AddElectron();
             services.AddRazorPages(o => o.RootDirectory = "/Views");
             services.AddServerSideBlazor();
+
             services.AddTransient<WindowService>();
+
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
+
             services.AddScoped<BookService>();
             services.AddScoped<AuthorService>();
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
+            services.AddScoped<LibraryService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
