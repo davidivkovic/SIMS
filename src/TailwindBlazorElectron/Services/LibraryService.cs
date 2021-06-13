@@ -25,7 +25,7 @@ namespace TailwindBlazorElectron.Services
 			return user;
 		}
 
-		public User SignUp(string email, string password, User user, Address address)
+		public bool SignUp(string email, string password, User user, Address address)
 		{
 			Account account = new()
 			{
@@ -39,9 +39,7 @@ namespace TailwindBlazorElectron.Services
 			user.Account = account;
 
 			_dbContext.Add(account);
-			_dbContext.SaveChanges();
-
-			return user;
+			return _dbContext.SaveChanges() != 0;
 		}
 
 		public User GetUser(Guid id)
@@ -67,7 +65,17 @@ namespace TailwindBlazorElectron.Services
 
 		public Reservation RequestEditionReservation(User user, Edition edition)
 		{
-			var reservation = user.ReserveEdition(edition);
+			var reservation = edition.Reserve();
+
+			if(reservation is null)
+            {
+				return null;
+            }
+
+			reservation.DueIn(GetBookRetentionTime(user));
+			user.AddReservation(reservation);
+
+			_dbContext.Add(reservation);
 			_dbContext.SaveChanges();
 
 			return reservation;
