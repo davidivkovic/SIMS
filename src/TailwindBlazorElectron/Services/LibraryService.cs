@@ -67,10 +67,10 @@ namespace TailwindBlazorElectron.Services
 		{
 			var reservation = edition.Reserve();
 
-			if(reservation is null)
-            {
+			if (reservation is null)
+			{
 				return null;
-            }
+			}
 
 			reservation.DueIn(GetBookRetentionTime(user));
 			user.AddReservation(reservation);
@@ -92,8 +92,7 @@ namespace TailwindBlazorElectron.Services
 			return new List<SubscriptionModel>
 			{
 				new() { DurationInMonths = 1, PriceInUsd = 0.99 },
-				new() { DurationInMonths = 3, PriceInUsd = 1.99 },
-				new() { DurationInMonths = 6, PriceInUsd = 2.99 },
+				new() { DurationInMonths = 6, PriceInUsd = 3.99 },
 				new() { DurationInMonths = 12, PriceInUsd = 5.99 },
 				new() { DurationInMonths = 24, PriceInUsd = 9.99 },
 			};

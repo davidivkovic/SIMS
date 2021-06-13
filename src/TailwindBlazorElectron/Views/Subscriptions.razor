@@ -111,9 +111,8 @@
 
 		if (index > 0)
 		{
-			var previousModel = SubscriptionModels[index - 1];
-			//var previousModel = SubscriptionModels[0];
-			double previousPricePerMonth = previousModel.PriceInUsd / previousModel.DurationInMonths;
+			var firstModel = SubscriptionModels[0];
+			double previousPricePerMonth = firstModel.PriceInUsd / firstModel.DurationInMonths;
 			double currentPricePerMonth = model.PriceInUsd / model.DurationInMonths;
 
 			double discount = 1 - currentPricePerMonth / previousPricePerMonth;
