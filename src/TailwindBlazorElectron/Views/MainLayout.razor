@@ -21,7 +21,7 @@
     protected override void OnInitialized()
     {
         Authors = AuthorService.GetPopularAuthors(3);
-        Books = BookService.GetBooks(5);
+        Books = BookService.GetPopularBooks(5);
     }
 }
 
@@ -29,7 +29,7 @@
     <div class="flex">
         <!--Sidebar -->
         <div class="sticky top-0 bottom-0 left-0 flex-col hidden h-screen bg-white border-r border-gray-100 xl:flex xl:w-64 2xl:w-80">
-            <p class="mt-10 ml-8 text-2xl font-medium tracking-tight">BookShelf</p>
+            <p class="mt-10 ml-8 text-2xl font-medium tracking-tight">📚 BookShelf</p>
             <!--Sidebar menus-->
             <div class="mx-3 mt-10 space-y-0 font-medium tracking-tight text-gray-500 2xl:space-y-1 text-md">
                 <div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">

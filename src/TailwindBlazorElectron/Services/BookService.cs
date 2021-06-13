@@ -19,7 +19,7 @@ namespace TailwindBlazorElectron.Services
             _dbContext = dbContext;
         }
 
-        public List<Book> GetBooks(int amount)
+        public List<Book> GetPopularBooks(int amount)
         {
             if (!_dbContext.Books.Any())
             {
