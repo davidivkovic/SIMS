@@ -14,10 +14,9 @@ namespace TailwindBlazorElectron.Model
         public void Allow() => IsAllowed = true;
         public void MarkAsReturned(DateTime date) => ReturnedAt = date;
 
-        public Reservation()
+        public void DueIn(TimeSpan retentionTime)
         {
-            TimeSpan holdingDuration = TimeSpan.FromDays(15);
-            DueDate = CreatedAt + holdingDuration;
+            DueDate = CreatedAt + retentionTime;
         }
     }
 }

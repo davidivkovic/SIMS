@@ -30,26 +30,14 @@ namespace TailwindBlazorElectron.Model
             Address = adress;
         }
 
-        public Reservation ReserveEdition(Edition edition) 
-        {
-            if(edition.QuantityAvailable == 0)
-            {
-                return null;
-            }
-
-            Reservation reservation = new()
-            {
-                CreatedAt = DateTime.Now,
-                Edition = edition
-            };
-
-            Reservations.Add(reservation);
-            return reservation;
-        }
-
         public void Notify(Notification notification)
         {
             Notifications.Add(notification);
+        }
+
+        public void AddReservation(Reservation reservation)
+        {
+            Reservations.Add(reservation);
         }
     }
 }

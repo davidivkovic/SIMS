@@ -11,5 +11,21 @@ namespace TailwindBlazorElectron.Model
         public Book Book { get; set; }
         public int QuantityAvailable { get; set; }
         public DateTime YearPublished { get; set; }
+
+        public Reservation Reserve()
+        {
+            if (QuantityAvailable == 0)
+            {
+                return null;
+            }
+
+            Reservation reservation = new()
+            {
+                CreatedAt = DateTime.Now,
+                Edition = this
+            };
+
+            return reservation;
+        }
     }
 }

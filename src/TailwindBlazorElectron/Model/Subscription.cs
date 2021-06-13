@@ -13,11 +13,5 @@ namespace TailwindBlazorElectron.Model
         public DateTime StartDate { get; set; }
         public DateTime EndTime { get; set; }
         public double Price{ get; set; }
-
-        public Subscription() 
-        {
-            EndTime = DateTime.Now.AddYears(1);
-            Price = 500;
-        }
     }
 }

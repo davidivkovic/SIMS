@@ -1,0 +1,125 @@
+﻿<div class="inline-block">
+	<p></p>
+	<form>
+		<div class="grid gap-y-3 auto-rows-fr">
+			@foreach (var model in SubscriptionModels)
+			{
+				<div class="px-5 py-4 transition-all border border-gray-200 rounded-lg cursor-pointer hover:ring-1 flex flex-col justify-center
+				 		  hover:ring-indigo-500 hover:border-indigo-500 hover:bg-bluegray-50 
+							@(model == SelectedSubscriptionModel ? "ring-1 ring-indigo-500 border-indigo-500 bg-bluegray-50" : "")"
+				@onclick=" ()=> SelectSubscriptionModel(model)">
+					<div class="flex items-center justify-between space-x-5 md:space-x-20">
+						<div class="flex items-start space-x-3.5">
+							<input name="radio" type="radio" value="@model.DurationInMonths" checked=@(model ==
+							SelectedSubscriptionModel)
+							class="mt-1.25 text-indigo-600 focus:ring-0 focus:ring-transparent transition-colors cursor-pointer" />
+							<div>
+								<p class="font-semibold">@SubscriptionModelTitle(model)</p>
+								<p class="text-xs font-medium tracking-tight text-gray-400">
+									@SubscriptionModelDescription(model)</p>
+							</div>
+						</div>
+						<div class="space-y-1 text-center">
+							<div class="flex items-start space-x-1">
+								<p class="self-start text-xs text-gray-400">$</p>
+								<div class="flex items-center space-x-1">
+									<p class="text-xl font-semibold tracking-tight">@model.PriceInUsd</p>
+									<p class="text-sm text-gray-400 whitespace-nowrap">/ @SubscriptionModelDuration(model)
+									</p>
+								</div>
+							</div>
+							@{
+								int discount = @SubscriptionModelSavings(model);
+								if (discount > 0)
+								{
+									<p
+								class="inline-block whitespace-nowrap px-2 py-0.75 font-medium text-center text-white rounded-full bg-emerald-400 text-xxxs ">
+										Save
+										@SubscriptionModelSavings(model)%</p>
+								}
+							}
+						</div>
+					</div>
+				</div>
+			}
+			@* <div
+				class="py-4 my-auto text-sm text-center text-white transition-colors bg-indigo-600 rounded-lg cursor-pointer hover:bg-indigo-700">
+				Subscribe</div> *@
+		</div>
+	</form>
+</div>
+
+@using TailwindBlazorElectron.Model
+@using TailwindBlazorElectron.Services
+@inject LibraryService LibraryService
+@code {
+	private List<SubscriptionModel> SubscriptionModels;
+	public SubscriptionModel SelectedSubscriptionModel { get; set; }
+	[Parameter] public EventCallback<SubscriptionModel> OnSelected { get; set; }
+
+	protected override void OnInitialized()
+	{
+		SubscriptionModels = LibraryService.GetSubscriptionModels();
+		SelectSubscriptionModel(SubscriptionModels[0]);
+	}
+
+	void SelectSubscriptionModel(SubscriptionModel model)
+	{
+		SelectedSubscriptionModel = model;
+		OnSelected.InvokeAsync(SelectedSubscriptionModel);
+		Console.WriteLine(SelectedSubscriptionModel.PriceInUsd);
+	}
+
+	string SubscriptionModelTitle(SubscriptionModel model)
+	{
+		return model.DurationInMonths switch
+		{
+			1 => "Monthly",
+			12 => "Yearly",
+			24 => "2 Years",
+			_ => $"{model.DurationInMonths} Months"
+		};
+	}
+
+	string SubscriptionModelDescription(SubscriptionModel model)
+	{
+		return model.DurationInMonths switch
+		{
+			1 => "Pay monthly, cancel anytime",
+			3 => "Pay for three months",
+			6 => "Pay for six months",
+			12 => "Pay for a full year",
+			24 => "Pay for two full years",
+			_ => ""
+		};
+	}
+	string SubscriptionModelDuration(SubscriptionModel model)
+	{
+		return model switch
+		{
+			{ DurationInMonths: < 12 } => "m",
+			{ DurationInMonths: 12 } => "y",
+			{ DurationInMonths: > 12 and _ } => $"{model.DurationInMonths / 12}y"
+		};
+	}
+
+	int SubscriptionModelSavings(SubscriptionModel model)
+	{
+		double averagePrice = SubscriptionModels.Average(m => m.PriceInUsd / m.DurationInMonths);
+
+		int index = SubscriptionModels.IndexOf(model);
+
+		if (index > 0)
+		{
+			var previousModel = SubscriptionModels[index - 1];
+			//var previousModel = SubscriptionModels[0];
+			double previousPricePerMonth = previousModel.PriceInUsd / previousModel.DurationInMonths;
+			double currentPricePerMonth = model.PriceInUsd / model.DurationInMonths;
+
+			double discount = 1 - currentPricePerMonth / previousPricePerMonth;
+
+			return (int)(discount * 100);
+		}
+		return 0;
+	}
+}
