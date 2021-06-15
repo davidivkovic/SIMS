@@ -1,0 +1,160 @@
+@page "/signup"
+@using HeroIcons.Blazor.Solid
+@using TailwindBlazorElectron.Model
+
+@code {
+	string FirstName, LastName, City, Street, StreetNumber, Gender, Email, Password, ZipCode;
+	DateTime DateOfBirth = DateTime.Now; 
+
+	void OnSubmit()
+	{
+		Console.WriteLine(FirstName);
+		Console.WriteLine(LastName);
+		Console.WriteLine(ZipCode);
+		Console.WriteLine(City);
+		Console.WriteLine(Street);
+		Console.WriteLine(StreetNumber);
+		Console.WriteLine(Gender);
+		Console.WriteLine(DateOfBirth);
+		Console.WriteLine(Email);
+		Console.WriteLine(Password);
+
+
+		//Router.NavigateTo("");
+	}
+}
+
+<div class="flex items-center py-8 text-sm 3xl:py-10">
+	<div class="flex items-center justify-center w-4/5 h-full ml-20">
+			<form @onsubmit="() => OnSubmit()">
+				<div>
+					<p class="text-2xl font-semibold text-indigo-600">Sign Up</p>
+					<div class="3xl:flex">
+						<div>
+							<div class="flex mt-12">
+								<div class="w-1/5">
+									<p class="text-base font-semibold text-black">Personal info</p>
+									<p class="text-gray-500 whitespace-nowrap">Used for knowing you</p>
+								</div>
+								<div class="ml-20">
+									<div class="flex">
+									<div>
+										<p class="text-xs font-medium text-gray-700 ">First Name</p>
+										<input required @bind="@FirstName"
+										class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+										type="text" />
+									</div>
+									<div class="ml-5">
+										<p class="text-xs font-medium text-gray-700">Last Name</p>
+										<input required  @bind="@LastName"
+												class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+												type="text"  />
+									</div>
+									</div>
+									<div class="flex mt-5">
+										<div>
+											<p class="text-xs font-medium text-gray-700">Gender</p>
+											<select asp-for="Sex" @bind="@Gender" class="h-10 mt-1 text-sm border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50">
+												<option class="text-sm" value="Male">Male</option>
+												<option class="text-sm" value="Female">Female</option>
+											</select>
+										</div>
+										<div class="w-full ml-5">
+											<p class="text-xs font-medium text-gray-700">Date of Birth</p>
+											<input required @bind="@DateOfBirth" 
+													class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+													type="date"  />
+										</div>
+									</div>
+								</div>	
+							</div>
+							<div class="flex mt-20">
+								<div class="w-1/5">
+										<p class="text-base font-semibold text-black">Address info</p>
+										<p class="text-gray-500 whitespace-nowrap">Used for tracing you</p>
+								</div>
+								<div class="ml-20">
+									<div class="flex w-full mt-5">		
+										<div class="w-full">
+											<p class="text-xs font-medium text-gray-700">City</p>
+											<input required  @bind="@City"
+													class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-md focus:ring-1 focus:border-indigo-500 focus:ring-indigo-500"
+													type="text"  />
+										</div>
+										<div class="w-1/3 ml-5">
+											<p class="text-xs font-medium text-gray-700">Zip Code</p>
+											<input required @bind="@ZipCode"
+													class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+													type="text" autocomplete="postal-code" />
+										</div>
+									</div>
+									<div class="flex w-full mt-5">
+										<div class="w-full">
+										<p class="text-xs font-medium text-gray-700">Street</p>
+										<input required  @bind="@Street"
+												class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+												type="text"  />
+										</div>
+										<div class="w-1/3 ml-5">
+										<p class="text-xs font-medium text-gray-700">Street Number</p>
+										<input required @bind="@StreetNumber"
+												class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+												type="text"   />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="flex mt-20">
+								<div class="w-1/5">
+									<p class="text-base font-semibold text-black">Account info</p>
+									<p class="text-gray-500 whitespace-nowrap">Used for sign in</p>
+								</div>
+								<div class="ml-20">
+									<div>
+										<p class="text-xs font-medium text-gray-700 ">Email Address</p>
+										<input required @bind="@Email"
+										class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+										type="email" placeholder="example@email.com" />
+									</div>
+									<div class="flex mt-5">
+										<div>
+											<p class="text-xs font-medium text-gray-700 ">Password</p>
+											<input required @bind="@Password"
+											class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+											type="password" placeholder="At least 8 characters" />
+										</div>
+										<div class="ml-5 ">
+											<p class="text-xs font-medium text-gray-700">Confirm Password</p>
+											<input required
+													class="w-full h-10 px-4 mt-1 text-sm transition-colors border-gray-300 rounded-lg focus:border-white focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50"
+													type="password" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="3xl:ml-20">
+							<div class="flex mt-20 3xl:mt-12 3xl:block">
+								<div class="">
+									<p class="text-base font-semibold text-black">Subscription</p>
+									<p class="text-gray-500 whitespace-nowrap">Paying options</p>
+								</div>
+								<div class="ml-28 3xl:mt-10 3xl:ml-0">
+									<Subscriptions></Subscriptions>
+								</div>
+								
+							</div>
+							<div>
+								<button
+								class="float-right w-full px-3 py-4 mt-20 font-semibold text-white transition duration-150 ease-in-out bg-indigo-600 rounded-lg 3xl:float-left hover:bg-indigo-500 focus:outline-none">
+								Register</button>
+							</div>	
+						</div>
+					</div>			
+				</div>
+			</form>	
+			
+
+	</div>
+	
+</div>
