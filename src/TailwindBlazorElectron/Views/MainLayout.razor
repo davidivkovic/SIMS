@@ -1,290 +1,71 @@
-@page "/"
 @namespace TailwindBlazorElectron.Views
 @inherits LayoutComponentBase
-@using System.Text.Json;
-@using System.IO
-@using System.Globalization
+
 @using HeroIcons.Blazor.Solid
-@using TailwindBlazorElectron.Services
-@using TailwindBlazorElectron.Model
-@inject BookService BookService
-@inject AuthorService AuthorService
-
-@code {
-    private List<Book> Books;
-    private List<Author> Authors;
-
-    private string TruncDescription(Book book) => String.Join(" ", book.Description.Split(' ').Take(55)) + "...";
-
-    private string FormatedRating(Book book) => (book.AverageRating * 2).ToString("F1", CultureInfo.InvariantCulture);
-
-    protected override void OnInitialized()
-    {
-        Authors = AuthorService.GetPopularAuthors(3);
-        Books = BookService.GetPopularBooks(5);
-    }
-}
 
 <div>
-    <div class="flex">
-        <!--Sidebar -->
-        <div class="sticky top-0 bottom-0 left-0 flex-col hidden h-screen bg-white border-r border-gray-100 xl:flex xl:w-64 2xl:w-80">
-            <p class="mt-10 ml-8 text-2xl font-medium tracking-tight">📚 BookShelf</p>
-            <!--Sidebar menus-->
-            <div class="mx-3 mt-10 space-y-0 font-medium tracking-tight text-gray-500 2xl:space-y-1 text-md">
-                <div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
-                    <div class="flex items-center space-x-3">
-                        <ViewGridIcon class=" w-7 h-7 text-palegreen" />
-                        <p>All</p>
-                    </div>
-                </div>
+	<div class="flex">
+		<!--Sidebar -->
+		<div
+			class="sticky top-0 bottom-0 left-0 flex-col hidden h-screen bg-white border-r border-gray-100 xl:flex xl:w-64 2xl:w-80">
+			<p class="mt-10 ml-8 text-2xl font-medium tracking-tight">📚 BookShelf</p>
+			<!--Sidebar menus-->
+			<div class="mx-3 mt-10 space-y-0 font-medium tracking-tight text-gray-500 2xl:space-y-1 text-md">
+				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="flex items-center space-x-3">
+						<ViewGridIcon class=" w-7 h-7 text-palegreen" />
+						<p>All</p>
+					</div>
+				</div>
 
-                <div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
-                    <div class="flex items-center space-x-3">
-                        <BookOpenIcon class="text-gray-400 w-7 h-7" />
-                        <p>Library</p>
-                    </div>
-                </div>
+				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="flex items-center space-x-3">
+						<BookOpenIcon class="text-gray-400 w-7 h-7" />
+						<p>Library</p>
+					</div>
+				</div>
 
-                <div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
-                    <div class="flex items-center space-x-3">
-                        <CollectionIcon class="text-gray-400 w-7 h-7 " />
-                        <p>Categories</p>
-                    </div>
-                </div>
+				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="flex items-center space-x-3">
+						<CollectionIcon class="text-gray-400 w-7 h-7 " />
+						<p>Categories</p>
+					</div>
+				</div>
 
-                <div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
-                    <div class="flex items-center space-x-3">
-                        <UsersIcon class="text-gray-400 w-7 h-7 " />
-                        <p>Authors</p>
-                    </div>
-                </div>
+				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="flex items-center space-x-3">
+						<UsersIcon class="text-gray-400 w-7 h-7 " />
+						<p>Authors</p>
+					</div>
+				</div>
 
-                <div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
-                    <div class="flex items-center space-x-3">
-                        <StarIcon class="text-gray-400 w-7 h-7" />
-                        <p>Recommended</p>
-                    </div>
-                </div>
-            </div>
-            <!--Profile section-->
-            <div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
-                <div class="flex items-center space-x-2">
-                    <img class="object-cover w-12 h-12 rounded-xl"
-                         src="https://media-exp1.licdn.com/dms/image/C5603AQGntcirExBGxw/profile-displayphoto-shrink_200_200/0/1577464815452?e=1628121600&v=beta&t=inKGU4b3Sd4vqTlcgZGGkSvkTBOG06_v26wc0zryHnY">
-                    <div class="space-y-1 font-medium tracking-tight">
-                        <p class="text-xs text-gray-500">Good morning!</p>
-                        <p class="text-md">David Ivkovic</p>
-                    </div>
-                </div>
-                <div class="p-2 transition-colors rounded cursor-pointer hover:bg-gray-100" title="Log Out">
-                    <HeroIcons.Blazor.Outline.LogoutIcon class="w-6 h-6 text-gray-600" />
-                </div>
-            </div>
+				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="flex items-center space-x-3">
+						<StarIcon class="text-gray-400 w-7 h-7" />
+						<p>Recommended</p>
+					</div>
+				</div>
+			</div>
+			<!--Profile section-->
+			<div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
+				<div class="flex items-center space-x-2">
+					<img class="object-cover w-12 h-12 rounded-xl"
+						src="https://media-exp1.licdn.com/dms/image/C5603AQGntcirExBGxw/profile-displayphoto-shrink_200_200/0/1577464815452?e=1628121600&v=beta&t=inKGU4b3Sd4vqTlcgZGGkSvkTBOG06_v26wc0zryHnY">
+					<div class="space-y-1 font-medium tracking-tight">
+						<p class="text-xs text-gray-500">Good morning!</p>
+						<p class="text-md">David Ivkovic</p>
+					</div>
+				</div>
+				<div class="p-2 transition-colors rounded cursor-pointer hover:bg-gray-100" title="Log Out">
+					<HeroIcons.Blazor.Outline.LogoutIcon class="w-6 h-6 text-gray-600" />
+				</div>
+			</div>
 
-        </div>
-        <!--Main content-->
-        <div class="w-full h-full">
-            <!--Search and filter bar-->
-            <div class="h-16 2xl:h-20">
-                <div class="flex mx-10 my-10 space-x-8 2xl:mx-20">
-                    <!--Search field-->
-                    <div class="w-7/12 p-3 border border-gray-200 rounded-lg h-11">
-                        <div class="flex items-center space-x-2">
-                            <SearchIcon class="w-5 h-5 text-gray-400" />
-                            <p class="tracking-tight text-gray-400 text-md">Search</p>
-                        </div>
-                    </div>
-                    <!--Filter field-->
-                    <div class="w-1/4 p-3 border border-gray-200 rounded-lg h-11">
-                        <div class="flex items-center space-x-2">
-                            <AdjustmentsIcon class="w-5 h-5 text-gray-400" />
-                            <p class="tracking-tight text-gray-400 text-md">Filters</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Center part-->
-            <div class="mx-2 mt-2 space-x-4 space-y-6 lg:space-y-0 lg:mx-10 lg:flex md:space-x-9 3xl:space-x-16 3xl:mx-20">
-                <!--Book of the day block-->
-                <div class="ml-3 md:ml-8 lg:ml-0 lg:w-3/5">
-                    <!--Book of the day title and chevrons-->
-                    <div class="flex items-center justify-between mb-4 md:mb-0">
-                        <p class="text-2xl font-medium tracking-tight">Book of the Day</p>
-                        <div class="flex space-x-2">
-                            <div class="w-6 h-6 p-1 rounded-full cursor-pointer bg-truegray-200">
-                                <ChevronLeftIcon class="text-white" />
-                            </div>
-                            <div class="w-6 h-6 p-1 rounded-full cursor-pointer bg-truegray-400">
-                                <ChevronRightIcon class="text-white" />
-                            </div>
-                        </div>
-                    </div>
-                    <!--Book card-->
-                    <div class="w-full my-3 border border-gray-200 2xl:my-5 rounded-xl h-4/5">
-                        <div class="w-full h-full p-5 space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:p-10">
-                            <img class="object-scale-down h-full rounded-xl" src="@Books[0].CoverImage">
-                            <div class="flex flex-col h-full space-y-1">
-                                <div class="flex items-center space-x-1.5">
-                                    <HeroIcons.Blazor.Solid.StarIcon class="w-5 h-5 text-yellow-300" />
-                                    <p class="font-medium text-md">@FormatedRating(Books[0])</p>
-                                </div>
-                                <p class="pt-1 text-3xl font-medium tracking-tight 2xl:text-5xl ">@Books[0].Title</p>
-                                <div class="flex items-center pt-1 space-x-1 text-lg tracking-tight text-gray-700">
-                                    <p class="">@Books[0].Author.Name</p>
-                                    <p class="text-sm text-gray-400">&bull;</p>
-                                    <p class="">@Books[0].YearPublished</p>
-                                </div>
-                                <p id="bookDescription"
-                                   class="pt-2 mb-12 overflow-hidden text-xs leading-loose text-gray-600">
-                                    @TruncDescription(Books[0])
-                                </p>
-                                <div class="flex items-center flex-1 pt-4 space-x-4">
-                                    <div class="px-4 py-2 cursor-pointer bg-palegreen rounded-3xl">
-                                        <p class="font-light text-white whitespace-nowrap text-xxs">
-                                            Add Reservation +
-                                        </p>
-                                    </div>
-                                    <div class="px-4 py-2 border shadow-sm cursor-pointer border-palegreen rounded-3xl">
-                                        <p class="font-medium whitespace-nowrap text-xxs text-palegreen">Read More</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--Authors and fresh books block-->
-                <div class="flex-1 5xl:w-1/4 5xl:flex-none">
-                    @* <div class="w-1/3 2xl:w-1/4 "> *@
-                    <!--Authors-->
-                    <div class="flex flex-col space-y-2 2xl:h-1/2">
-                        @* <div class="sticky top-0 flex items-center justify-between w-full pb-1 bg-white"> *@
-                        <div class="flex items-center justify-between w-full pb-1 bg-white">
-                            <p class="text-2xl font-medium tracking-tight ">Authors</p>
-                            <p class="text-gray-400 transition-colors cursor-pointer text-md hover:text-gray-900">
-                                See
-                                All
-                            </p>
-                        </div>
-                        <div class="overflow-y-scroll">
-                            <div class="space-y-0.25">
-                                @foreach (var author in Authors.Take(3))
-                                {
-                                    <div class="flex items-center py-2 pl-1.5 pr-5 space-x-4 transition rounded-lg cursor-pointer hover:bg-gray-50">
-                                        <img class="object-cover w-12 h-12 rounded-full" src="@author.ImageUrl">
-                                        <div class="space-y-1">
-                                            <p class="font-semibold text-md">@author.Name</p>
-                                            <div class="flex space-x-1.25 text-xs font-medium text-gray-400">
-                                                <p> @author.NumberOfBooks books</p>
-                                                <p>&bull;</p>
-                                                <p> @author.NumberOfReads reads</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    <!--Just arrived books-->
-                    @* <div class="flex flex-col 2xl:-mt-3.5 h-1/2 pb-7"> *@
-                    <div class="flex flex-col mt-6 lg:mt-4 2xl:-mt-3.5 h-1/2 pb-7">
-                        <div class="flex items-center justify-between pb-2.5">
-                            <p class="text-2xl font-medium tracking-tight">Just arrived</p>
-                            <p class="text-gray-400 transition-colors cursor-pointer text-md hover:text-gray-900">
-                                See
-                                All
-                            </p>
-                        </div>
-                        <div class="overflow-y-scroll">
-                            <div class="grid grid-cols-2 2xl:gap-x-4 gap-y-0.25">
-                                @foreach (var book in Books.Skip(1).Take(4))
-                                {
-                                    <div class="flex p-2 pr-2 space-x-3 transition rounded-md cursor-pointer hover:bg-gray-50">
-                                        <img src="@book.CoverImage" class="object-cover w-1/3 h-auto rounded">
-                                        <div class="space-y-1 tracking-tight">
-                                            <p class="font-medium leading-tight text-md">@book.Title</p>
-                                            <p class="text-sm leading-tight text-gray-500" style="word-spacing: 100rem;">
-                                                @book.Author.Name
-                                            </p>
-                                        </div>
-                                    </div>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Bottom part-->
-            <div class="border-t border-gray-100 lg:-mt-6 2xl:-mt-7">
-                <div class="my-6 ml-7 md:mx-10 2xl:mx-20 ">
-                    <!--Most popular books bar and chevrons-->
-                    <div class="flex items-center justify-between my-6">
-                        <p class="text-2xl font-medium tracking-tight">Most popular books</p>
-                        <div class="flex space-x-2">
-                            <div class="w-6 h-6 p-1 rounded-full cursor-pointer bg-truegray-200">
-                                <ChevronLeftIcon class="text-white" />
-                            </div>
-                            <div class="w-6 h-6 p-1 rounded-full cursor-pointer bg-truegray-400">
-                                <ChevronRightIcon class="text-white" />
-                            </div>
-                        </div>
-                    </div>
-                    <!--Books grid-->
-                    <div class="grid gap-4 2xl:gap-10 md:grid-cols-3 3xl:grid-flow-col auto-cols-fr rounded-xl">
-                        @foreach (var book in Books.Skip(1).Take(4))
-                        {
-                            <div class="flex max-w-xs p-5 pr-3 space-x-5 border border-gray-200 rounded-lg">
-                                <img src="@book.CoverImage" class="object-cover w-2/5 h-auto rounded-lg">
-                                <div class="flex flex-col">
-                                    <div class="space-y-1">
-                                        <div class="flex items-center space-x-1.5">
-                                            <HeroIcons.Blazor.Solid.StarIcon class="w-5 h-5 text-yellow-300" />
-                                            <p class="font-medium text-md">@FormatedRating(book)</p>
-                                        </div>
-                                        <p class="text-xl font-medium tracking-tight">@book.Title</p>
-                                        <p class="tracking-tight text-md">@book.Author.Name</p>
-                                        @* <p class="text-sm tracking-tight">@book.YearPublished</p> *@
-                                    </div>
-                                    <div class="px-4 py-2 mt-auto cursor-pointer w-min bg-palegreen rounded-3xl">
-                                        <p class="font-light text-white whitespace-nowrap text-xxs">
-                                            Read More
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-        </div>
+		</div>
+		<!--Main content-->
+		<div class="w-full h-full">
+			@Body
+		</div>
 
-    </div>
+	</div>
 </div>
-
-<style>
-    #bookDescription {
-        display: -webkit-box;
-        -webkit-line-clamp: 6;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
-</style>
-@*
-    <div class="page">
-
-    <div class="absolute z-10 p-20 ml-8 text-white">
-    <p class="text-4xl font-bold tracking-tight ">
-    Join
-    the
-    world's <br>hottest
-    conversations
-    </p>
-    <p class="mt-0.5 font-medium tracking-tight text-md">
-    Don't miss out, share the
-    news with your
-    friends!
-    </p>
-    </div>
-    <img
-    src="https://images.unsplash.com/photo-1569389397653-c04fe624e663?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=100">
-    </div> *@
