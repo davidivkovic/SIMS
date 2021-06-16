@@ -5,27 +5,27 @@ using System.Threading.Tasks;
 
 namespace TailwindBlazorElectron.Model
 {
-    public class Edition
-    {
-        public Guid Id { get; set; }
-        public Book Book { get; set; }
-        public int QuantityAvailable { get; set; }
-        public DateTime YearPublished { get; set; }
+	public class Edition
+	{
+		public Guid Id { get; set; }
+		public Book Book { get; set; }
+		public int QuantityAvailable { get; set; }
+		public string YearPublished { get; set; }
 
-        public Reservation Reserve()
-        {
-            if (QuantityAvailable == 0)
-            {
-                return null;
-            }
+		public Reservation Reserve()
+		{
+			if (QuantityAvailable == 0)
+			{
+				return null;
+			}
 
-            Reservation reservation = new()
-            {
-                CreatedAt = DateTime.Now,
-                Edition = this
-            };
+			Reservation reservation = new()
+			{
+				CreatedAt = DateTime.Now,
+				Edition = this
+			};
 
-            return reservation;
-        }
-    }
+			return reservation;
+		}
+	}
 }

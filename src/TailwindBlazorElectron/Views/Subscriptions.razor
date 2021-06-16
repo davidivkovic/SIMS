@@ -33,7 +33,7 @@
 								if (discount > 0)
 								{
 									<p class="inline-block whitespace-nowrap px-2 py-0.75 font-medium 
-										text-center text-white rounded-full bg-emerald-400 text-xxxs "> Save
+													text-center text-white rounded-full bg-emerald-400 text-xxxs "> Save
 										@SubscriptionModelSavings(model)%</p>
 								}
 							}
@@ -54,7 +54,7 @@
 @code {
 	private List<SubscriptionModel> SubscriptionModels;
 	public SubscriptionModel SelectedSubscriptionModel { get; set; }
-	[Parameter] public EventCallback<SubscriptionModel> OnSelected { get; set; }
+	[Parameter] public EventCallback<SubscriptionModel> onselected { get; set; }
 
 	protected override void OnInitialized()
 	{
@@ -62,10 +62,10 @@
 		SelectSubscriptionModel(SubscriptionModels[0]);
 	}
 
-	void SelectSubscriptionModel(SubscriptionModel model)
+	async void SelectSubscriptionModel(SubscriptionModel model)
 	{
 		SelectedSubscriptionModel = model;
-		OnSelected.InvokeAsync(SelectedSubscriptionModel);
+		await onselected.InvokeAsync(SelectedSubscriptionModel);
 		Console.WriteLine(SelectedSubscriptionModel.PriceInUsd);
 	}
 

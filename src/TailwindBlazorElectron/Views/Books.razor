@@ -1,0 +1,93 @@
+@page "/books/{isbn}"
+
+@using System.Globalization
+@using TailwindBlazorElectron.Services
+@using TailwindBlazorElectron.Model
+@inject LibraryService LibraryService
+
+@code {
+	[Parameter]
+	public string ISBN { get; set; }
+	public Book Book;
+	private string FormatedRating(Book book) => (book.AverageRating * 2).ToString("F1", CultureInfo.InvariantCulture);
+
+	protected override void OnInitialized()
+	{
+		Book = LibraryService.GetBookByISBN(ISBN);
+	}
+}
+
+<div class="2xl:px-20">
+	<div class="flex">
+		<div class="flex w-2/3 my-3 2xl:my-5">
+			<div class="w-full h-full space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:pt-10">
+				<div class="w-56">
+					<img class="rounded-xl" src="@Book.CoverImage">
+				</div>
+
+				<div class="flex flex-col flex-1 h-full space-y-1">
+					<div class="flex items-center space-x-1.5">
+						<HeroIcons.Blazor.Solid.StarIcon class="w-5 h-5 text-yellow-300" />
+						<p class="font-medium text-md">@FormatedRating(Book)</p>
+						<p class="text-sm text-gray-400">&bull;</p>
+						<p class="font-medium text-md">@Book.NumberOfRatings ratings</p>
+
+					</div>
+					<p class="pt-1 text-3xl font-medium tracking-tight 2xl:text-5xl ">@Book.Title</p>
+					<div class="flex items-center pt-1 space-x-1 text-lg tracking-tight text-gray-700">
+						<p class="">@Book.Author.Name</p>
+						<p class="text-sm text-gray-400">&bull;</p>
+						<p class="">@Book.YearPublished</p>
+					</div>
+					<div class="flex flex-wrap gap-2 pt-2">
+						@foreach (var genre in Book.Genres)
+						{
+							@* <p class="px-2 py-0.75 font-medium text-white bg-indigo-600 rounded-full text-xxs
+								whitespace-nowrap">
+								@genre.Name
+								</p> *@
+							<p class="px-2.5 py-0.75 font-semibold text-indigo-700 bg-indigo-100 rounded-full text-xxs
+								whitespace-nowrap">
+								@genre.Name
+							</p>
+						}
+					</div>
+					<p id="bookDescription" class="pt-2 mb-12 overflow-hidden text-xs leading-loose text-gray-600">
+						@Book.Description
+					</p>
+					@* <div class="flex items-center flex-1 pt-4 space-x-4">
+						<div class="px-4 py-2 cursor-pointer bg-palegreen rounded-3xl">
+						<p class="font-light text-white whitespace-nowrap text-xxs">
+						Add Reservation +
+						</p>
+						</div>
+						<div @onclick='() => Router.NavigateTo($"/book/{Books[0].ISBN13}")'
+						class="px-4 py-2 border shadow-sm cursor-pointer border-palegreen rounded-3xl">
+						<p class="font-medium whitespace-nowrap text-xxs text-palegreen">Read More</p>
+						</div>
+						</div> *@
+				</div>
+
+
+			</div>
+		</div>
+		@* <div class="mt-20">
+			<p class="mb-2 text-xl ">Genres</p>
+			<div class="border divide-y rounded-lg">
+			@foreach (var genre in Book.Genres)
+			{
+			<p class="py-3 pl-5 pr-8 text-xs text-blue-700 transition-colors cursor-pointer hover:bg-indigo-100">
+			@genre.Name
+			</p>
+			}
+			</div>
+			</div> *@
+	</div>
+	<div>
+		<p>Editions</p>
+		@foreach (Edition edition in Book.Editions)
+		{
+			<p>@edition.YearPublished</p>
+		}
+	</div>
+</div>

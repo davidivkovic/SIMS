@@ -15,6 +15,32 @@ namespace TailwindBlazorElectron.Services
 		public LibraryService(ApplicationDbContext dbContext)
 		{
 			_dbContext = dbContext;
+			SeedLibrarian();
+		}
+
+		private void SeedLibrarian()
+		{
+			var email = "gorajkora@gmail.com";
+			var account = _dbContext.Accounts.FirstOrDefault(a => a.Email == email);
+			if (account is null)
+			{
+				SignUp(email, "123", new User()
+				{
+					FirstName = "David",
+					LastName = "Ivkovic",
+					DateOfBirth = new DateTime(2000, 6, 17),
+					Sex = Sex.Male,
+					Status = Status.Adult,
+					Role = Role.Librarian
+				},
+				new Address()
+				{
+					ZipCode = 21000,
+					City = "Novi Sad",
+					Street = "Strazilovska",
+					HouseNumber = "30"
+				});
+			}
 		}
 
 		public User SignIn(string email, string password)
@@ -25,8 +51,15 @@ namespace TailwindBlazorElectron.Services
 			return user;
 		}
 
-		public bool SignUp(string email, string password, User user, Address address)
+		public bool SignUp(string email, string password, User user, Address address, SubscriptionModel subscription = null)
 		{
+			var existingAccount = _dbContext.Accounts.SingleOrDefault(a => a.Email == email);
+
+			if (existingAccount is not null)
+			{
+				return false;
+			}
+
 			Account account = new()
 			{
 				Email = email,
@@ -36,6 +69,10 @@ namespace TailwindBlazorElectron.Services
 			};
 
 			user.Move(address);
+			if (subscription is not null)
+			{
+				user.Subscribe(subscription);
+			}
 			user.Account = account;
 
 			_dbContext.Add(account);
@@ -49,15 +86,7 @@ namespace TailwindBlazorElectron.Services
 
 		public Subscription SubscribeReader(User user, SubscriptionModel model)
 		{
-			Subscription subscription = new()
-			{
-				StartDate = DateTime.Now,
-				EndTime = DateTime.Now.AddMonths(model.DurationInMonths),
-				Price = model.PriceInUsd,
-				User = user
-			};
-
-			user.Subscribe(subscription);
+			var subscription = user.Subscribe(model);
 			_dbContext.SaveChanges();
 
 			return subscription;
@@ -87,6 +116,22 @@ namespace TailwindBlazorElectron.Services
 			_dbContext.SaveChanges();
 		}
 
+		public Book GetBookByISBN(string isbn)
+		{
+			var book = _dbContext.Books.Include(b => b.Author)
+									   .Include(b => b.Genres)
+									   .FirstOrDefault(b => b.ISBN13 == isbn);
+
+			book.Editions = Enumerable.Range(0, 4).Select(x => new Edition()
+			{
+				Book = book,
+				QuantityAvailable = 1,
+				YearPublished = book.YearPublished
+			}).ToList();
+
+			return book;
+		}
+
 		public List<SubscriptionModel> GetSubscriptionModels()
 		{
 			return new List<SubscriptionModel>
@@ -107,6 +152,31 @@ namespace TailwindBlazorElectron.Services
 			};
 
 			return TimeSpan.FromDays(maxDays);
+		}
+
+		// public List<Reservation> GetReservationsForUser()
+		// {
+
+		// }
+
+		public List<Reservation> GetAllReservations()
+		{
+			var books = _dbContext.Books.Include(b => b.Author).ToList();
+			var user = _dbContext.Users.First();
+
+			var editions = books.Select(book => new Edition()
+			{
+				Book = book,
+				QuantityAvailable = 1,
+				YearPublished = book.YearPublished
+			});
+
+			return editions.Select(edition => new Reservation()
+			{
+				CreatedAt = DateTime.Now,
+				Edition = edition,
+				User = user
+			}).ToList();
 		}
 	}
 }

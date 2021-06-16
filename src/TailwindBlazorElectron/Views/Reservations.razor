@@ -1,0 +1,22 @@
+@page "/reservations"
+
+@using TailwindBlazorElectron.Services
+@using TailwindBlazorElectron.Model
+
+@inject LibraryService LibraryService
+
+@code
+{
+	List<Reservation> AllReservations;
+	protected override void OnInitialized()
+	{
+		AllReservations = LibraryService.GetAllReservations();
+	}
+}
+
+<div>
+	@foreach (Reservation reservation in AllReservations)
+	{
+		<p>@reservation.Edition.Book.Title</p>
+	}
+</div>

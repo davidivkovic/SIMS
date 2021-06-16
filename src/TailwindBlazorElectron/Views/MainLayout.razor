@@ -2,18 +2,38 @@
 @inherits LayoutComponentBase
 
 @using HeroIcons.Blazor.Solid
+@using TailwindBlazorElectron.Store
+@inject NavigationManager Router
+
+@code {
+
+	string CurrentUrl()
+	{
+		return Router.ToBaseRelativePath(Router.Uri);
+	}
+	protected override void OnInitialized()
+	{
+		Console.WriteLine(Router.ToBaseRelativePath(Router.Uri));
+	}
+}
 
 <div>
 	<div class="flex">
 		<!--Sidebar -->
 		<div
 			class="sticky top-0 bottom-0 left-0 flex-col hidden h-screen bg-white border-r border-gray-100 xl:flex xl:w-64 2xl:w-80">
-			<p class="mt-10 ml-8 text-2xl font-medium tracking-tight">📚 BookShelf</p>
+			<p @onclick='() => Router.NavigateTo("")'
+				class="p-2 mt-10 ml-5 text-2xl font-medium tracking-tight rounded-lg cursor-pointer max-w-max">
+				📚 BookShelf
+			</p>
 			<!--Sidebar menus-->
-			<div class="mx-3 mt-10 space-y-0 font-medium tracking-tight text-gray-500 2xl:space-y-1 text-md">
-				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
-					<div class="flex items-center space-x-3">
-						<ViewGridIcon class=" w-7 h-7 text-palegreen" />
+			<div class="mx-3 mt-8 space-y-0 font-medium tracking-tight text-gray-500 2xl:space-y-1 text-md">
+				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
+					@onclick='() => Router.NavigateTo("")'>
+					<div
+						class="flex items-center space-x-3 @(CurrentUrl().Equals(String.Empty) ? "text-palegreen" : "text-gray-400")">
+						<ViewGridIcon class="w-7 h-7">
+						</ViewGridIcon>
 						<p>All</p>
 					</div>
 				</div>
@@ -28,7 +48,7 @@
 				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
 					<div class="flex items-center space-x-3">
 						<CollectionIcon class="text-gray-400 w-7 h-7 " />
-						<p>Categories</p>
+						<p>Genres</p>
 					</div>
 				</div>
 
@@ -45,21 +65,46 @@
 						<p>Recommended</p>
 					</div>
 				</div>
+
+				@if (UserStore.UserIsLibrarian())
+				{
+					<div @onclick='() => Router.NavigateTo("/signup")'
+					class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+						<div
+						class="flex items-center space-x-3 @(CurrentUrl() == "signup" ? "text-palegreen" : "text-gray-400")">
+							<UserAddIcon class="w-7 h-7" />
+							<p>Sign Up</p>
+						</div>
+					</div>
+
+					<div @onclick='() => Router.NavigateTo("/reservations")'
+					class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+						<div
+						class="flex items-center space-x-3 @(CurrentUrl() == "reservations" ? "text-palegreen" : "text-gray-400")">
+							<PencilAltIcon class="w-7 h-7" />
+							<p>Reservations</p>
+						</div>
+					</div>
+				}
+
 			</div>
 			<!--Profile section-->
-			<div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
-				<div class="flex items-center space-x-2">
-					<img class="object-cover w-12 h-12 rounded-xl"
+			@if (UserStore.HasUser())
+			{
+				<div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
+					<div class="flex items-center space-x-2">
+						<img class="object-cover w-12 h-12 rounded-xl"
 						src="https://media-exp1.licdn.com/dms/image/C5603AQGntcirExBGxw/profile-displayphoto-shrink_200_200/0/1577464815452?e=1628121600&v=beta&t=inKGU4b3Sd4vqTlcgZGGkSvkTBOG06_v26wc0zryHnY">
-					<div class="space-y-1 font-medium tracking-tight">
-						<p class="text-xs text-gray-500">Good morning!</p>
-						<p class="text-md">David Ivkovic</p>
+						<div class="space-y-1 font-medium tracking-tight">
+							<p class="text-xs text-gray-500">Good morning!</p>
+							<p class="text-md">@UserStore.CurrentUser.FullName</p>
+						</div>
+					</div>
+					<div class="p-2 transition-colors rounded cursor-pointer hover:bg-gray-100" title="Log Out">
+						<HeroIcons.Blazor.Outline.LogoutIcon class="w-6 h-6 text-gray-600" />
 					</div>
 				</div>
-				<div class="p-2 transition-colors rounded cursor-pointer hover:bg-gray-100" title="Log Out">
-					<HeroIcons.Blazor.Outline.LogoutIcon class="w-6 h-6 text-gray-600" />
-				</div>
-			</div>
+			}
 
 		</div>
 		<!--Main content-->

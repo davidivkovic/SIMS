@@ -1,17 +1,24 @@
 @page "/signin"
 @layout EmptyLayout
+
 @using HeroIcons.Blazor.Solid
+@using TailwindBlazorElectron.Services
+@using TailwindBlazorElectron.Store
 
 @inject NavigationManager Router
+@inject LibraryService LibraryService
 
 @code {
 	string Email, Password;
 	void OnSubmit()
 	{
-		Console.WriteLine(Email);
-		Console.WriteLine(Password);
+		var user = LibraryService.SignIn(Email, Password);
 
-		Router.NavigateTo("");
+		if (user is not null)
+		{
+			UserStore.SetCurrentUser(user);
+			Router.NavigateTo("");
+		}
 	}
 }
 
