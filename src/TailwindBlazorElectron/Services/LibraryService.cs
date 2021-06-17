@@ -50,6 +50,8 @@ namespace TailwindBlazorElectron.Services
 								 	.ThenInclude(u => u.Address)
 								 .Include(a => a.User)
 									.ThenInclude(u => u.Notifications)
+								.Include(a => a.User)
+									.ThenInclude(u => u.Subscription)
 								 .FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
 			return user;
 		}
