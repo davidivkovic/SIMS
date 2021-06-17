@@ -11,9 +11,11 @@
 	{
 		return Router.ToBaseRelativePath(Router.Uri);
 	}
-	protected override void OnInitialized()
+
+	void SignOut()
 	{
-		Console.WriteLine(Router.ToBaseRelativePath(Router.Uri));
+		UserStore.RemoveUser();
+		Router.NavigateTo("");
 	}
 }
 
@@ -89,9 +91,9 @@
 
 			</div>
 			<!--Profile section-->
-			@if (UserStore.HasUser())
-			{
-				<div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
+			<div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
+				@if (UserStore.HasUser())
+				{
 					<div class="flex items-center space-x-2">
 						<img class="object-cover w-12 h-12 rounded-xl"
 						src="https://media-exp1.licdn.com/dms/image/C5603AQGntcirExBGxw/profile-displayphoto-shrink_200_200/0/1577464815452?e=1628121600&v=beta&t=inKGU4b3Sd4vqTlcgZGGkSvkTBOG06_v26wc0zryHnY">
@@ -100,11 +102,23 @@
 							<p class="text-md">@UserStore.CurrentUser.FullName</p>
 						</div>
 					</div>
-					<div class="p-2 transition-colors rounded cursor-pointer hover:bg-gray-100" title="Log Out">
+					<div class="p-2 transition-colors rounded cursor-pointer hover:bg-gray-100" title="Log Out"
+					@onclick="() => SignOut()">
 						<HeroIcons.Blazor.Outline.LogoutIcon class="w-6 h-6 text-gray-600" />
 					</div>
-				</div>
-			}
+				}
+				else
+				{
+					<div class="space-y-2 font-medium text-center">
+						<p class="text-xs text-gray-600 ">Already have an account?</p>
+						<div class="flex items-center justify-center px-2 py-1.75 text-white transition-colors rounded-md cursor-pointer bg-palegreen hover:bg-opacity-90"
+						title="Log Out" @onclick='() => Router.NavigateTo("/signin")'>
+							<p class="text-xs ml-11">Sign in</p>
+							<HeroIcons.Blazor.Outline.LoginIcon class="w-6 h-6 ml-8 text-white" />
+						</div>
+					</div>
+				}
+			</div>
 
 		</div>
 		<!--Main content-->
