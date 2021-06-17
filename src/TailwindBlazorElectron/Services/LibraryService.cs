@@ -106,6 +106,7 @@ namespace TailwindBlazorElectron.Services
 
 			user.AddReservation(reservation);
 
+			_dbContext.Update(user);
 			_dbContext.Add(reservation);
 			_dbContext.SaveChanges();
 
@@ -122,22 +123,9 @@ namespace TailwindBlazorElectron.Services
 		{
 			var book = _dbContext.Books.Include(b => b.Author)
 									   .Include(b => b.Genres)
+									   .Include(b => b.Editions)
+										   .ThenInclude(e => e.Authors)
 									   .FirstOrDefault(b => b.IdTitle == IdTitle);
-
-			Random rng = new();
-
-			book.Editions = Enumerable.Range(0, 4).Select(x => new Edition()
-			{
-				Title = book.Title,
-				Book = book,
-				QuantityAvailable = 2,
-				YearPublished = book.YearPublished,
-				AdditionalAuthors = _dbContext.Authors.Take(2).ToList(),
-				Publisher = "Amazon",
-				ISBN13 = rng.NextInt64(9999999999999).ToString("D13")
-			}).ToList();
-
-			book.Editions.Skip(1).Take(2).ToList().ForEach(e => e.QuantityAvailable = 0);
 
 			return book;
 		}
@@ -153,42 +141,17 @@ namespace TailwindBlazorElectron.Services
 			};
 		}
 
-		// public List<Reservation> GetReservationsForUser()
-		// {
-
-		// }
-
-		private DateTime CreateDate()
-		{
-			Random gen = new Random();
-			DateTime start = new DateTime(2021, 5, 1);
-			int range = (DateTime.Today - start).Days;
-			return start.AddDays(gen.Next(range));
-		}
-
 		public List<Reservation> GetAllReservations()
 		{
-			var books = _dbContext.Books.Include(b => b.Author).ToList();
-			var user = _dbContext.Users.First();
-
-			var editions = books.Select(book => new Edition()
-			{
-				Book = book,
-				QuantityAvailable = 1,
-				YearPublished = book.YearPublished
-			});
-
-			var reservations = editions.Select(edition => new Reservation()
-			{
-				CreatedAt = CreateDate(),
-				Edition = edition,
-				User = user
-			}).ToList();
-
-			reservations[0].Allow();
-			reservations[1].Allow();
-
-			return reservations;
+			return _dbContext.Reservations
+							 .Include(r => r.User)
+								 .ThenInclude(u => u.Account)
+							 .Include(r => r.Edition)
+								 .ThenInclude(e => e.Book)
+									 .ThenInclude(b => b.Author)
+							 .Include(r => r.Edition)
+								 .ThenInclude(e => e.Authors)
+							 .ToList();
 		}
 	}
 }

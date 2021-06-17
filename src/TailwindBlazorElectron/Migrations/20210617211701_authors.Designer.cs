@@ -3,36 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TailwindBlazorElectron.Data;
 
 namespace TailwindBlazorElectron.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210617211701_authors")]
+    partial class authors
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "6.0.0-preview.4.21253.1")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("AuthorEdition", b =>
-                {
-                    b.Property<Guid>("AuthorsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("EditionsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("AuthorsId", "EditionsId");
-
-                    b.HasIndex("EditionsId");
-
-                    b.ToTable("AuthorEdition");
-                });
 
             modelBuilder.Entity("TailwindBlazorElectron.Model.Account", b =>
                 {
@@ -92,6 +79,9 @@ namespace TailwindBlazorElectron.Migrations
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid?>("EditionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -105,6 +95,8 @@ namespace TailwindBlazorElectron.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("EditionId");
 
                     b.ToTable("Authors");
                 });
@@ -336,21 +328,6 @@ namespace TailwindBlazorElectron.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("AuthorEdition", b =>
-                {
-                    b.HasOne("TailwindBlazorElectron.Model.Author", null)
-                        .WithMany()
-                        .HasForeignKey("AuthorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TailwindBlazorElectron.Model.Edition", null)
-                        .WithMany()
-                        .HasForeignKey("EditionsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("TailwindBlazorElectron.Model.Account", b =>
                 {
                     b.HasOne("TailwindBlazorElectron.Model.User", "User")
@@ -360,6 +337,13 @@ namespace TailwindBlazorElectron.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TailwindBlazorElectron.Model.Author", b =>
+                {
+                    b.HasOne("TailwindBlazorElectron.Model.Edition", null)
+                        .WithMany("Authors")
+                        .HasForeignKey("EditionId");
                 });
 
             modelBuilder.Entity("TailwindBlazorElectron.Model.Book", b =>
@@ -443,6 +427,11 @@ namespace TailwindBlazorElectron.Migrations
                     b.Navigation("Editions");
 
                     b.Navigation("Genres");
+                });
+
+            modelBuilder.Entity("TailwindBlazorElectron.Model.Edition", b =>
+                {
+                    b.Navigation("Authors");
                 });
 
             modelBuilder.Entity("TailwindBlazorElectron.Model.User", b =>

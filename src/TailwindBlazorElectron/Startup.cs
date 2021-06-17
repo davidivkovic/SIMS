@@ -30,7 +30,8 @@ namespace TailwindBlazorElectron
 
             services.AddTransient<WindowService>();
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer"),
+                                                                   b => b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
 
             services.AddScoped<BookService>();
             services.AddScoped<AuthorService>();
