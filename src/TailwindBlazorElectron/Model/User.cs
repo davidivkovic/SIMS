@@ -17,9 +17,21 @@ namespace TailwindBlazorElectron.Model
 		public Account Account { get; set; }
 		public Subscription Subscription { get; set; }
 		public Address Address { get; private set; }
-		public ICollection<Notification> Notifications { get; private set; }
-		public ICollection<Reservation> Reservations { get; private set; }
+		public ICollection<Notification> Notifications { get; private set; } = new List<Notification>();
+		public ICollection<Reservation> Reservations { get; private set; } = new List<Reservation>();
 		public string FullName => $"{FirstName} {LastName}";
+
+		public TimeSpan BookRetentionTime()
+		{
+			int maxDays = Status switch
+			{
+				Status.MVP => 30,
+				Status.Retiree => 21,
+				Status.Child or Status.Student or Status.Adult or _ => 15
+			};
+
+			return TimeSpan.FromDays(maxDays);
+		}
 
 		public Subscription Subscribe(SubscriptionModel subscription)
 		{

@@ -12,7 +12,11 @@ namespace TailwindBlazorElectron.Model
 		public DateTime ReturnedAt { get; private set; }
 		public User User { get; set; }
 
-		public void Allow() => IsAllowed = true;
+		public void Allow()
+		{
+			IsAllowed = true;
+			DueIn(User.BookRetentionTime());
+		}
 		public void MarkAsReturned(DateTime date) => ReturnedAt = date;
 
 		public void DueIn(TimeSpan retentionTime)

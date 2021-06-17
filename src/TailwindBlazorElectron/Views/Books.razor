@@ -1,26 +1,39 @@
-@page "/books/{isbn}"
+@page "/books/{idTitle}"
 
 @using System.Globalization
 @using TailwindBlazorElectron.Services
 @using TailwindBlazorElectron.Model
+@using TailwindBlazorElectron.Store
 @inject LibraryService LibraryService
 
 @code {
 	[Parameter]
-	public string ISBN { get; set; }
-	public Book Book;
-	private string FormatedRating(Book book) => (book.AverageRating * 2).ToString("F1", CultureInfo.InvariantCulture);
+	public string IdTitle { get; set; }
+	Book Book;
+	string FormatedRating(Book book) => (book.AverageRating * 2).ToString("F1", CultureInfo.InvariantCulture);
+
+	void RequestEditionReservation(Edition edition)
+	{
+		var reservation = LibraryService.RequestEditionReservation(UserStore.CurrentUser, edition);
+		Console.WriteLine("submitted");
+		if (reservation is not null)
+		{
+			Console.WriteLine("Success");
+		}
+	}
 
 	protected override void OnInitialized()
 	{
-		Book = LibraryService.GetBookByISBN(ISBN);
+		Book = LibraryService.GetBookByIdTitle(IdTitle);
 	}
+
+
 }
 
-<div class="2xl:px-20">
+<div class="px-10 2xl:px-20">
 	<div class="flex">
-		<div class="flex w-2/3 my-3 2xl:my-5">
-			<div class="w-full h-full space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:pt-10">
+		<div class="flex w-2/3 my-3 2xl:mb-5">
+			<div class="w-full h-full pt-5 space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:pt-10">
 				<div class="w-56">
 					<img class="rounded-xl" src="@Book.CoverImage">
 				</div>
@@ -42,11 +55,7 @@
 					<div class="flex flex-wrap gap-2 pt-2">
 						@foreach (var genre in Book.Genres)
 						{
-							@* <p class="px-2 py-0.75 font-medium text-white bg-indigo-600 rounded-full text-xxs
-								whitespace-nowrap">
-								@genre.Name
-								</p> *@
-							<p class="px-2.5 py-0.75 font-semibold text-indigo-700 bg-indigo-100 rounded-full text-xxs
+							<p class="px-2 py-0.5 font-medium border rounded-full text-xxs
 								whitespace-nowrap">
 								@genre.Name
 							</p>
@@ -55,39 +64,71 @@
 					<p id="bookDescription" class="pt-2 mb-12 overflow-hidden text-xs leading-loose text-gray-600">
 						@Book.Description
 					</p>
-					@* <div class="flex items-center flex-1 pt-4 space-x-4">
-						<div class="px-4 py-2 cursor-pointer bg-palegreen rounded-3xl">
-						<p class="font-light text-white whitespace-nowrap text-xxs">
-						Add Reservation +
-						</p>
-						</div>
-						<div @onclick='() => Router.NavigateTo($"/book/{Books[0].ISBN13}")'
-						class="px-4 py-2 border shadow-sm cursor-pointer border-palegreen rounded-3xl">
-						<p class="font-medium whitespace-nowrap text-xxs text-palegreen">Read More</p>
-						</div>
-						</div> *@
 				</div>
 
 
 			</div>
 		</div>
-		@* <div class="mt-20">
-			<p class="mb-2 text-xl ">Genres</p>
-			<div class="border divide-y rounded-lg">
-			@foreach (var genre in Book.Genres)
-			{
-			<p class="py-3 pl-5 pr-8 text-xs text-blue-700 transition-colors cursor-pointer hover:bg-indigo-100">
-			@genre.Name
-			</p>
-			}
-			</div>
-			</div> *@
 	</div>
-	<div>
-		<p>Editions</p>
-		@foreach (Edition edition in Book.Editions)
-		{
-			<p>@edition.YearPublished</p>
-		}
+	<div class="inline-block space-y-2">
+		<p class="my-4 text-xl ">Editions</p>
+		<div class="grid grid-flow-col grid-rows-2 gap-5">
+			@foreach (Edition edition in Book.Editions)
+			{
+				<div class="px-5 py-4 border border-gray-200 rounded-lg">
+					<div class="flex items-center justify-between space-x-12">
+						<div>
+							<p class="">@edition.Title</p>
+							<div class="flex space-x-1">
+								@{
+									int i = 0;
+									var allAuthors = edition.AdditionalAuthors.Append(edition.Book.Author).ToList();
+									foreach (Author author in allAuthors)
+									{
+										<div class="flex items-center space-x-1">
+											<p class="text-xs">@author.Name</p>
+											@if (i++ < allAuthors.Count - 1)
+											{
+												<p class="text-gray-600 text-xxs">&bull;</p>
+											}
+										</div>
+									}
+								}
+							</div>
+							<p class="mt-4 text-xs">ISBN13: @edition.ISBN13</p>
+							<p class="text-xs">@edition.Book.NumberOfPages pages</p>
+						</div>
+						<div class="flex flex-col h-full mt-10 text-center">
+							@if (edition.QuantityAvailable == 0)
+							{
+								<p class="p-2 py-0.75 font-semibold rounded-full text-xxxs bg-red-200 text-red-600">Not
+									Available</p>
+							}
+							else
+							{
+								<p class="mr-3 text-xs">@edition.QuantityAvailable Available</p>
+							}
+						</div>
+					</div>
+					<div class="flex items-center mt-4">
+						<div class="flex items-center space-x-1 text-xs">
+							<p>Published in</p>
+							<p class="font-medium">@edition.YearPublished</p>
+							<p>by</p>
+							<p class="font-medium">@edition.Publisher</p>
+						</div>
+
+						@if (edition.QuantityAvailable > 0 && UserStore.HasUser())
+						{
+							<div class="px-3.5 py-0.75 ml-auto transition-colors rounded-full cursor-pointer bg-palegreen hover:bg-opacity-90"
+						@onclick="() => RequestEditionReservation(edition)">
+								<p class="ml-1 text-white text-xxs">Reserve +</p>
+							</div>
+						}
+					</div>
+
+				</div>
+			}
+		</div>
 	</div>
 </div>

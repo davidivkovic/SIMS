@@ -47,6 +47,9 @@ namespace TailwindBlazorElectron.Services
 		{
 			var user = _dbContext.Accounts
 								 .Include(a => a.User)
+								 	.ThenInclude(u => u.Address)
+								 .Include(a => a.User)
+									.ThenInclude(u => u.Notifications)
 								 .FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
 			return user;
 		}
@@ -101,7 +104,6 @@ namespace TailwindBlazorElectron.Services
 				return null;
 			}
 
-			reservation.DueIn(GetBookRetentionTime(user));
 			user.AddReservation(reservation);
 
 			_dbContext.Add(reservation);
@@ -116,18 +118,26 @@ namespace TailwindBlazorElectron.Services
 			_dbContext.SaveChanges();
 		}
 
-		public Book GetBookByISBN(string isbn)
+		public Book GetBookByIdTitle(string IdTitle)
 		{
 			var book = _dbContext.Books.Include(b => b.Author)
 									   .Include(b => b.Genres)
-									   .FirstOrDefault(b => b.ISBN13 == isbn);
+									   .FirstOrDefault(b => b.IdTitle == IdTitle);
+
+			Random rng = new();
 
 			book.Editions = Enumerable.Range(0, 4).Select(x => new Edition()
 			{
+				Title = book.Title,
 				Book = book,
-				QuantityAvailable = 1,
-				YearPublished = book.YearPublished
+				QuantityAvailable = 2,
+				YearPublished = book.YearPublished,
+				AdditionalAuthors = _dbContext.Authors.Take(2).ToList(),
+				Publisher = "Amazon",
+				ISBN13 = rng.NextInt64(9999999999999).ToString("D13")
 			}).ToList();
+
+			book.Editions.Skip(1).Take(2).ToList().ForEach(e => e.QuantityAvailable = 0);
 
 			return book;
 		}
@@ -141,17 +151,6 @@ namespace TailwindBlazorElectron.Services
 				new() { DurationInMonths = 12, PriceInUsd = 5.99 },
 				new() { DurationInMonths = 24, PriceInUsd = 9.99 },
 			};
-		}
-		public TimeSpan GetBookRetentionTime(User user)
-		{
-			int maxDays = user.Status switch
-			{
-				Status.MVP => 30,
-				Status.Retiree => 21,
-				Status.Child or Status.Student or Status.Adult or _ => 15
-			};
-
-			return TimeSpan.FromDays(maxDays);
 		}
 
 		// public List<Reservation> GetReservationsForUser()

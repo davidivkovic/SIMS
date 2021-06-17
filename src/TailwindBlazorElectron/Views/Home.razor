@@ -94,7 +94,7 @@
 									Add Reservation +
 								</p>
 							</div>
-							<div @onclick='() => Router.NavigateTo($"/books/{Books[0].ISBN13}")'
+							<div @onclick='() => Router.NavigateTo($"/books/{Books[0].IdTitle}")'
 								class="px-4 py-2 border shadow-sm cursor-pointer border-palegreen rounded-3xl">
 								<p class="font-medium text-palegreen whitespace-nowrap text-xxs">Read More</p>
 							</div>
@@ -197,7 +197,7 @@
 								@* <p class="text-sm tracking-tight">@book.YearPublished</p> *@
 							</div>
 							<div class="px-4 py-2 mt-auto cursor-pointer w-min bg-palegreen rounded-3xl"
-							@onclick='() => Router.NavigateTo($"/books/{book.ISBN13}")'>
+							@onclick='() => Router.NavigateTo($"/books/{book.IdTitle}")'>
 								<p class="font-light text-white whitespace-nowrap text-xxs">
 									Read More
 								</p>

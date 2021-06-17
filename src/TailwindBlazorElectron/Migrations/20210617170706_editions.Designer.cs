@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TailwindBlazorElectron.Data;
 
 namespace TailwindBlazorElectron.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210617170706_editions")]
+    partial class editions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -117,7 +119,7 @@ namespace TailwindBlazorElectron.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IdTitle")
+                    b.Property<string>("ISBN13")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NumberOfPages")
@@ -166,12 +168,6 @@ namespace TailwindBlazorElectron.Migrations
 
                     b.Property<Guid?>("BookId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("ISBN13")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Publisher")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("QuantityAvailable")
                         .HasColumnType("int");
