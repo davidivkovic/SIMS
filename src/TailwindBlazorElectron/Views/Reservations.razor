@@ -11,7 +11,7 @@
 	protected override void OnInitialized()
 	{
 		AllReservations = LibraryService.GetAllReservations();
-		AllReservations = AllReservations.OrderBy(r=>r.IsAllowed).ToList();
+		AllReservations = AllReservations.OrderBy(r=>r.IsAllowed).ThenByDescending(r => r.CreatedAt).ToList();
 
 	}
 

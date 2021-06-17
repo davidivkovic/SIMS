@@ -159,10 +159,21 @@ namespace TailwindBlazorElectron.Services
 
 		// }
 
+		private DateTime createDate()
+		{
+			Random gen = new Random();
+			DateTime start = new DateTime(2021, 5, 1);
+			int range = (DateTime.Today - start).Days;
+			return start.AddDays(gen.Next(range));
+		}
+
 		public List<Reservation> GetAllReservations()
 		{
 			var books = _dbContext.Books.Include(b => b.Author).ToList();
 			var user = _dbContext.Users.First();
+
+			
+			
 
 			var editions = books.Select(book => new Edition()
 			{
@@ -171,12 +182,17 @@ namespace TailwindBlazorElectron.Services
 				YearPublished = book.YearPublished
 			});
 
-			return editions.Select(edition => new Reservation()
+			var reservations = editions.Select(edition => new Reservation()
 			{
-				CreatedAt = DateTime.Now,
+				CreatedAt = createDate(),
 				Edition = edition,
 				User = user
 			}).ToList();
+
+			reservations[0].Allow();
+			reservations[1].Allow();
+
+			return reservations;
 		}
 	}
 }
