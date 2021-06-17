@@ -11,12 +11,56 @@
 	protected override void OnInitialized()
 	{
 		AllReservations = LibraryService.GetAllReservations();
-	}
-}
+		AllReservations = AllReservations.OrderBy(r=>r.IsAllowed).ToList();
 
-<div>
-	@foreach (Reservation reservation in AllReservations)
-	{
-		<p>@reservation.Edition.Book.Title</p>
 	}
+
+}
+<div class="fixed mt-10 ml-8">
+	<p class="text-2xl font-medium">Reservations</p>
+	<div class="flex flex-row flex-wrap py-5 mt-3 overflow-y-visible gap-x-5 gap-y-5 space-y" style="height:calc(100vh - 100%);">
+		@foreach (Reservation reservation in AllReservations)
+		{
+			<div class="flex h-48 max-w-md p-5 pr-3 space-x-20 border border-gray-200 rounded-lg max-h-sm">
+				@* book info *@
+				<div class="w-3/5 space-y-3">
+					<div class="flex space-x-5">
+						<img src="@reservation.Edition.Book.CoverImage" class="object-cover w-1/2 h-auto rounded-lg">
+						<div class="flex flex-col">
+							<div class="space-y-1">
+								<p class="text-xl font-medium tracking-tight">@reservation.Edition.Book.Title</p>
+								<p class="tracking-tight text-md">@reservation.Edition.Book.Author.Name</p>
+							</div>
+						</div>
+					</div>	
+				</div>
+
+				@* user info *@
+				<div class="w-2/5 text-right">
+					<p class="text-xl tracking-tight">@reservation.User.FirstName @reservation.User.LastName</p>
+					<p class="mt-1 tracking-tight text-md">@reservation.CreatedAt</p>
+					@if (@reservation.IsAllowed)
+					{
+						<div class="float-right px-4 py-2 mt-16 transition duration-150 ease-in-out w-min rounded-3xl">
+							<p class="font-light text-black whitespace-nowrap text-xxs">
+								Allowed
+							</p>
+						</div>
+					}
+						
+					else
+					{
+						<p class="mt-10 tracking-tight text-md">Available quantity: @reservation.Edition.QuantityAvailable</p>
+						<div class="float-right px-4 py-2 mt-1 transition duration-150 ease-in-out cursor-pointer w-min bg-emerald-400 hover:bg-emerald-300 rounded-3xl hover:">
+							<p class="font-light text-white whitespace-nowrap text-xxs">
+								Allow
+							</p>
+						</div>
+					}
+					
+				</div>
+			</div>
+		}	
+	</div>
 </div>
+
