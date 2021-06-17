@@ -159,7 +159,7 @@ namespace TailwindBlazorElectron.Services
 
 		// }
 
-		private DateTime createDate()
+		private DateTime CreateDate()
 		{
 			Random gen = new Random();
 			DateTime start = new DateTime(2021, 5, 1);
@@ -172,9 +172,6 @@ namespace TailwindBlazorElectron.Services
 			var books = _dbContext.Books.Include(b => b.Author).ToList();
 			var user = _dbContext.Users.First();
 
-			
-			
-
 			var editions = books.Select(book => new Edition()
 			{
 				Book = book,
@@ -184,7 +181,7 @@ namespace TailwindBlazorElectron.Services
 
 			var reservations = editions.Select(edition => new Reservation()
 			{
-				CreatedAt = createDate(),
+				CreatedAt = CreateDate(),
 				Edition = edition,
 				User = user
 			}).ToList();
