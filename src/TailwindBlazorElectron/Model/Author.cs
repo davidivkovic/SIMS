@@ -13,5 +13,6 @@ namespace TailwindBlazorElectron.Model
         public int NumberOfReads { get; set; }
         public string ImageUrl { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public ICollection<Edition> Editions { get; set; }
     }
 }

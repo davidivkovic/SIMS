@@ -82,7 +82,7 @@
 							<div class="flex space-x-1">
 								@{
 									int i = 0;
-									var allAuthors = edition.AdditionalAuthors.Append(edition.Book.Author).ToList();
+									var allAuthors = edition.Authors.Append(edition.Book.Author).ToList();
 									foreach (Author author in allAuthors)
 									{
 										<div class="flex items-center space-x-1">

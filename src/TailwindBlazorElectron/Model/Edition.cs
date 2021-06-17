@@ -14,7 +14,7 @@ namespace TailwindBlazorElectron.Model
 		public string Publisher { get; set; }
 		public string YearPublished { get; set; }
 		public int QuantityAvailable { get; set; }
-		public ICollection<Author> AdditionalAuthors { get; set; }
+		public ICollection<Author> Authors { get; set; }
 
 		public Reservation Reserve()
 		{
@@ -30,7 +30,6 @@ namespace TailwindBlazorElectron.Model
 				CreatedAt = DateTime.Now,
 				Edition = this
 			};
-
 
 			return reservation;
 		}
