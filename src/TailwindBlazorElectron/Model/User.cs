@@ -20,6 +20,7 @@ namespace TailwindBlazorElectron.Model
 		public ICollection<Notification> Notifications { get; private set; } = new List<Notification>();
 		public ICollection<Reservation> Reservations { get; private set; } = new List<Reservation>();
 		public string FullName => $"{FirstName} {LastName}";
+		public bool HasUnreadNotifications => Notifications.Any(n => n.ReadAt == default(DateTime));
 
 		public TimeSpan BookRetentionTime()
 		{

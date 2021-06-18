@@ -68,6 +68,26 @@
 					</div>
 				</div>
 
+				@if (UserStore.HasUser() && UserStore.CurrentUser.HasUnreadNotifications)
+				{
+					<div @onclick='() => Router.NavigateTo("/notifications")'
+					class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+						<div class="flex items-center">
+							<div
+							class="flex items-center @(CurrentUrl() == "notifications" ? "text-palegreen" : "text-gray-400")">
+								<InboxIcon class="w-7 h-7" />
+								<span class="-ml-3 -mt-4 relative flex w-2.5 h-2.5 ">
+									<span
+									class="absolute inline-flex w-full h-full rounded-full opacity-75 bg-palegreen animate-ping anima"></span>
+									<span class="relative inline-flex w-2.5 h-2.5 bg-palegreen rounded-full"></span>
+								</span>
+								<p class="ml-3.5">Notifications</p>
+							</div>
+
+						</div>
+					</div>
+				}
+
 				@if (UserStore.UserIsLibrarian())
 				{
 					<div @onclick='() => Router.NavigateTo("/signup")'

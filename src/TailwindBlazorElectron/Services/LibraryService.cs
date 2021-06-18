@@ -31,7 +31,8 @@ namespace TailwindBlazorElectron.Services
 					DateOfBirth = new DateTime(2000, 6, 17),
 					Sex = Sex.Male,
 					Status = Status.Adult,
-					Role = Role.Librarian
+					Role = Role.Librarian,
+
 				},
 				new Address()
 				{
@@ -39,6 +40,11 @@ namespace TailwindBlazorElectron.Services
 					City = "Novi Sad",
 					Street = "Strazilovska",
 					HouseNumber = "30"
+				},
+				new SubscriptionModel()
+				{
+					DurationInMonths = 12,
+					PriceInUsd = 5.99
 				});
 			}
 		}
@@ -52,7 +58,7 @@ namespace TailwindBlazorElectron.Services
 									.ThenInclude(u => u.Notifications)
 								.Include(a => a.User)
 									.ThenInclude(u => u.Subscription)
-								 .FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
+								.FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
 			return user;
 		}
 
@@ -108,16 +114,44 @@ namespace TailwindBlazorElectron.Services
 
 			user.AddReservation(reservation);
 
-			_dbContext.Update(user);
 			_dbContext.Add(reservation);
 			_dbContext.SaveChanges();
 
 			return reservation;
 		}
 
+		public void DeclineReservation(Reservation reservation)
+		{
+			reservation.Decline();
+			reservation.User.Notify(new Notification()
+			{
+				Content = $"Your reservation of {reservation.Edition.Title} has been declined. The book will not be available any time soon.",
+				SentAt = DateTime.Now
+			});
+
+			_dbContext.SaveChanges();
+		}
+
 		public void AllowReservation(Reservation reservation)
 		{
-			reservation.Allow();
+			reservation.Approve();
+			reservation.User.Notify(new Notification()
+			{
+				Content = $"Your reservation of {reservation.Edition.Title} has been approved. You can pick up the book in the next three days.",
+				SentAt = DateTime.Now
+			});
+			_dbContext.SaveChanges();
+		}
+
+		public void ReservationPickedUp(Reservation reservation)
+		{
+			reservation.MarkAsPickedUp(DateTime.Now);
+			_dbContext.SaveChanges();
+		}
+
+		public void ReservationReturned(Reservation reservation)
+		{
+			reservation.MarkAsReturned(DateTime.Now);
 			_dbContext.SaveChanges();
 		}
 

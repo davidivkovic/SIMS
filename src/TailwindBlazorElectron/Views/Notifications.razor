@@ -1,0 +1,30 @@
+@page "/notifications"
+
+@using TailwindBlazorElectron.Model
+@using TailwindBlazorElectron.Store
+@using System.Globalization
+
+@code {
+	User User;
+	protected override void OnInitialized()
+	{
+		var cultureInfo = new CultureInfo("en-US");
+		CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+
+		if (UserStore.HasUser())
+		{
+			User = UserStore.CurrentUser;
+		}
+	}
+}
+
+@if (UserStore.HasUser())
+{
+	<div>
+		@foreach (Notification notification in User.Notifications)
+		{
+			<p class="text-md">@notification.Content</p>
+			<p class="text-sm text-gray-600">@notification.SentAt.ToLongDateString() @notification.SentAt.ToLongTimeString()</p>
+		}
+	</div>
+}

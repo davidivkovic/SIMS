@@ -14,6 +14,10 @@
 
 	void RequestEditionReservation(Edition edition)
 	{
+		if (!UserStore.HasUser())
+		{
+			Console.WriteLine("Not signed in.");
+		}
 		var reservation = LibraryService.RequestEditionReservation(UserStore.CurrentUser, edition);
 		Console.WriteLine("submitted");
 		if (reservation is not null)
@@ -75,14 +79,14 @@
 		<div class="grid grid-flow-col grid-rows-2 gap-5">
 			@foreach (Edition edition in Book.Editions)
 			{
-				<div class="px-5 py-4 border border-gray-200 rounded-lg">
+				<div class="px-5 py-4 border rounded-lg">
 					<div class="flex items-center justify-between space-x-12">
 						<div>
-							<p class="">@edition.Title</p>
+							<p>@edition.Title</p>
 							<div class="flex space-x-1">
 								@{
 									int i = 0;
-									var allAuthors = edition.Authors.Append(edition.Book.Author).ToList();
+									var allAuthors = edition.AllAuthors;
 									foreach (Author author in allAuthors)
 									{
 										<div class="flex items-center space-x-1">
@@ -106,7 +110,7 @@
 							}
 							else
 							{
-								<p class="mr-3 text-xs">@edition.QuantityAvailable Available</p>
+								<p class="mr-3 text-xs font-medium">@edition.QuantityAvailable Available</p>
 							}
 						</div>
 					</div>
@@ -120,7 +124,7 @@
 
 						@if (edition.QuantityAvailable > 0 && UserStore.HasUser())
 						{
-							<div class="px-3.5 py-0.75 ml-auto transition-colors rounded-full cursor-pointer bg-palegreen hover:bg-opacity-90"
+							<div class="px-3.5 py-1 ml-auto transition-colors rounded-full cursor-pointer bg-palegreen hover:bg-opacity-90"
 						@onclick="() => RequestEditionReservation(edition)">
 								<p class="ml-1 text-white text-xxs">Reserve +</p>
 							</div>

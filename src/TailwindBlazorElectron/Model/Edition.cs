@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -15,6 +16,9 @@ namespace TailwindBlazorElectron.Model
 		public string YearPublished { get; set; }
 		public int QuantityAvailable { get; set; }
 		public ICollection<Author> Authors { get; set; }
+
+		[NotMapped]
+		public ICollection<Author> AllAuthors => new List<Author>(Authors).Append(Book.Author).ToList();
 
 		public Reservation Reserve()
 		{
