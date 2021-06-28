@@ -15,50 +15,60 @@
 		CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
 
 		AllReservations = LibraryService.GetAllReservations();
-		AllReservations = AllReservations.OrderBy(r => r.IsApproved).ThenByDescending(r => r.CreatedAt).ToList();
+		SortReservations();
+	}
+
+	void SortReservations()
+	{
+		AllReservations = AllReservations.OrderBy(r => r.HasBeenPickedUp).ThenByDescending(r => r.CreatedAt).ToList();
+	}
+
+	void UserSelected(User user)
+	{
+		AllReservations = LibraryService.GetAllReservations(user);
+		SortReservations();
 	}
 }
 
-<div class="my-8 lg:my-10 lg:mx-16">
+<div class="flex justify-center mx-4 my-8 lg:block lg:my-10 lg:mx-16">
+
 	<p class="text-3xl">Reservations</p>
 	<p class="text-md">Allow book reservations requested by readers</p>
-	<div class="inline-grid gap-5 mt-8 md:grid-cols-2 xl:grid-cols-3">
+	<div class="mt-6">
+		<UserSearch onselected="UserSelected"></UserSearch>
+	</div>
+	<div class="inline-grid gap-5 mt-8 lg:grid-cols-2 2xl:grid-cols-3">
 		@foreach (Reservation reservation in AllReservations)
 		{
-			<div class="px-5 py-4 space-y-4 border rounded-lg">
+			<div class="flex flex-col justify-around px-5 py-4 space-y-4 border rounded-lg">
 				<div class="flex justify-between space-x-6">
 					<div>
 						<p class="font-medium text-md">@reservation.User.FullName requested a reservation</p>
 						<p class="text-sm text-gray-600">@reservation.CreatedAt.ToLongDateString()</p>
 					</div>
-					@if (reservation.IsApproved)
-					{
-						<div>
-							<p class="font-medium text-md">Approved on</p>
-							<p class="text-sm text-gray-600">@reservation.ApprovedAt.ToLongDateString()</p>
-						</div>
-					}
+
 				</div>
 				<div class="flex space-x-4">
 					<img class="w-20 h-32 rounded-md" src="@reservation.Edition.Book.CoverImage">
 					<div>
 						<p>@reservation.Edition.Title</p>
-						<div class="flex space-x-1">
+						@* <div class="flex space-x-1">
 							@{
-								int i = 0;
-								var allAuthors = reservation.Edition.AllAuthors;
-								foreach (Author author in allAuthors)
-								{
-									<div class="flex items-center space-x-1">
-										<p class="text-xs white">@author.Name</p>
-										@if (i++ < allAuthors.Count - 1)
-										{
-											<p class="text-gray-600 text-xxs">&bull;</p>
-										}
-									</div>
-								}
+							int i = 0;
+							var allAuthors = reservation.Edition.AllAuthors;
+							foreach (Author author in allAuthors)
+							{
+							<div class="flex items-center space-x-1">
+							<p class="text-xs white">@author.Name</p>
+							@if (i++ < allAuthors.Count - 1)
+							{
+							<p class="text-gray-600 text-xxs">&bull;</p>
 							}
-						</div>
+							</div>
+							}
+							}
+							</div> *@
+						<p class="text-xs">@reservation.Edition.Book.Author.Name</p>
 						<p class="mt-4 text-xs">ISBN13: @reservation.Edition.ISBN13</p>
 						<div class="flex items-center mt-1 space-x-1 text-xs">
 							<p>Published in</p>
@@ -69,18 +79,26 @@
 					</div>
 				</div>
 
+				@* @if (reservation.IsApproved)
+					{
+					<div>
+					<p class="font-medium text-md">Approved on</p>
+					<p class="text-sm text-gray-600">@reservation.ApprovedAt.ToLongDateString()</p>
+					</div>
+					} *@
+
 				@if (reservation.IsDeclined)
 				{
 					<p class="font-medium text-md">Reservation declined</p>
 				}
 				else if (!reservation.IsApproved)
 				{
-					<div class="flex space-x-2 text-center">
+					<div class="flex justify-between text-center">
 						<div class="flex-1 p-2 border rounded-md cursor-pointer"
 					@onclick="()=> LibraryService.DeclineReservation(reservation)">
 							<p class="text-xs font-medium">Decline</p>
 						</div>
-						<div class="flex-1 p-2 rounded-md cursor-pointer bg-palegreen"
+						<div class="flex-1 p-2 rounded-md cursor-pointer bg-lime-500"
 					@onclick="()=> LibraryService.AllowReservation(reservation)">
 							<p class="text-xs text-white">Approve</p>
 						</div>
@@ -88,7 +106,7 @@
 				}
 				else if (!reservation.HasBeenPickedUp)
 				{
-					<div class="flex items-center">
+					<div class="flex items-center justify-between">
 						<p class="text-sm">Not yet picked up</p>
 						<div class="px-4 py-2 ml-auto border rounded-md cursor-pointer"
 					@onclick="()=> LibraryService.ReservationPickedUp(reservation)">
@@ -98,7 +116,7 @@
 				}
 				else if (!reservation.HasBeenReturned)
 				{
-					<div class="flex items-center justify-between">
+					<div class="flex items-center justify-between space-x-5">
 						@* <div>
 							<p class="font-medium text-md">Picked up on</p>
 							<p class="text-sm text-gray-600">@reservation.PickedUpAt.ToLongDateString()</p>

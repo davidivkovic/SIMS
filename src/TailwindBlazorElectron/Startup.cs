@@ -8,7 +8,7 @@ using ElectronNET.API.Entities;
 using ElectronNET.API;
 using TailwindBlazorElectron.Data;
 using Microsoft.EntityFrameworkCore;
-using System.Globalization;
+using System.Threading.Tasks;
 
 namespace TailwindBlazorElectron
 {
@@ -29,15 +29,15 @@ namespace TailwindBlazorElectron
 			services.AddRazorPages(o => o.RootDirectory = "/Views");
 			services.AddServerSideBlazor();
 
-			services.AddTransient<WindowService>();
-
 			services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SqlServer"),
-																   b => b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)));
+																   b => b.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery)),
+																   ServiceLifetime.Singleton);
 
-			services.AddScoped<BookService>();
-			services.AddScoped<AuthorService>();
-			services.AddScoped<LibraryService>();
+			services.AddSingleton<BookService>();
+			services.AddSingleton<AuthorService>();
+			services.AddSingleton<LibraryService>();
 
+			services.AddSingleton<WindowService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -73,24 +73,27 @@ namespace TailwindBlazorElectron
 			}
 		}
 
-		public async void ElectronBootstrap()
+		public void ElectronBootstrap()
 		{
-			var browserWindow = await Electron.WindowManager.CreateWindowAsync(new BrowserWindowOptions
+			Task.Run(async () =>
 			{
-				Width = 1280,
-				Height = 720,
-				Show = false,
-				Frame = false
+				var browserWindow = await Electron.WindowManager.CreateWindowAsync(new BrowserWindowOptions
+				{
+					Width = 1600,
+					Height = 900,
+					Show = false,
+					Frame = false
 
+				});
+
+				browserWindow.SetMenuBarVisibility(false);
+
+				await browserWindow.WebContents.Session.ClearCacheAsync();
+
+				browserWindow.OnReadyToShow += () => browserWindow.Show();
+
+				browserWindow.SetTitle("BookShelf");
 			});
-
-			browserWindow.SetMenuBarVisibility(false);
-			browserWindow.SetTitle("Twitter desktop");
-
-			await browserWindow.WebContents.Session.ClearCacheAsync();
-
-			browserWindow.OnReadyToShow += () => browserWindow.Show();
-
 		}
 	}
 }

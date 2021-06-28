@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TailwindBlazorElectron.Model.Account">
+    <Position X="1.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAACBAAABAEAAAAAgAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Account.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Address">
+    <Position X="13.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAIAAAAAAAAAEAAAAABAAIAAAAAAAA=</HashCode>
+      <FileName>Model\Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Author">
+    <Position X="13.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABCQEAAAAAAAAAAAAAAgAQAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Author.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Editions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Book">
+    <Position X="15.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAAAAIEgAEAAgAKAgAAAAAAAAAABACAAAAAAAAA=</HashCode>
+      <FileName>Model\Book.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Author" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Genres" />
+      <Property Name="Editions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Branch">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Branch.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Edition">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAIAACEBACAAAAAAAAShAAAAAAAACAAAAAAQ=</HashCode>
+      <FileName>Model\Edition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Genre">
+    <Position X="18.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Genre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Notification">
+    <Position X="15.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACQAAAAgAAAAAAAAAAAAAgAAGAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Reservation">
+    <Position X="3.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgDAAgMAEACAGIAAGAAAAAAAgAAAAASAAAAQAAIAAA=</HashCode>
+      <FileName>Model\Reservation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Edition" />
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.Subscription">
+    <Position X="6.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAADAAAAAQAAAAAAAAAAAAgAAAAgAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Model\Subscription.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="User" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.SubscriptionModel">
+    <Position X="8.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SubscriptionModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Model.User">
+    <Position X="10.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACQEAEAIAgBIAAEAEAAAAAAAASAADCAAAAAgAAAEg=</HashCode>
+      <FileName>Model\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Subscription" />
+      <Property Name="Address" />
+      <Property Name="Account" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Notifications" />
+      <Property Name="Reservations" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TailwindBlazorElectron.Services.LibraryService">
+    <Position X="3.25" Y="8.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>ABABACGAAAASCCABAAAAgAAAoIAAgAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Services\LibraryService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="TailwindBlazorElectron.Model.NotificationType">
+    <Position X="1.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAIAgAAAQAAAAAAAA=</HashCode>
+      <FileName>Model\Notification.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TailwindBlazorElectron.Model.ReservationStatus">
+    <Position X="9" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAIAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Model\Reservation.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TailwindBlazorElectron.Model.Role">
+    <Position X="12.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAEAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Model\Role.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TailwindBlazorElectron.Model.Sex">
+    <Position X="10.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Model\Sex.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TailwindBlazorElectron.Model.Status">
+    <Position X="7.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAKAAAAAAAAAAAAAAAAAAgAACAAAAAAA=</HashCode>
+      <FileName>Model\Status.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

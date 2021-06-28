@@ -3,7 +3,7 @@
 @using System.Globalization
 @using TailwindBlazorElectron.Services
 @using TailwindBlazorElectron.Model
-@using TailwindBlazorElectron.Store
+
 @inject LibraryService LibraryService
 
 @code {
@@ -14,11 +14,11 @@
 
 	void RequestEditionReservation(Edition edition)
 	{
-		if (!UserStore.HasUser())
+		if (!LibraryService.UserState.HasUser())
 		{
 			Console.WriteLine("Not signed in.");
 		}
-		var reservation = LibraryService.RequestEditionReservation(UserStore.CurrentUser, edition);
+		var reservation = LibraryService.RequestEditionReservation(LibraryService.UserState.CurrentUser, edition);
 		Console.WriteLine("submitted");
 		if (reservation is not null)
 		{
@@ -34,9 +34,9 @@
 
 }
 
-<div class="px-10 2xl:px-20">
+<div class="px-10 py-10 2xl:px-20">
 	<div class="flex">
-		<div class="flex w-2/3 my-3 2xl:mb-5">
+		<div class="flex w-11/12 my-3 3xl:w-2/3 2xl:mb-5">
 			<div class="w-full h-full pt-5 space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:pt-10">
 				<div class="w-56">
 					<img class="rounded-xl" src="@Book.CoverImage">
@@ -105,7 +105,9 @@
 						<div class="flex flex-col h-full mt-10 text-center">
 							@if (edition.QuantityAvailable == 0)
 							{
-								<p class="p-2 py-0.75 font-semibold rounded-full text-xxxs bg-red-200 text-red-600">Not
+								<p
+							class="p-2 py-0.75 font-semibold whitespace-nowrap rounded-full text-xxxs bg-red-200 text-red-600">
+									Not
 									Available</p>
 							}
 							else
@@ -122,9 +124,9 @@
 							<p class="font-medium">@edition.Publisher</p>
 						</div>
 
-						@if (edition.QuantityAvailable > 0 && UserStore.HasUser())
+						@if (edition.QuantityAvailable > 0 && LibraryService.UserState.HasUser())
 						{
-							<div class="px-3.5 py-1 ml-auto transition-colors rounded-full cursor-pointer bg-palegreen hover:bg-opacity-90"
+							<div class="px-3.5 py-1 ml-auto transition-colors rounded-full cursor-pointer bg-lime-500 hover:bg-opacity-90"
 						@onclick="() => RequestEditionReservation(edition)">
 								<p class="ml-1 text-white text-xxs">Reserve +</p>
 							</div>

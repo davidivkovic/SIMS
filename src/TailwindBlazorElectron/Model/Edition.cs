@@ -27,7 +27,7 @@ namespace TailwindBlazorElectron.Model
 				return null;
 			}
 
-			QuantityAvailable--;
+			Taken();
 
 			Reservation reservation = new()
 			{
@@ -36,6 +36,16 @@ namespace TailwindBlazorElectron.Model
 			};
 
 			return reservation;
+		}
+
+		public void Taken()
+        {
+			QuantityAvailable--;
+        }
+
+		public void Returned() 
+		{
+			QuantityAvailable++;
 		}
 	}
 }

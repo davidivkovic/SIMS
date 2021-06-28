@@ -2,10 +2,13 @@
 @inherits LayoutComponentBase
 
 @using HeroIcons.Blazor.Solid
-@using TailwindBlazorElectron.Store
+@using TailwindBlazorElectron.Services
+
 @inject NavigationManager Router
+@inject LibraryService LibraryService
 
 @code {
+	bool NotificationsVisible;
 
 	string CurrentUrl()
 	{
@@ -14,8 +17,13 @@
 
 	void SignOut()
 	{
-		UserStore.RemoveUser();
+		LibraryService.SignOut();
 		Router.NavigateTo("");
+	}
+
+	void ToggleNotifications()
+	{
+		NotificationsVisible = !NotificationsVisible;
 	}
 }
 
@@ -33,7 +41,7 @@
 				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
 					@onclick='() => Router.NavigateTo("")'>
 					<div
-						class="flex items-center space-x-3 @(CurrentUrl().Equals(String.Empty) ? "text-palegreen" : "text-gray-400")">
+						class="flex items-center space-x-3 @(CurrentUrl().Equals(String.Empty) ? "text-lime-500" : "text-gray-500")">
 						<ViewGridIcon class="w-7 h-7">
 						</ViewGridIcon>
 						<p>All</p>
@@ -42,44 +50,44 @@
 
 				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
 					<div class="flex items-center space-x-3">
-						<BookOpenIcon class="text-gray-400 w-7 h-7" />
+						<BookOpenIcon class="text-gray-500 w-7 h-7" />
 						<p>Library</p>
 					</div>
 				</div>
 
 				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
 					<div class="flex items-center space-x-3">
-						<CollectionIcon class="text-gray-400 w-7 h-7 " />
+						<CollectionIcon class="text-gray-500 w-7 h-7 " />
 						<p>Genres</p>
 					</div>
 				</div>
 
 				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
 					<div class="flex items-center space-x-3">
-						<UsersIcon class="text-gray-400 w-7 h-7 " />
+						<UsersIcon class="text-gray-500 w-7 h-7 " />
 						<p>Authors</p>
 					</div>
 				</div>
 
 				<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
 					<div class="flex items-center space-x-3">
-						<StarIcon class="text-gray-400 w-7 h-7" />
+						<StarIcon class="text-gray-500 w-7 h-7" />
 						<p>Recommended</p>
 					</div>
 				</div>
 
-				@if (UserStore.HasUser() && UserStore.CurrentUser.HasUnreadNotifications)
+				@if (LibraryService.UserState.HasUser() && LibraryService.UserState.CurrentUser.HasUnreadNotifications)
 				{
-					<div @onclick='() => Router.NavigateTo("/notifications")'
-					class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
+					@onclick='() => ToggleNotifications()'>
 						<div class="flex items-center">
 							<div
-							class="flex items-center @(CurrentUrl() == "notifications" ? "text-palegreen" : "text-gray-400")">
+							class="flex items-center @(CurrentUrl() == "notifications" ? "text-lime-500" : "text-gray-500")">
 								<InboxIcon class="w-7 h-7" />
 								<span class="-ml-3 -mt-4 relative flex w-2.5 h-2.5 ">
 									<span
-									class="absolute inline-flex w-full h-full rounded-full opacity-75 bg-palegreen animate-ping anima"></span>
-									<span class="relative inline-flex w-2.5 h-2.5 bg-palegreen rounded-full"></span>
+									class="absolute inline-flex w-full h-full rounded-full opacity-75 bg-lime-500 animate-ping anima"></span>
+									<span class="relative inline-flex w-2.5 h-2.5 bg-lime-500 rounded-full"></span>
 								</span>
 								<p class="ml-3.5">Notifications</p>
 							</div>
@@ -88,23 +96,35 @@
 					</div>
 				}
 
-				@if (UserStore.UserIsLibrarian())
+				@if (LibraryService.UserState.UserIsLibrarian())
 				{
-					<div @onclick='() => Router.NavigateTo("/signup")'
-					class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
+					@onclick='() => Router.NavigateTo("/signup")'>
 						<div
-						class="flex items-center space-x-3 @(CurrentUrl() == "signup" ? "text-palegreen" : "text-gray-400")">
+						class="flex items-center space-x-3 @(CurrentUrl() == "signup" ? "text-lime-500" : "text-gray-500")">
 							<UserAddIcon class="w-7 h-7" />
 							<p>Sign Up</p>
 						</div>
 					</div>
 
-					<div @onclick='() => Router.NavigateTo("/reservations")'
-					class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50">
+					<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
+					@onclick='() => Router.NavigateTo("/reservations")'>
 						<div
-						class="flex items-center space-x-3 @(CurrentUrl() == "reservations" ? "text-palegreen" : "text-gray-400")">
+						class="flex items-center space-x-3 @(CurrentUrl() == "reservations" ? "text-lime-500" : "text-gray-500")">
 							<PencilAltIcon class="w-7 h-7" />
 							<p>Reservations</p>
+						</div>
+					</div>
+				}
+
+				@if (LibraryService.UserState.HasUser())
+				{
+					<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
+					@onclick='() => Router.NavigateTo("/accountupdate")'>
+						<div
+						class="flex items-center space-x-3 @(CurrentUrl() == "accountupdate" ? "text-lime-500" : "text-gray-500")">
+							<CogIcon class="w-7 h-7" />
+							<p>Settings</p>
 						</div>
 					</div>
 				}
@@ -112,14 +132,13 @@
 			</div>
 			<!--Profile section-->
 			<div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
-				@if (UserStore.HasUser())
+				@if (LibraryService.UserState.HasUser())
 				{
 					<div class="flex items-center space-x-2">
-						<img class="object-cover w-12 h-12 rounded-xl"
-						src="https://media-exp1.licdn.com/dms/image/C5603AQGntcirExBGxw/profile-displayphoto-shrink_200_200/0/1577464815452?e=1628121600&v=beta&t=inKGU4b3Sd4vqTlcgZGGkSvkTBOG06_v26wc0zryHnY">
+						<img class="object-cover w-12 h-12 rounded-xl" src="@LibraryService.UserState.CurrentUser.ImageUrl">
 						<div class="space-y-1 font-medium tracking-tight">
 							<p class="text-xs text-gray-500">Good morning!</p>
-							<p class="text-md">@UserStore.CurrentUser.FullName</p>
+							<p class="text-md">@LibraryService.UserState.CurrentUser.FullName</p>
 						</div>
 					</div>
 					<div class="p-2 transition-colors rounded cursor-pointer hover:bg-gray-100" title="Log Out"
@@ -129,22 +148,43 @@
 				}
 				else
 				{
-					<div class="space-y-2 font-medium text-center">
+					<div class="space-y-2 text-center">
 						<p class="text-xs text-gray-600 ">Already have an account?</p>
-						<div class="flex items-center justify-center px-2 py-1.75 text-white transition-colors rounded-md cursor-pointer bg-palegreen hover:bg-opacity-90"
+						<div class="flex items-center justify-center px-6 py-2.5 text-white transition-colors rounded-md cursor-pointer bg-lime-500 hover:bg-opacity-90"
 						title="Log Out" @onclick='() => Router.NavigateTo("/signin")'>
-							<p class="text-xs ml-11">Sign in</p>
-							<HeroIcons.Blazor.Outline.LoginIcon class="w-6 h-6 ml-8 text-white" />
+							<p class="text-xs">Sign in</p>
+							@* <HeroIcons.Blazor.Outline.LoginIcon class="w-6 h-6 ml-8 text-white" /> *@
 						</div>
 					</div>
 				}
 			</div>
 
 		</div>
+
 		<!--Main content-->
+
 		<div class="w-full h-full">
 			@Body
 		</div>
 
+		@if (NotificationsVisible)
+		{
+			<div class="absolute flex w-full backdrop-filter backdrop-blur-md">
+				<div class="flex-1 bg-black cursor-pointer pointer-events-auto opacity-40"
+				@onclick="() => ToggleNotifications()"></div>
+				<div class="relative max-w-md bg-white">
+					<div class="absolute w-full h-24 bg-white">
+						<p class="pl-10 mt-12 text-3xl">Notifications</p>
+					</div>
+					<div class="overflow-scroll">
+						<div style="height: calc(100vh - 17px);" class="pl-10 pr-6 pt-28">
+							<div>
+								<Notifications></Notifications>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
 	</div>
 </div>

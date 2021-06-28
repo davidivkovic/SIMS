@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using TailwindBlazorElectron.State;
 using TailwindBlazorElectron.Data;
 using TailwindBlazorElectron.Model;
 
@@ -12,10 +12,15 @@ namespace TailwindBlazorElectron.Services
 	{
 		private readonly ApplicationDbContext _dbContext;
 
+		// Najretardiranija stvar koja postoji na svetu je uvoditi state pattern u stateless aplikaciju samo da bi imao dijagram prelaza stanja jer ti to
+		// trazi specifikacija projekta ubijte me lolcina
+		public UserState UserState { get; private set; }
+
 		public LibraryService(ApplicationDbContext dbContext)
 		{
 			_dbContext = dbContext;
 			SeedLibrarian();
+			UserState = new UnauthenticatedState();
 		}
 
 		private void SeedLibrarian()
@@ -49,6 +54,11 @@ namespace TailwindBlazorElectron.Services
 			}
 		}
 
+		public void SignOut()
+		{
+			UserState = new UnauthenticatedState();
+		}
+
 		public User SignIn(string email, string password)
 		{
 			var user = _dbContext.Accounts
@@ -59,6 +69,12 @@ namespace TailwindBlazorElectron.Services
 								.Include(a => a.User)
 									.ThenInclude(u => u.Subscription)
 								.FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
+
+			if (user is not null)
+			{
+				UserState = new AuthenticatedState(user);
+			}
+
 			return user;
 		}
 
@@ -88,11 +104,6 @@ namespace TailwindBlazorElectron.Services
 
 			_dbContext.Add(account);
 			return _dbContext.SaveChanges() != 0;
-		}
-
-		public User GetUser(Guid id)
-		{
-			return _dbContext.Users.Find(id);
 		}
 
 		public Subscription SubscribeReader(User user, SubscriptionModel model)
@@ -132,6 +143,12 @@ namespace TailwindBlazorElectron.Services
 			_dbContext.SaveChanges();
 		}
 
+		public void MarkNotificationAsRead(Notification notification)
+		{
+			notification.Read(DateTime.Now);
+			_dbContext.SaveChanges();
+		}
+
 		public void AllowReservation(Reservation reservation)
 		{
 			reservation.Approve();
@@ -141,6 +158,13 @@ namespace TailwindBlazorElectron.Services
 				SentAt = DateTime.Now
 			});
 			_dbContext.SaveChanges();
+		}
+
+		public User FindUserBySSN(string ssn)
+		{
+			return _dbContext.Users.Include(u => u.Address)
+								   .Include(u => u.Account)
+								   .FirstOrDefault(u => u.SSN.StartsWith(ssn));
 		}
 
 		public void ReservationPickedUp(Reservation reservation)
@@ -177,17 +201,31 @@ namespace TailwindBlazorElectron.Services
 			};
 		}
 
-		public List<Reservation> GetAllReservations()
+		public List<Reservation> GetAllReservations(User user = null)
 		{
+			if (user is not null)
+			{
+				return _dbContext.Reservations
+						.Include(r => r.User)
+							.ThenInclude(u => u.Account)
+						.Include(r => r.Edition)
+							.ThenInclude(e => e.Book)
+								.ThenInclude(b => b.Author)
+						.Include(r => r.Edition)
+							.ThenInclude(e => e.Authors)
+							.Where(r => r.User.Id == user.Id)
+						.ToList();
+			}
+
 			return _dbContext.Reservations
-							 .Include(r => r.User)
-								 .ThenInclude(u => u.Account)
-							 .Include(r => r.Edition)
-								 .ThenInclude(e => e.Book)
-									 .ThenInclude(b => b.Author)
-							 .Include(r => r.Edition)
-								 .ThenInclude(e => e.Authors)
-							 .ToList();
+					.Include(r => r.User)
+						.ThenInclude(u => u.Account)
+					.Include(r => r.Edition)
+						.ThenInclude(e => e.Book)
+							.ThenInclude(b => b.Author)
+					.Include(r => r.Edition)
+						.ThenInclude(e => e.Authors)
+					.ToList();
 		}
 	}
 }

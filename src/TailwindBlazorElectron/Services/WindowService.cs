@@ -4,28 +4,25 @@ using System.Linq;
 
 namespace TailwindBlazorElectron.Services
 {
-    public class WindowService
-    {
-        public BrowserWindow ElectronWindow { get; }
+	public class WindowService
+	{
+		public void Minimize() => Electron.WindowManager.BrowserWindows.FirstOrDefault()?.Minimize();
+		public void Close() => Electron.WindowManager.BrowserWindows.FirstOrDefault()?.Close();
 
-        public WindowService(WindowManager windowManager)
-        {
-            ElectronWindow = windowManager.BrowserWindows.ElementAtOrDefault(0);
-        }
+		public async void Maximize()
+		{
+			var window = Electron.WindowManager.BrowserWindows.FirstOrDefault();
 
-        public void Minimize() => ElectronWindow?.Minimize();
-        public void Close() => ElectronWindow?.Close();
+			if (window is null) return;
 
-        public async void Maximize()
-        {
-            if (await ElectronWindow?.IsMaximizedAsync())
-            {
-                ElectronWindow?.Restore();
-            }
-            else
-            {
-                ElectronWindow?.Maximize();
-            }
-        }
-    }
+			if (await window.IsMaximizedAsync())
+			{
+				window.Restore();
+			}
+			else
+			{
+				window.Maximize();
+			}
+		}
+	}
 }

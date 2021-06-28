@@ -23,10 +23,15 @@ namespace TailwindBlazorElectron.Model
 		public bool IsPending => Status == ReservationStatus.Pending;
 		public bool IsApproved => Status == ReservationStatus.Approved;
 		public bool IsDeclined => Status == ReservationStatus.Declined;
-		public bool HasBeenPickedUp => PickedUpAt != default(DateTime);
-		public bool HasBeenReturned => ReturnedAt != default(DateTime);
+		public bool HasBeenPickedUp => PickedUpAt != default;
+		public bool HasBeenReturned => ReturnedAt != default;
 		public void MarkAsPickedUp(DateTime date) => PickedUpAt = date;
-		public void MarkAsReturned(DateTime date) => ReturnedAt = date;
+
+		public void MarkAsReturned(DateTime date)
+		{
+			ReturnedAt = date;
+			Edition.Returned();
+		}
 
 		public void Decline()
 		{

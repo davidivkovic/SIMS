@@ -5,12 +5,22 @@ using System.Threading.Tasks;
 
 namespace TailwindBlazorElectron.Model
 {
-    public class Notification
-    {
-        public Guid Id { get; set; }
-        public string Content { get; set; }
-        public DateTime SentAt { get; set; }
-        public DateTime ReadAt { get; private set; }
-        public void Read(DateTime date) => ReadAt = date;
-    }
+	public enum NotificationType
+	{
+		ReservationDeclined,
+		ReservationApproved,
+		SubscriptionEnded,
+		BookOverdue
+	}
+
+	public class Notification
+	{
+		public Guid Id { get; set; }
+		public string Content { get; set; }
+		public DateTime SentAt { get; set; }
+		public DateTime ReadAt { get; private set; }
+		public NotificationType Type { get; set; }
+		public string ImageUrl { get; set; }
+		public void Read(DateTime date) => ReadAt = date;
+	}
 }

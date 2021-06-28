@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace TailwindBlazorElectron.Model
 {
 	public class User
 	{
 		public Guid Id { get; set; }
+		public string SSN { get; set; }
+		public string ImageUrl { get; set; }
 		public string FirstName { get; set; }
 		public string LastName { get; set; }
 		public DateTime DateOfBirth { get; set; }
@@ -20,7 +22,10 @@ namespace TailwindBlazorElectron.Model
 		public ICollection<Notification> Notifications { get; private set; } = new List<Notification>();
 		public ICollection<Reservation> Reservations { get; private set; } = new List<Reservation>();
 		public string FullName => $"{FirstName} {LastName}";
-		public bool HasUnreadNotifications => Notifications.Any(n => n.ReadAt == default(DateTime));
+		public bool HasUnreadNotifications => Notifications.Any(n => n.ReadAt == default);
+
+		[NotMapped]
+		public List<Notification> UnreadNotifications => Notifications.Where(n => n.ReadAt == default).ToList();
 
 		public TimeSpan BookRetentionTime()
 		{

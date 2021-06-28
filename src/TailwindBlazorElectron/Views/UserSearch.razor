@@ -1,0 +1,91 @@
+@using HeroIcons.Blazor.Solid
+
+@using TailwindBlazorElectron.Services
+@using TailwindBlazorElectron.Model
+@inject LibraryService LibraryService
+
+@code {
+	string SSN;
+	bool HasError;
+	public User SelectedUser { get; set; }
+	[Parameter] public EventCallback<User> onselected { get; set; }
+
+	async void SelectUser(User user)
+	{
+		SelectedUser = user;
+		await onselected.InvokeAsync(user);
+	}
+
+	void SSNChanged(string ssn)
+	{
+		HasError = false;
+		SelectUser(null);
+		SSN = ssn;
+	}
+
+	void Search()
+	{
+		if (string.IsNullOrWhiteSpace(SSN))
+		{
+			SelectUser(null);
+			return;
+		};
+
+		var user = LibraryService.FindUserBySSN(SSN);
+		if (user is not null)
+		{
+			HasError = false;
+			SelectUser(user);
+		}
+		HasError = true;
+	}
+
+	void OnEnter(KeyboardEventArgs e)
+	{
+		if (e.Code == "Enter" || e.Code == "NumpadEnter")
+		{
+			Search();
+		}
+	}
+}
+
+<div class="flex items-start space-x-6">
+	<div class="relative h-11 w-80">
+		<div class="absolute flex justify-between w-full pointer-events-none h-11">
+			<SearchIcon class="w-5 h-5 mt-3 ml-3 text-gray-400" />
+			<div class="p-3 text-gray-400 transition-colors cursor-pointer pointer-events-auto hover:text-gray-700"
+				@onclick="() => Search()">
+				<ArrowRightIcon class="w-5 h-5" />
+			</div>
+		</div>
+
+		<input type="text"
+			class="w-full h-full px-10 tracking-tight transition-colors border-gray-200 rounded-lg focus:border-lime-500 focus:ring-1 focus:ring-lime-500 text-md"
+			placeholder="Enter an SSN to find users" @oninput="args => SSNChanged(args.Value.ToString())"
+			@onkeydown="OnEnter" />
+
+	</div>
+	<div class="flex">
+		@if (SelectedUser is not null)
+		{
+			<div class="py-4 pl-4 pr-6 border rounded-lg">
+				<div class="flex items-center space-x-5">
+					@if (!string.IsNullOrEmpty(SelectedUser.ImageUrl))
+					{
+						<img class="w-20 h-20 rounded-full" src="@SelectedUser.ImageUrl">
+					}
+					<div class="text-sm">
+						<p class="text-base font-medium">@SelectedUser.FullName</p>
+						<p class="text-xs font-medium">SSN @SelectedUser.SSN</p>
+						<p class="mt-2">@SelectedUser.Account.Email</p>
+						<p class="tracking-tight">@SelectedUser.Address.Flattened</p>
+					</div>
+				</div>
+			</div>
+		}
+		else if (HasError && !string.IsNullOrWhiteSpace(SSN))
+		{
+			<p class="mt-4 text-center text-md">No user with matching SSN</p>
+		}
+	</div>
+</div>
