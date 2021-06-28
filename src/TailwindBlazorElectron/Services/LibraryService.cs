@@ -10,23 +10,26 @@ namespace TailwindBlazorElectron.Services
 {
 	public class LibraryService
 	{
-		private readonly ApplicationDbContext _dbContext;
+		public readonly ApplicationDbContext DbContext;
 
 		// Najretardiranija stvar koja postoji na svetu je uvoditi state pattern u stateless aplikaciju samo da bi imao dijagram prelaza stanja jer ti to
-		// trazi specifikacija projekta ubijte me lolcina
-		public UserState UserState { get; private set; }
+		// trazi specifikacija projekta ubijte me lolcina PROSLEDJUJE SE THIS LOOOOOL
+		public UserState UserState { get; set; }
 
 		public LibraryService(ApplicationDbContext dbContext)
 		{
-			_dbContext = dbContext;
+			DbContext = dbContext;
+
 			SeedLibrarian();
-			UserState = new UnauthenticatedState();
+
+			UserState = new UnauthenticatedState(this);
+			UserState.Entry();
 		}
 
 		private void SeedLibrarian()
 		{
 			var email = "gorajkora@gmail.com";
-			var account = _dbContext.Accounts.FirstOrDefault(a => a.Email == email);
+			var account = DbContext.Accounts.FirstOrDefault(a => a.Email == email);
 			if (account is null)
 			{
 				SignUp(email, "123", new User()
@@ -56,31 +59,18 @@ namespace TailwindBlazorElectron.Services
 
 		public void SignOut()
 		{
-			UserState = new UnauthenticatedState();
+			UserState.SignOut();
 		}
 
 		public User SignIn(string email, string password)
 		{
-			var user = _dbContext.Accounts
-								 .Include(a => a.User)
-								 	.ThenInclude(u => u.Address)
-								 .Include(a => a.User)
-									.ThenInclude(u => u.Notifications)
-								.Include(a => a.User)
-									.ThenInclude(u => u.Subscription)
-								.FirstOrDefault(a => a.Email == email && a.Password == password)?.User;
-
-			if (user is not null)
-			{
-				UserState = new AuthenticatedState(user);
-			}
-
-			return user;
+			UserState.SignIn(email, password);
+			return UserState.CurrentUser;
 		}
 
 		public bool SignUp(string email, string password, User user, Address address, SubscriptionModel subscription = null)
 		{
-			var existingAccount = _dbContext.Accounts.SingleOrDefault(a => a.Email == email);
+			var existingAccount = DbContext.Accounts.SingleOrDefault(a => a.Email == email);
 
 			if (existingAccount is not null)
 			{
@@ -102,31 +92,40 @@ namespace TailwindBlazorElectron.Services
 			}
 			user.Account = account;
 
-			_dbContext.Add(account);
-			return _dbContext.SaveChanges() != 0;
+			DbContext.Add(account);
+			return DbContext.SaveChanges() != 0;
 		}
 
 		public Subscription SubscribeReader(User user, SubscriptionModel model)
 		{
 			var subscription = user.Subscribe(model);
-			_dbContext.SaveChanges();
+			DbContext.SaveChanges();
 
 			return subscription;
 		}
 
-		public Reservation RequestEditionReservation(User user, Edition edition)
+		public Reservation RequestReservation(Edition edition, User user = null)
 		{
 			var reservation = edition.Reserve();
 
-			if (reservation is null)
+			if (reservation is null) return null;
+
+			if (user is null)
 			{
-				return null;
+				user = UserState.CurrentUser;
+				reservation.User = user;
+			}
+			else
+			{
+				reservation.User = user;
+				AllowReservation(reservation);
+				ReservationPickedUp(reservation);
 			}
 
 			user.AddReservation(reservation);
 
-			_dbContext.Add(reservation);
-			_dbContext.SaveChanges();
+			DbContext.Add(reservation);
+			DbContext.SaveChanges();
 
 			return reservation;
 		}
@@ -140,13 +139,13 @@ namespace TailwindBlazorElectron.Services
 				SentAt = DateTime.Now
 			});
 
-			_dbContext.SaveChanges();
+			DbContext.SaveChanges();
 		}
 
 		public void MarkNotificationAsRead(Notification notification)
 		{
 			notification.Read(DateTime.Now);
-			_dbContext.SaveChanges();
+			DbContext.SaveChanges();
 		}
 
 		public void AllowReservation(Reservation reservation)
@@ -157,12 +156,12 @@ namespace TailwindBlazorElectron.Services
 				Content = $"Your reservation of {reservation.Edition.Title} has been approved. You can pick up the book in the next three days.",
 				SentAt = DateTime.Now
 			});
-			_dbContext.SaveChanges();
+			DbContext.SaveChanges();
 		}
 
 		public User FindUserBySSN(string ssn)
 		{
-			return _dbContext.Users.Include(u => u.Address)
+			return DbContext.Users.Include(u => u.Address)
 								   .Include(u => u.Account)
 								   .FirstOrDefault(u => u.SSN.StartsWith(ssn));
 		}
@@ -170,18 +169,18 @@ namespace TailwindBlazorElectron.Services
 		public void ReservationPickedUp(Reservation reservation)
 		{
 			reservation.MarkAsPickedUp(DateTime.Now);
-			_dbContext.SaveChanges();
+			DbContext.SaveChanges();
 		}
 
 		public void ReservationReturned(Reservation reservation)
 		{
 			reservation.MarkAsReturned(DateTime.Now);
-			_dbContext.SaveChanges();
+			DbContext.SaveChanges();
 		}
 
 		public Book GetBookByIdTitle(string IdTitle)
 		{
-			var book = _dbContext.Books.Include(b => b.Author)
+			var book = DbContext.Books.Include(b => b.Author)
 									   .Include(b => b.Genres)
 									   .Include(b => b.Editions)
 										   .ThenInclude(e => e.Authors)
@@ -205,7 +204,7 @@ namespace TailwindBlazorElectron.Services
 		{
 			if (user is not null)
 			{
-				return _dbContext.Reservations
+				return DbContext.Reservations
 						.Include(r => r.User)
 							.ThenInclude(u => u.Account)
 						.Include(r => r.Edition)
@@ -217,7 +216,7 @@ namespace TailwindBlazorElectron.Services
 						.ToList();
 			}
 
-			return _dbContext.Reservations
+			return DbContext.Reservations
 					.Include(r => r.User)
 						.ThenInclude(u => u.Account)
 					.Include(r => r.Edition)

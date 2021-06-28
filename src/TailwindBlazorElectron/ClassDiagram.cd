@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="TailwindBlazorElectron.Model.Account">
     <Position X="1.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
@@ -13,7 +13,7 @@
   <Class Name="TailwindBlazorElectron.Model.Address">
     <Position X="13.5" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAIAAAAAAAAAEAAAAABAAIAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAIAAAAAAAAAEAAAAABAIIAAAAAAAA=</HashCode>
       <FileName>Model\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -100,13 +100,13 @@
   <Class Name="TailwindBlazorElectron.Model.User">
     <Position X="10.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAACQEAEAIAgBIAAEAEAAAAAAAASAADCAAAAAgAAAEg=</HashCode>
+      <HashCode>EAACQEAEEIAgBIAAEAEAAAAAAAASAADCAAAAAgAAAEg=</HashCode>
       <FileName>Model\User.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Property Name="Account" />
       <Property Name="Subscription" />
       <Property Name="Address" />
-      <Property Name="Account" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="Notifications" />
@@ -114,10 +114,34 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="TailwindBlazorElectron.Services.LibraryService">
-    <Position X="3.25" Y="8.25" Width="2.5" />
+    <Position X="4.25" Y="9.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>ABABACGAAAASCCABAAAAgAAAoIAAgAAAEAAAAAAAAAA=</HashCode>
+      <HashCode>ABAIACGAAAASCCABAAAAgAEAoIAAgAgAAAAAAAAAAAA=</HashCode>
       <FileName>Services\LibraryService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="UserState" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TailwindBlazorElectron.State.UserState">
+    <Position X="8" Y="9.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAQACCAAIAAAAAgAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>State\UserState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.State.AuthenticatedState">
+    <Position X="7.25" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQACAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>State\UserState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TailwindBlazorElectron.State.UnauthenticatedState">
+    <Position X="9.25" Y="12.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAQAACAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>State\UserState.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="TailwindBlazorElectron.Model.NotificationType">

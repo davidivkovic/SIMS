@@ -7,19 +7,29 @@
 @inject LibraryService LibraryService
 
 @code {
-	[Parameter]
-	public string IdTitle { get; set; }
+	[Parameter] public string IdTitle { get; set; }
+	User SelectedUser;
 	Book Book;
 	string FormatedRating(Book book) => (book.AverageRating * 2).ToString("F1", CultureInfo.InvariantCulture);
 
-	void RequestEditionReservation(Edition edition)
+	void RequestReservation(Edition edition)
 	{
 		if (!LibraryService.UserState.HasUser())
 		{
-			Console.WriteLine("Not signed in.");
+			return;
 		}
-		var reservation = LibraryService.RequestEditionReservation(LibraryService.UserState.CurrentUser, edition);
-		Console.WriteLine("submitted");
+
+		Reservation reservation;
+
+		if (LibraryService.UserState.UserIsLibrarian() && SelectedUser is not null)
+		{
+			reservation = LibraryService.RequestReservation(edition, SelectedUser);
+		}
+		else
+		{
+			reservation = LibraryService.RequestReservation(edition);
+		}
+
 		if (reservation is not null)
 		{
 			Console.WriteLine("Success");
@@ -31,6 +41,10 @@
 		Book = LibraryService.GetBookByIdTitle(IdTitle);
 	}
 
+	void UserSelected(User user)
+	{
+		SelectedUser = user;
+	}
 
 }
 
@@ -76,6 +90,12 @@
 	</div>
 	<div class="inline-block space-y-2">
 		<p class="my-4 text-xl ">Editions</p>
+		@if (LibraryService.UserState.HasUser() && LibraryService.UserState.UserIsLibrarian())
+		{
+			<div class="pb-4">
+				<UserSearch onselected="UserSelected"></UserSearch>
+			</div>
+		}
 		<div class="grid grid-flow-col grid-rows-2 gap-5">
 			@foreach (Edition edition in Book.Editions)
 			{
@@ -124,12 +144,16 @@
 							<p class="font-medium">@edition.Publisher</p>
 						</div>
 
-						@if (edition.QuantityAvailable > 0 && LibraryService.UserState.HasUser())
+						@if (LibraryService.UserState.HasUser() && edition.QuantityAvailable > 0)
 						{
-							<div class="px-3.5 py-1 ml-auto transition-colors rounded-full cursor-pointer bg-lime-500 hover:bg-opacity-90"
-						@onclick="() => RequestEditionReservation(edition)">
-								<p class="ml-1 text-white text-xxs">Reserve +</p>
-							</div>
+							@if ((LibraryService.UserState.UserIsLibrarian() && SelectedUser is not null) ||
+									!LibraryService.UserState.UserIsLibrarian())
+							{
+								<div class="px-3.5 py-1 ml-auto transition-colors rounded-full cursor-pointer bg-lime-500 hover:bg-opacity-90"
+						@onclick="() => RequestReservation(edition)">
+									<p class="ml-1 text-white text-xxs">Reserve +</p>
+								</div>
+							}
 						}
 					</div>
 
