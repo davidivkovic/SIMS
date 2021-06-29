@@ -1,6 +1,7 @@
 @page "/accountupdate"
 @using TailwindBlazorElectron.Services
 @using TailwindBlazorElectron.Model
+@using HeroIcons.Blazor.Solid
 
 @inject LibraryService LibraryService
 
@@ -19,11 +20,11 @@
 }
 @if (LibraryService.UserState.HasUser())
 {
-	<div class="px-32">
+	<div class="py-2 ml-12 px-14">
 		<div class="mt-10">
-			<p class="text-2xl font-medium">Account Update</p>
-			<div class="mt-10 md:grid md:grid-cols-3 md:gap-6">
-				<div class="md:col-span-1">
+			<p class="text-2xl font-medium ">Account Settings</p>
+			<div class="mt-10 md:grid md:grid-cols-6 md:gap-20">
+				<div class="md:col-span-2">
 					<div class="px-4 sm:px-0">
 						<h3 class="text-lg font-medium leading-6 text-gray-900">Profile</h3>
 						<p class="mt-1 text-sm text-gray-600">
@@ -31,22 +32,23 @@
 						</p>
 					</div>
 				</div>
-				<div class="mt-5 md:mt-0 md:col-span-2">
-					<form action="#" method="POST">
-						<div class="shadow sm:rounded-md sm:overflow-hidden">
+				<div class="mt-5 md:mt-0 md:col-span-3">
+					<form  method="POST">
+						<div class="border sm:rounded-md sm:overflow-hidden">
 							<div class="px-4 py-5 space-y-6 bg-white sm:p-6">
 								<div>
-									<label class="block text-sm font-medium text-gray-700">
-										Photo
-									</label>
-									<div class="flex items-center mt-1 space-x-5">
-										<span class="inline-block w-12 h-12 overflow-hidden bg-gray-100 rounded-full">
-											<img src="https://source.unsplash.com/JN0SUcTOig0/200x200" />
+									<div class="flex items-center mt-1 space-x-5 text-sm">
+										<span class="inline-block w-20 h-20 overflow-hidden bg-gray-100 rounded-full">
+											<img src="@CurrentUser.ImageUrl" />
 										</span>
-										<p class="cursor-pointer">Remove photo</p>
+										<div>
+											<p class="font-medium">@CurrentUser.FullName</p>
+											<p class="mt-2">SSN @CurrentUser.SSN</p>
+											<p>@CurrentUser.Account.Email</p>
+
+										</div>
 									</div>
 								</div>
-
 								<div>
 									<label class="block text-sm font-medium text-gray-700">
 										Change profile photo
@@ -75,7 +77,58 @@
 									</div>
 								</div>
 							</div>
-							<div class="float-right px-4 py-3 bg-gray-50 sm:px-6">
+							<div class="float-right px-4 py-3 sm:px-6">
+								<button
+								class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
+									<p class="text-xs">Save</p>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="hidden sm:block" aria-hidden="true">
+			<div class="py-5">
+				<div class="border-t border-gray-200"></div>
+			</div>
+		</div>
+
+		<div class="hidden sm:block" aria-hidden="true">
+			<div class="py-5">
+				<div class="border-t border-gray-200"></div>
+			</div>
+		</div>
+
+		<div class="mt-10 sm:mt-0">
+			<div class="md:grid md:grid-cols-6 md:gap-20">
+				<div class="md:col-span-2">
+					<div class="px-4 sm:px-0">
+						<h3 class="text-lg font-medium leading-6 text-gray-900">Account Information</h3>
+						<p class="mt-1 text-sm text-gray-600">
+							Change your password.
+						</p>
+					</div>
+				</div>
+				<div class="mt-5 md:mt-0 md:col-span-3">
+					<form  method="POST">
+						<div class="overflow-hidden border sm:rounded-md">
+							<div class="px-4 py-5 bg-white sm:p-6">
+								<div class="grid grid-cols-6 gap-6">
+									<div class="col-span-6 sm:col-span-3">
+										<label class="block text-sm font-medium text-gray-700">New Password</label>
+										<input type="password" placeholder="At least 8 characters"
+										class="block w-full mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+									</div>
+									<div class="col-span-6 sm:col-span-3">
+										<label class="block text-sm font-medium text-gray-700">Confirm New Password</label>
+										<input type="password" 
+										class="block w-full mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+									</div>
+								</div>
+							</div>
+							<div class="float-right px-4 py-3 sm:px-6">
 								<button
 								class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
 									<p class="text-xs">Save</p>
@@ -94,62 +147,8 @@
 		</div>
 
 		<div class="mt-10 sm:mt-0">
-			<div class="md:grid md:grid-cols-3 md:gap-6">
-				<div class="md:col-span-1">
-					<div class="px-4 sm:px-0">
-						<h3 class="text-lg font-medium leading-6 text-gray-900">Personal Information</h3>
-						<p class="mt-1 text-sm text-gray-600">
-							This information is permanent and can not be changed.
-						</p>
-					</div>
-				</div>
-				<div class="mt-5 md:mt-0 md:col-span-2">
-					<form action="#" method="POST">
-						<div class="overflow-hidden shadow sm:rounded-md">
-							<div class="px-4 py-5 bg-white sm:p-6">
-								<div class="grid grid-cols-6 gap-6">
-									<div class="col-span-6">
-										<label class="block text-sm font-medium text-gray-700">Full Name</label>
-										<div type="text"
-										class="block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-											@CurrentUser.FullName</div>
-									</div>
-									<div class="col-span-6 sm:col-span-3 lg:col-span-2">
-										<label class="block text-sm font-medium text-gray-700">Gender</label>
-										<div type="text"
-										class="block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-											@CurrentUser.Sex</div>
-									</div>
-									<div class="col-span-6 sm:col-span-3 lg:col-span-2">
-										<label class="block text-sm font-medium text-gray-700">Date of Birth</label>
-										<div readonly type="date"
-										class="block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-											@CurrentUser.DateOfBirth.ToString("dd.MM.yyyy.")</div>
-									</div>
-									<div class="col-span-6 sm:col-span-3 lg:col-span-2">
-										<label class="block text-sm font-medium text-gray-700">Status</label>
-										<div type="text"
-										class="block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-											@CurrentUser.Status</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-
-		<div class="hidden sm:block" aria-hidden="true">
-			<div class="py-5">
-				<div class="border-t border-gray-200"></div>
-			</div>
-		</div>
-
-		<div class="mt-10 sm:mt-0">
-			<div class="md:grid md:grid-cols-3 md:gap-6">
-				<div class="md:col-span-1">
+			<div class="md:grid md:grid-cols-6 md:gap-20">
+				<div class="md:col-span-2">
 					<div class="px-4 sm:px-0">
 						<h3 class="text-lg font-medium leading-6 text-gray-900">Address Information</h3>
 						<p class="mt-1 text-sm text-gray-600">
@@ -157,38 +156,38 @@
 						</p>
 					</div>
 				</div>
-				<div class="mt-5 md:mt-0 md:col-span-2">
-					<form action="#" method="POST">
-						<div class="overflow-hidden shadow sm:rounded-md">
+				<div class="mt-5 md:mt-0 md:col-span-3">
+					<form  method="POST">
+						<div class="overflow-hidden border sm:rounded-md">
 							<div class="px-4 py-5 bg-white sm:p-6">
 								<div class="grid grid-cols-6 gap-6">
 									<div class="col-span-6 sm:col-span-3">
 										<label for="street_address"
 										class="block text-sm font-medium text-gray-700">City</label>
 										<input @bind="@CurrentUser.Address.City" type="text"
-										class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+										class="block w-full mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 									</div>
 									<div class="col-span-6 sm:col-span-3">
 										<label for="street_address" class="block text-sm font-medium text-gray-700">Zip
 											Code</label>
 										<input @bind="@CurrentUser.Address.ZipCode" type="text"
-										class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+										class="block w-full mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 									</div>
 									<div class="col-span-6 sm:col-span-3">
 										<label for="street_address"
 										class="block text-sm font-medium text-gray-700">Street</label>
 										<input @bind="@CurrentUser.Address.Street" type="text"
-										class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+										class="block w-full mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 									</div>
 									<div class="col-span-6 sm:col-span-3">
 										<label for="street_address" class="block text-sm font-medium text-gray-700">Street
 											number</label>
 										<input @bind="@CurrentUser.Address.HouseNumber" type="text"
-										class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+										class="block w-full mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 									</div>
 								</div>
 							</div>
-							<div class="float-right px-4 py-3 bg-gray-50 sm:px-6">
+							<div class="float-right px-4 py-3 sm:px-6">
 								<button
 								class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
 									<p class="text-xs">Save</p>
@@ -206,9 +205,9 @@
 			</div>
 		</div>
 
-		<div class="mt-10 sm:mt-0">
-			<div class="md:grid md:grid-cols-3 md:gap-6">
-				<div class="md:col-span-1">
+		<div class="mt-10 mb-10 sm:mt-0">
+			<div class="md:grid md:grid-cols-6 md:gap-20">
+				<div class="md:col-span-2">
 					<div class="px-4 sm:px-0">
 						<h3 class="text-lg font-medium leading-6 text-gray-900">Subscription Information</h3>
 						<p class="mt-1 text-sm text-gray-600">
@@ -216,31 +215,61 @@
 						</p>
 					</div>
 				</div>
-				<div class="mt-5 md:mt-0 md:col-span-2">
-					<form action="#" method="POST">
-						<div class="overflow-hidden shadow sm:rounded-md">
+				<div class="mt-5 md:mt-0 md:col-span-3">
+					<form method="POST">
+						<div class="overflow-hidden border sm:rounded-md">
 							<div class="px-4 py-5 bg-white sm:p-6">
-								<div class="grid grid-cols-6 gap-6">
-									<div class="col-span-6 sm:col-span-3 lg:col-span-2">
-										<label class="block text-sm font-medium text-gray-700">Subscribed At</label>
-										<div type="text"
-										class="block w-full h-10 mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-											@CurrentUser.Subscription.StartDate</div>
+								<div class="text-sm">
+									<div class="space-y-4">
+										<p>Subscribed on <span class="font-medium">@CurrentUser.Subscription.StartDate.ToString("dd.MM.yyyy.")</span></p>
+										@if(@CurrentUser.Subscription.EndTime > DateTime.Now)
+										{
+											<p>Subscription end on <span class="font-medium">@CurrentUser.Subscription.EndTime.ToString("dd.MM.yyyy.")</span></p>
+											<p>Remaining subscription time is <span class="font-medium"> @CurrentUser.Subscription.RemainingTime().ToString() days.</span></p>
+											<div class="w-full h-4 border rounded-md">
+												<div class="h-full rounded-md bg-lime-500" style="width: @CurrentUser.Subscription.CurrentPercentage()%;">
+												</div>
+											</div>
+										}
+										else
+										{
+											<p>Subscription ended on <span class="font-medium">@CurrentUser.Subscription.EndTime.ToString("dd.MM.yyyy.")</span></p>
+											<p>If you want to renew your subscription by paying online, you can <span class="font-medium">choose a new pricing option</span> from below. Otherwise visit the library for other payment methods.</p>
+											<Subscriptions></Subscriptions>
+											<div class="inline-block">
+												<div class="justify-center px-3 py-3.5 border rounded-lg ">
+													<div class="flex items-center justify-between space-x-5 md:space-x-48">
+														<div class="flex items-center space-x-3.5">
+															<img src="/images/Card.jpg" class="object-fill w-16 h-14 img"/>
+															<div class="text-center">
+																<p class="font-medium">Debit Card</p>
+																<p class="text-gray-400">xxxx 8880</p>
+															</div>
+														</div>
+														<div class="items-center justify-center w-8 h-8 rounded-full cursor-pointer bg-indigo-50">
+															<PencilIcon class="w-8 h-8 p-1 text-indigo-500 "></PencilIcon>
+														</div>
+													</div>
+												</div>
+											</div>
+										}
 									</div>
 								</div>
 							</div>
-							<div class="float-right px-4 py-3 bg-gray-50 sm:px-6">
-								<button
-								class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
-									<p class="text-xs">Save</p>
-								</button>
-							</div>
+							@if(@CurrentUser.Subscription.EndTime < DateTime.Now)
+							{
+								<div class="float-right px-4 py-3 sm:px-6">
+									<button
+									class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
+										<p class="text-xs">Save</p>
+									</button>
+								</div>
+							}
+							
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
-
-
 	</div>
 }
