@@ -17,11 +17,13 @@
 			"target": [
 				"portable"
 			],
-			"icon": "/wwwroot/favicon.ico"
+			"icon": "bin/wwwroot/favicon.ico"
 		},
 		"portable": {
 			"unicode": false,
-			"artifactName": "BookShelf.exe"
+			"artifactName": "BookShelf.exe",
+			"useZip": true,
+			"splashImage": "bin/wwwroot/splash.bmp"
 		},
 		"directories": {
 			"output": "../../../bin/Desktop"

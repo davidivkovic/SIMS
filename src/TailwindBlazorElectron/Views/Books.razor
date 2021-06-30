@@ -84,7 +84,7 @@
 
 <div class="px-10 py-2 2xl:px-20">
 	<div class="flex">
-		<div class="flex w-11/12 my-3 3xl:w-2/3 2xl:mb-5">
+		<div class="flex w-11/12 my-3 4xl:w-3/4 2xl:mb-5">
 			<div class="w-full h-full pt-5 space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:pt-10">
 				<div class="w-56">
 					<img class="rounded-xl" src='@("/assets/" + @Book.CoverImage)'>
@@ -123,7 +123,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="inline-block space-y-2">
+	<div class="inline-block pb-10 space-y-2">
 		<p class="my-4 text-xl ">Editions</p>
 		@if (LibraryService.UserState.HasUser() && LibraryService.UserState.UserIsLibrarian())
 		{
