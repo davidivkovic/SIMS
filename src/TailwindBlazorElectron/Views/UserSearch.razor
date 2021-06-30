@@ -72,7 +72,7 @@
 				<div class="flex items-center space-x-5">
 					@if (!string.IsNullOrEmpty(SelectedUser.ImageUrl))
 					{
-						<img class="w-20 h-20 rounded-full" src="@SelectedUser.ImageUrl">
+						<img class="w-20 h-20 rounded-full" src='@("/assets/" + SelectedUser.ImageUrl)'>
 					}
 					<div class="text-sm">
 						<p class="text-base font-medium">@SelectedUser.FullName</p>

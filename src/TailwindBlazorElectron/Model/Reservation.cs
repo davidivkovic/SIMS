@@ -36,6 +36,7 @@ namespace TailwindBlazorElectron.Model
 		public void Decline()
 		{
 			Status = ReservationStatus.Declined;
+			Edition.Returned();
 		}
 
 		public void Approve()

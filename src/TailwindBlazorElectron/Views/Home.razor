@@ -70,7 +70,7 @@
 				<!--Book card-->
 				<div class="w-full my-3 border border-gray-200 2xl:my-5 rounded-xl h-4/5">
 					<div class="w-full h-full p-5 space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:p-10">
-						<img class="object-scale-down h-full rounded-xl" src="@Books[0].CoverImage">
+						<img class="object-scale-down h-full rounded-xl" src='@("/assets/" + Books[0].CoverImage)'>
 						<div class="flex flex-col ">
 							<div class="h-full space-y-1">
 								<div class="flex items-center space-x-1.5">
@@ -89,7 +89,8 @@
 								</p>
 							</div>
 							<div class="flex items-center flex-1 pt-4 space-x-4">
-								<div class="px-4 py-2 cursor-pointer bg-lime-500 rounded-3xl">
+								<div class="px-4 py-2 cursor-pointer bg-lime-500 rounded-3xl"
+									@onclick='() => Router.NavigateTo($"/books/{Books[0].IdTitle}")'>
 									<p class="font-light text-white whitespace-nowrap text-xxs">
 										Add Reservation +
 									</p>
@@ -122,7 +123,7 @@
 							{
 								<div
 								class="flex items-center py-2 pl-1.5 pr-5 space-x-4 transition rounded-lg cursor-pointer hover:bg-gray-50">
-									<img class="object-cover w-12 h-12 rounded-full" src="@author.ImageUrl">
+									<img class="object-cover w-12 h-12 rounded-full" src='@("/assets/" + @author.ImageUrl)'>
 									<div class="space-y-1">
 										<p class="font-semibold text-md">@author.Name</p>
 										<div class="flex space-x-1.25 text-xs font-medium text-gray-400">
@@ -150,8 +151,9 @@
 						<div class="grid grid-cols-2 2xl:gap-x-4 gap-y-0.25">
 							@foreach (var book in Books.Skip(1).Take(4))
 							{
-								<div class="flex p-2 pr-2 space-x-3 transition rounded-md cursor-pointer hover:bg-gray-50">
-									<img src="@book.CoverImage" class="object-cover w-1/3 h-auto rounded">
+								<div class="flex p-2 pr-2 space-x-3 transition rounded-md cursor-pointer hover:bg-gray-50"
+								@onclick='() => Router.NavigateTo($"/books/{book.IdTitle}")'>
+									<img src='@("/assets/" + @book.CoverImage)' class="object-cover w-1/3 h-auto rounded">
 									<div class="space-y-1 tracking-tight">
 										<p class="font-medium leading-tight text-md">@book.Title</p>
 										<p class="text-sm leading-tight text-gray-500" style="word-spacing: 100rem;">
@@ -185,7 +187,7 @@
 					@foreach (var book in Books.Skip(1).Take(4))
 					{
 						<div class="flex max-w-xs p-5 pr-3 space-x-5 border border-gray-200 rounded-lg">
-							<img src="@book.CoverImage" class="object-cover w-2/5 h-auto rounded-lg">
+							<img src='@("/assets/" + @book.CoverImage)' class="object-cover w-2/5 h-auto rounded-lg">
 							<div class="flex flex-col">
 								<div class="space-y-1">
 									<div class="flex items-center space-x-1.5">

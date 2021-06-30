@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using System.Threading.Tasks;
 using TailwindBlazorElectron.Data;
 using TailwindBlazorElectron.Model;
 
@@ -37,7 +36,7 @@ namespace TailwindBlazorElectron.Services
 			_dbContext.SaveChanges();
 		}
 
-		private void SeedEditions()
+		public void SeedEditions()
 		{
 			var books = _dbContext.Books.Include(b => b.Author).ToList();
 

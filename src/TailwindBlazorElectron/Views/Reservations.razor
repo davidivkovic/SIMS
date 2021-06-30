@@ -31,25 +31,42 @@
 }
 
 <div class="flex justify-center mx-4 my-8 lg:block lg:my-10 lg:mx-16">
-
 	<p class="text-3xl">Reservations</p>
-	<p class="text-md">Allow book reservations requested by readers</p>
-	<div class="mt-6">
-		<UserSearch onselected="UserSelected"></UserSearch>
-	</div>
+	@if (LibraryService.UserState.UserIsLibrarian())
+	{
+		<p class="text-md">Allow book reservations requested by readers</p>
+	}
+	else
+	{
+		<p class="text-md">View your past and current reservations</p>
+	}
+	@if (LibraryService.UserState.HasUser() && LibraryService.UserState.UserIsLibrarian())
+	{
+		<div class="mt-6">
+			<UserSearch onselected="UserSelected"></UserSearch>
+		</div>
+	}
 	<div class="inline-grid gap-5 mt-8 lg:grid-cols-2 2xl:grid-cols-3">
 		@foreach (Reservation reservation in AllReservations)
 		{
 			<div class="flex flex-col justify-around px-5 py-4 space-y-4 border rounded-lg">
 				<div class="flex justify-between space-x-6">
 					<div>
-						<p class="font-medium text-md">@reservation.User.FullName requested a reservation</p>
+						@if (LibraryService.UserState.HasUser() && reservation.User.SSN ==
+								LibraryService.UserState.CurrentUser.SSN)
+						{
+							<p class="font-medium text-md">You requested a reservation</p>
+						}
+						else
+						{
+							<p class="font-medium text-md">@reservation.User.FullName requested a reservation</p>
+						}
 						<p class="text-sm text-gray-600">@reservation.CreatedAt.ToLongDateString()</p>
 					</div>
 
 				</div>
 				<div class="flex space-x-4">
-					<img class="w-20 h-32 rounded-md" src="@reservation.Edition.Book.CoverImage">
+					<img class="w-20 h-32 rounded-md" src='@("/assets/" + reservation.Edition.Book.CoverImage)'>
 					<div>
 						<p>@reservation.Edition.Title</p>
 						@* <div class="flex space-x-1">
@@ -79,7 +96,7 @@
 					</div>
 				</div>
 
-				@* @if (reservation.IsApproved)
+				@* @if (reservation.IsApproved && !LibraryService.UserState.UserIsLibrarian())
 					{
 					<div>
 					<p class="font-medium text-md">Approved on</p>
@@ -93,25 +110,43 @@
 				}
 				else if (!reservation.IsApproved)
 				{
-					<div class="flex justify-between text-center">
-						<div class="flex-1 p-2 border rounded-md cursor-pointer"
+					@if (LibraryService.UserState.UserIsLibrarian())
+					{
+						<div class="flex justify-between space-x-3 text-center">
+							<div class="flex-1 p-2 border rounded-md cursor-pointer"
 					@onclick="()=> LibraryService.DeclineReservation(reservation)">
-							<p class="text-xs font-medium">Decline</p>
-						</div>
-						<div class="flex-1 p-2 rounded-md cursor-pointer bg-lime-500"
+								<p class="text-xs font-medium">Decline</p>
+							</div>
+							<div class="flex-1 p-2 rounded-md cursor-pointer bg-lime-500"
 					@onclick="()=> LibraryService.AllowReservation(reservation)">
-							<p class="text-xs text-white">Approve</p>
+								<p class="text-xs text-white">Approve</p>
+							</div>
 						</div>
-					</div>
+					}
+					else
+					{
+						<div class="flex items-center justify-between">
+							<p class="text-sm">Not yet approved</p>
+						</div>
+					}
 				}
 				else if (!reservation.HasBeenPickedUp)
 				{
 					<div class="flex items-center justify-between">
-						<p class="text-sm">Not yet picked up</p>
-						<div class="px-4 py-2 ml-auto border rounded-md cursor-pointer"
+						@if (LibraryService.UserState.UserIsLibrarian())
+						{
+							<p class="text-sm">Not yet picked up</p>
+							<div class="px-4 py-2 ml-auto border rounded-md cursor-pointer"
 					@onclick="()=> LibraryService.ReservationPickedUp(reservation)">
-							<p class="text-xs font-medium">Mark as picked up</p>
-						</div>
+								<p class="text-xs font-medium">Mark as picked up</p>
+							</div>
+						}
+						else
+						{
+							<p class="text-sm">Pick the book up by @((reservation.ApprovedAt +
+					TimeSpan.FromDays(3)).ToLongDateString())
+							</p>
+						}
 					</div>
 				}
 				else if (!reservation.HasBeenReturned)
@@ -122,13 +157,16 @@
 							<p class="text-sm text-gray-600">@reservation.PickedUpAt.ToLongDateString()</p>
 							</div> *@
 						<div>
-							<p class="font-medium text-md">Due on</p>
+							<p class="font-medium text-md">Due by</p>
 							<p class="text-sm text-gray-600">@reservation.DueDate.ToLongDateString()</p>
 						</div>
-						<div class="px-4 py-2 border rounded-md cursor-pointer"
+						@if (LibraryService.UserState.UserIsLibrarian())
+						{
+							<div class="px-4 py-2 border rounded-md cursor-pointer"
 					@onclick="()=> LibraryService.ReservationReturned(reservation)">
-							<p class="text-xs font-medium">Mark as returned</p>
-						</div>
+								<p class="text-xs font-medium">Mark as returned</p>
+							</div>
+						}
 					</div>
 				}
 				else if (reservation.HasBeenReturned)

@@ -106,7 +106,10 @@
 							<p>Sign Up</p>
 						</div>
 					</div>
+				}
 
+				@if (LibraryService.UserState.HasUser())
+				{
 					<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
 					@onclick='() => Router.NavigateTo("/reservations")'>
 						<div
@@ -115,10 +118,7 @@
 							<p>Reservations</p>
 						</div>
 					</div>
-				}
 
-				@if (LibraryService.UserState.HasUser())
-				{
 					<div class="p-2.5 pl-4 transition rounded-md cursor-pointer hover:bg-gray-50"
 					@onclick='() => Router.NavigateTo("/accountupdate")'>
 						<div
@@ -134,8 +134,9 @@
 			<div class="flex items-center justify-around pl-2 mt-auto border-t border-gray-100 h-28">
 				@if (LibraryService.UserState.HasUser())
 				{
-					<div class="flex items-center space-x-2">
-						<img class="object-cover w-12 h-12 rounded-xl" src="@LibraryService.UserState.CurrentUser.ImageUrl">
+					<div class="flex items-center space-x-3">
+						<img class="object-cover w-12 h-12 rounded-full"
+						src='@("/assets/" + LibraryService.UserState.CurrentUser.ImageUrl)'>
 						<div class="space-y-1 font-medium tracking-tight">
 							<p class="text-xs text-gray-500">Good morning!</p>
 							<p class="text-md">@LibraryService.UserState.CurrentUser.FullName</p>

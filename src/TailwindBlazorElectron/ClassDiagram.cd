@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="TailwindBlazorElectron.Model.Account">
-    <Position X="1.75" Y="0.75" Width="1.5" />
+    <Position X="1.5" Y="0.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAADAAAAACBAAABAEAAAAAgAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Model\Account.cs</FileName>
@@ -49,7 +49,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TailwindBlazorElectron.Model.Edition">
-    <Position X="6.75" Y="0.75" Width="1.5" />
+    <Position X="6.75" Y="0.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAIAACEBACAAAAAAAAShAAAAAAAACAAAAAAQ=</HashCode>
       <FileName>Model\Edition.cs</FileName>
@@ -70,7 +70,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="TailwindBlazorElectron.Model.Reservation">
-    <Position X="3.75" Y="2.75" Width="1.5" />
+    <Position X="3.75" Y="2.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>AAgDAAgMAEACAGIAAGAAAAAAAgAAAAASAAAAQAAIAAA=</HashCode>
       <FileName>Model\Reservation.cs</FileName>
@@ -91,14 +91,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="TailwindBlazorElectron.Model.SubscriptionModel">
-    <Position X="8.75" Y="2.25" Width="1.5" />
+    <Position X="9" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Model\SubscriptionModel.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TailwindBlazorElectron.Model.User">
-    <Position X="10.75" Y="0.75" Width="1.5" />
+    <Position X="10.75" Y="0.75" Width="2.75" />
     <TypeIdentifier>
       <HashCode>EAACQEAEEIAgBIAAEAEAAAAAAAASAADCAAAAAgAAAEg=</HashCode>
       <FileName>Model\User.cs</FileName>
@@ -114,9 +114,9 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="TailwindBlazorElectron.Services.LibraryService">
-    <Position X="4.25" Y="9.75" Width="2.5" />
+    <Position X="0.5" Y="9.75" Width="6.5" />
     <TypeIdentifier>
-      <HashCode>ABAIACGAAAASCCABAAAAgAEAoIAAgAgAAAAAAAAAAAA=</HashCode>
+      <HashCode>ABAIACGAAAASCCABQAAAgAEAgIAAgAgAAAAAAAAAAAA=</HashCode>
       <FileName>Services\LibraryService.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

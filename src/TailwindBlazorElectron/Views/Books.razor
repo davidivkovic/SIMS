@@ -3,11 +3,16 @@
 @using System.Globalization
 @using TailwindBlazorElectron.Services
 @using TailwindBlazorElectron.Model
+@using TailwindBlazorElectron.Components
+@using HeroIcons.Blazor.Solid
 
 @inject LibraryService LibraryService
 
 @code {
 	[Parameter] public string IdTitle { get; set; }
+
+	Modal modal;
+
 	User SelectedUser;
 	Book Book;
 	string FormatedRating(Book book) => (book.AverageRating * 2).ToString("F1", CultureInfo.InvariantCulture);
@@ -32,7 +37,7 @@
 
 		if (reservation is not null)
 		{
-			Console.WriteLine("Success");
+			modal.Toggle();
 		}
 	}
 
@@ -46,14 +51,43 @@
 		SelectedUser = user;
 	}
 
+	void ToggleModal()
+	{
+		modal.Toggle();
+	}
 }
 
-<div class="px-10 py-10 2xl:px-20">
+<Modal @ref="modal">
+	<div class="p-6 text-center bg-white">
+		<div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto rounded-full bg-lime-400">
+			<CheckIcon class="w-6 h-6 text-white"></CheckIcon>
+		</div>
+
+		<div class="mt-6">
+			<h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">
+				Reservation successful
+			</h3>
+			<div class="px-2 mt-2">
+				<p class="max-w-xs text-sm text-gray-500">
+					Your reservation has been sent to the local library. You will be notified whether a librarian
+					approves your reservation.
+				</p>
+			</div>
+		</div>
+		<button type="button"
+			class="w-full px-4 py-2 mt-8 text-base font-medium text-white transition-colors border border-transparent rounded-md bg-lime-500 hover:bg-lime-400 focus:outline-none sm:text-sm"
+			@onclick="ToggleModal">
+			Continue
+		</button>
+	</div>
+</Modal>
+
+<div class="px-10 py-2 2xl:px-20">
 	<div class="flex">
 		<div class="flex w-11/12 my-3 3xl:w-2/3 2xl:mb-5">
 			<div class="w-full h-full pt-5 space-y-3 md:space-y-0 md:space-x-6 md:flex 2xl:space-x-10 2xl:pt-10">
 				<div class="w-56">
-					<img class="rounded-xl" src="@Book.CoverImage">
+					<img class="rounded-xl" src='@("/assets/" + @Book.CoverImage)'>
 				</div>
 
 				<div class="flex flex-col flex-1 h-full space-y-1">
@@ -66,7 +100,8 @@
 					</div>
 					<p class="pt-1 text-3xl font-medium tracking-tight 2xl:text-5xl ">@Book.Title</p>
 					<div class="flex items-center pt-1 space-x-1 text-lg tracking-tight text-gray-700">
-						<p class="">@Book.Author.Name</p>
+						<img class="object-cover w-12 h-12 rounded-full" src='@("/assets/" + @Book.Author.ImageUrl)' />
+						<p class="pl-2">@Book.Author.Name</p>
 						<p class="text-sm text-gray-400">&bull;</p>
 						<p class="">@Book.YearPublished</p>
 					</div>

@@ -2,12 +2,16 @@
 @using TailwindBlazorElectron.Services
 @using TailwindBlazorElectron.Model
 @using HeroIcons.Blazor.Solid
+@using System.IO
 
 @inject LibraryService LibraryService
+@inject NavigationManager Router
 
 @code
 {
 	User CurrentUser;
+	string TempImageUrl;
+	IBrowserFile Image;
 
 	protected override void OnInitialized()
 	{
@@ -17,9 +21,29 @@
 		}
 	}
 
+	async Task LoadImage(InputFileChangeEventArgs e)
+	{
+		Image = e.File;
+
+		await using MemoryStream ms = new();
+		await Image.OpenReadStream(64000000).CopyToAsync(ms);
+		var data = ms.ToArray();
+		TempImageUrl = "data:image/jpeg;base64," + Convert.ToBase64String(data);
+	}
+
+	async Task SaveImage()
+	{
+		if (Image is null) return;
+
+		await LibraryService.ChangeProfileImage(Image);
+
+		Router.NavigateTo("accountupdate", forceLoad: true);
+	}
+
 }
 @if (LibraryService.UserState.HasUser())
 {
+
 	<div class="py-2 ml-12 px-14">
 		<div class="mt-10">
 			<p class="text-2xl font-medium ">Account Settings</p>
@@ -33,65 +57,65 @@
 					</div>
 				</div>
 				<div class="mt-5 md:mt-0 md:col-span-3">
-					<form  method="POST">
-						<div class="border sm:rounded-md sm:overflow-hidden">
-							<div class="px-4 py-5 space-y-6 bg-white sm:p-6">
-								<div>
-									<div class="flex items-center mt-1 space-x-5 text-sm">
-										<span class="inline-block w-20 h-20 overflow-hidden bg-gray-100 rounded-full">
-											<img src="@CurrentUser.ImageUrl" />
-										</span>
-										<div>
-											<p class="font-medium">@CurrentUser.FullName</p>
-											<p class="mt-2">SSN @CurrentUser.SSN</p>
-											<p>@CurrentUser.Account.Email</p>
+					<div class="border sm:rounded-md sm:overflow-hidden">
+						<div class="px-4 py-5 space-y-6 bg-white sm:p-6">
+							<div>
+								<div class="flex items-center mt-1 space-x-5 text-sm">
+									<span class="inline-block w-20 h-20 overflow-hidden bg-gray-100 rounded-full">
+										@if (string.IsNullOrEmpty(TempImageUrl))
+										{
+											<img src='@("/assets/" + CurrentUser.ImageUrl)' />
+										}
+										else
+										{
+											<img src="@TempImageUrl" />
+										}
+									</span>
+									<div>
+										<p class="font-medium text-md">@CurrentUser.FullName</p>
+										<p class="mt-1">SSN @CurrentUser.SSN</p>
+										<p>@CurrentUser.Account.Email</p>
 
-										</div>
-									</div>
-								</div>
-								<div>
-									<label class="block text-sm font-medium text-gray-700">
-										Change profile photo
-									</label>
-									<div
-									class="flex justify-center px-6 pt-5 pb-6 mt-1 border-2 border-gray-300 border-dashed rounded-md">
-										<div class="space-y-1 text-center">
-											<svg class="w-12 h-12 mx-auto text-gray-400" stroke="currentColor" fill="none"
-											viewBox="0 0 48 48" aria-hidden="true">
-												<path
-												d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-												stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-											</svg>
-											<div class="flex text-sm text-gray-600">
-												<label for="file-upload"
-												class="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-													<span>Upload a file</span>
-													<input id="file-upload" name="file-upload" type="file" class="sr-only">
-												</label>
-												<p class="pl-1">or drag and drop</p>
-											</div>
-											<p class="text-xs text-gray-500">
-												PNG, JPG, GIF up to 10MB
-											</p>
-										</div>
 									</div>
 								</div>
 							</div>
-							<div class="float-right px-4 py-3 sm:px-6">
-								<button
-								class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
-									<p class="text-xs">Save</p>
-								</button>
+							<div>
+								<label class="block text-sm font-medium text-gray-700">
+									Change profile photo
+								</label>
+								<div
+								class="flex justify-center px-6 pt-5 pb-6 mt-1 border-2 border-gray-300 border-dashed rounded-md">
+									<div class="space-y-1 text-center">
+										<svg class="w-12 h-12 mx-auto text-gray-400" stroke="currentColor" fill="none"
+										viewBox="0 0 48 48" aria-hidden="true">
+											<path
+											d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+											stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+										</svg>
+										<div class="flex text-sm text-gray-600">
+											<label for="file-upload"
+											class="relative font-medium text-indigo-600 bg-white rounded-md cursor-pointer hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+												Upload a file
+												<InputFile OnChange="LoadImage" id="file-upload" class="hidden" />
+											</label>
+											<p class="pl-1">or drag and drop</p>
+										</div>
+										<p class="text-xs text-gray-500">
+											PNG, JPG, GIF up to 10MB
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
-					</form>
+						<div class="float-right px-4 py-3 sm:px-6">
+							<button
+							class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90"
+							@onclick="SaveImage">
+								<p class="text-xs">Save</p>
+							</button>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-
-		<div class="hidden sm:block" aria-hidden="true">
-			<div class="py-5">
-				<div class="border-t border-gray-200"></div>
 			</div>
 		</div>
 
@@ -112,7 +136,7 @@
 					</div>
 				</div>
 				<div class="mt-5 md:mt-0 md:col-span-3">
-					<form  method="POST">
+					<form method="POST">
 						<div class="overflow-hidden border sm:rounded-md">
 							<div class="px-4 py-5 bg-white sm:p-6">
 								<div class="grid grid-cols-6 gap-6">
@@ -123,7 +147,7 @@
 									</div>
 									<div class="col-span-6 sm:col-span-3">
 										<label class="block text-sm font-medium text-gray-700">Confirm New Password</label>
-										<input type="password" 
+										<input type="password"
 										class="block w-full mt-1 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
 									</div>
 								</div>
@@ -157,7 +181,7 @@
 					</div>
 				</div>
 				<div class="mt-5 md:mt-0 md:col-span-3">
-					<form  method="POST">
+					<form method="POST">
 						<div class="overflow-hidden border sm:rounded-md">
 							<div class="px-4 py-5 bg-white sm:p-6">
 								<div class="grid grid-cols-6 gap-6">
@@ -205,71 +229,87 @@
 			</div>
 		</div>
 
-		<div class="mt-10 mb-10 sm:mt-0">
-			<div class="md:grid md:grid-cols-6 md:gap-20">
-				<div class="md:col-span-2">
-					<div class="px-4 sm:px-0">
-						<h3 class="text-lg font-medium leading-6 text-gray-900">Subscription Information</h3>
-						<p class="mt-1 text-sm text-gray-600">
-							Chosen method of payment.
-						</p>
+		@if (!LibraryService.UserState.UserIsLibrarian())
+		{
+			<div class="mt-10 mb-10 sm:mt-0">
+				<div class="md:grid md:grid-cols-6 md:gap-20">
+					<div class="md:col-span-2">
+						<div class="px-4 sm:px-0">
+							<h3 class="text-lg font-medium leading-6 text-gray-900">Subscription Information</h3>
+							<p class="mt-1 text-sm text-gray-600">
+								Chosen method of payment.
+							</p>
+						</div>
 					</div>
-				</div>
-				<div class="mt-5 md:mt-0 md:col-span-3">
-					<form method="POST">
-						<div class="overflow-hidden border sm:rounded-md">
-							<div class="px-4 py-5 bg-white sm:p-6">
-								<div class="text-sm">
-									<div class="space-y-4">
-										<p>Subscribed on <span class="font-medium">@CurrentUser.Subscription.StartDate.ToString("dd.MM.yyyy.")</span></p>
-										@if(@CurrentUser.Subscription.EndTime > DateTime.Now)
-										{
-											<p>Subscription end on <span class="font-medium">@CurrentUser.Subscription.EndTime.ToString("dd.MM.yyyy.")</span></p>
-											<p>Remaining subscription time is <span class="font-medium"> @CurrentUser.Subscription.RemainingTime().ToString() days.</span></p>
-											<div class="w-full h-4 border rounded-md">
-												<div class="h-full rounded-md bg-lime-500" style="width: @CurrentUser.Subscription.CurrentPercentage()%;">
+					<div class="mt-5 md:mt-0 md:col-span-3">
+						<form method="POST">
+							<div class="overflow-hidden border sm:rounded-md">
+								<div class="px-4 py-5 bg-white sm:p-6">
+									<div class="text-sm">
+										<div class="space-y-4">
+											<p>Subscribed on <span
+											class="font-medium">@CurrentUser.Subscription.StartDate.ToString("dd.MM.yyyy.")</span>
+											</p>
+											@if (@CurrentUser.Subscription.EndTime > DateTime.Now)
+											{
+												<p>Subscription ends on <span
+											class="font-medium">@CurrentUser.Subscription.EndTime.ToString("dd.MM.yyyy.")</span>
+												</p>
+												<p>Remaining subscription time is <span class="font-medium">
+														@CurrentUser.Subscription.RemainingTime().ToString() days.</span></p>
+												<div class="w-full h-4 border rounded-md">
+													<div class="h-full rounded-md bg-lime-500"
+											style='width: @(CurrentUser.Subscription.CurrentPercentage() + "%");'>
+													</div>
 												</div>
-											</div>
-										}
-										else
-										{
-											<p>Subscription ended on <span class="font-medium">@CurrentUser.Subscription.EndTime.ToString("dd.MM.yyyy.")</span></p>
-											<p>If you want to renew your subscription by paying online, you can <span class="font-medium">choose a new pricing option</span> from below. Otherwise visit the library for other payment methods.</p>
-											<Subscriptions></Subscriptions>
-											<div class="inline-block">
-												<div class="justify-center px-3 py-3.5 border rounded-lg ">
-													<div class="flex items-center justify-between space-x-5 md:space-x-48">
-														<div class="flex items-center space-x-3.5">
-															<img src="/images/Card.jpg" class="object-fill w-16 h-14 img"/>
-															<div class="text-center">
-																<p class="font-medium">Debit Card</p>
-																<p class="text-gray-400">xxxx 8880</p>
+											}
+											else
+											{
+												<p>Subscription ended on <span
+											class="font-medium">@CurrentUser.Subscription.EndTime.ToString("dd.MM.yyyy.")</span>
+												</p>
+												<p>If you want to renew your subscription by paying online, you can <span
+											class="font-medium">choose a new pricing option</span> from below. Otherwise
+													visit the library for other payment methods.</p>
+												<div class="inline-block">
+													<Subscriptions></Subscriptions>
+													<div class="mt-3">
+														<div class="justify-center px-3 py-2.5 border rounded-lg ">
+															<div class="flex items-center justify-between">
+																<div class="flex items-center space-x-3.5">
+																	<img src="/assets/Card.jpg" class="object-fill w-16 h-14 img" />
+																	<div class="text-center">
+																		<p class="font-medium">Debit Card</p>
+																		<p class="text-gray-400">xxxx 8880</p>
+																	</div>
+																</div>
+																<div
+														class="items-center justify-center w-8 h-8 rounded-full cursor-pointer bg-indigo-50">
+																	<PencilIcon class="w-8 h-8 p-1 text-indigo-500 "></PencilIcon>
+																</div>
 															</div>
-														</div>
-														<div class="items-center justify-center w-8 h-8 rounded-full cursor-pointer bg-indigo-50">
-															<PencilIcon class="w-8 h-8 p-1 text-indigo-500 "></PencilIcon>
 														</div>
 													</div>
 												</div>
-											</div>
-										}
+											}
+										</div>
 									</div>
 								</div>
+								@if (@CurrentUser.Subscription.EndTime < DateTime.Now)
+								{
+									<div class="float-right px-4 py-3 sm:px-6">
+										<button
+								class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
+											<p class="text-xs">Save</p>
+										</button>
+									</div>
+								}
+
 							</div>
-							@if(@CurrentUser.Subscription.EndTime < DateTime.Now)
-							{
-								<div class="float-right px-4 py-3 sm:px-6">
-									<button
-									class="flex items-center justify-center px-5 py-2 text-white transition-colors bg-indigo-500 rounded-md cursor-pointer focus:outline-none hover:bg-opacity-90">
-										<p class="text-xs">Save</p>
-									</button>
-								</div>
-							}
-							
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
+		}
 	</div>
 }

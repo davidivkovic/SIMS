@@ -3,6 +3,10 @@
 @using TailwindBlazorElectron.Views
 @using TailwindBlazorElectron.Model
 @using TailwindBlazorElectron.Services
+@using TailwindBlazorElectron.Components
+
+@inject NavigationManager Router
+
 @inject LibraryService LibraryService
 
 @code {
@@ -11,6 +15,7 @@
 	Status Status;
 	DateTime DateOfBirth = DateTime.Now;
 	SubscriptionModel SelectedSubscriptionModel;
+	Modal modal;
 
 	void SubscriptionModelSelected(SubscriptionModel model)
 	{
@@ -40,10 +45,36 @@
 
 		bool success = LibraryService.SignUp(Email, Password, user, address, SelectedSubscriptionModel);
 
-		Console.WriteLine(success);
-		//Router.NavigateTo("");
+		if (success)
+		{
+			modal.Toggle();
+		}
 	}
 }
+
+<Modal @ref="modal">
+	<div class="p-6 text-center bg-white">
+		<div class="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto rounded-full bg-lime-400">
+			<CheckIcon class="w-6 h-6 text-white"></CheckIcon>
+		</div>
+
+		<div class="mt-6">
+			<h3 class="text-lg font-medium leading-6 text-gray-900" id="modal-title">
+				Sign up successful
+			</h3>
+			<div class="px-2 mt-2">
+				<p class="max-w-xs text-sm text-gray-700">
+					@($"{FirstName} {LastName} has successfully been signed up. They can now sign in with their credentials.")
+				</p>
+			</div>
+		</div>
+		<button type="button"
+			class="w-full px-4 py-2 mt-8 text-base font-medium text-white transition-colors border border-transparent rounded-md bg-lime-500 hover:bg-lime-400 focus:outline-none sm:text-sm"
+			@onclick='()=> Router.NavigateTo("/signup", forceLoad: true)'>
+			Continue
+		</button>
+	</div>
+</Modal>
 
 <div class="flex items-center py-8 text-sm 3xl:py-10">
 	<div class="flex items-center justify-center w-4/5 h-full ml-10">

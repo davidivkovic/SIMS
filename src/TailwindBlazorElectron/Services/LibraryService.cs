@@ -5,6 +5,9 @@ using System.Linq;
 using TailwindBlazorElectron.State;
 using TailwindBlazorElectron.Data;
 using TailwindBlazorElectron.Model;
+using Microsoft.AspNetCore.Components.Forms;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace TailwindBlazorElectron.Services
 {
@@ -12,8 +15,6 @@ namespace TailwindBlazorElectron.Services
 	{
 		public readonly ApplicationDbContext DbContext;
 
-		// Najretardiranija stvar koja postoji na svetu je uvoditi state pattern u stateless aplikaciju samo da bi imao dijagram prelaza stanja jer ti to
-		// trazi specifikacija projekta ubijte me lolcina PROSLEDJUJE SE THIS LOOOOOL
 		public UserState UserState { get; set; }
 
 		public LibraryService(ApplicationDbContext dbContext)
@@ -26,7 +27,7 @@ namespace TailwindBlazorElectron.Services
 			UserState.Entry();
 		}
 
-		private void SeedLibrarian()
+		public void SeedLibrarian()
 		{
 			var email = "gorajkora@gmail.com";
 			var account = DbContext.Accounts.FirstOrDefault(a => a.Email == email);
@@ -36,11 +37,12 @@ namespace TailwindBlazorElectron.Services
 				{
 					FirstName = "David",
 					LastName = "Ivkovic",
+					SSN = "1706000000000",
 					DateOfBirth = new DateTime(2000, 6, 17),
 					Sex = Sex.Male,
 					Status = Status.Adult,
 					Role = Role.Librarian,
-
+					ImageUrl = "placeholderpfp.png"
 				},
 				new Address()
 				{
@@ -225,6 +227,25 @@ namespace TailwindBlazorElectron.Services
 					.Include(r => r.Edition)
 						.ThenInclude(e => e.Authors)
 					.ToList();
+		}
+		public async Task ChangeProfileImage(IBrowserFile file)
+		{
+			var user = DbContext.Users.Find(UserState.CurrentUser.Id);
+
+			string filename = user.SSN + Path.GetExtension(file.Name);
+
+			await using FileStream fs = new($"wwwroot/assets/{filename}", FileMode.Create);
+			await file.OpenReadStream(64000000).CopyToAsync(fs);
+
+			user.ImageUrl = filename;
+			DbContext.SaveChanges();
+		}
+
+		public void ResetProfileImage() 
+		{
+			var user = DbContext.Users.Find(UserState.CurrentUser.Id);
+			user.ImageUrl = "placeholderpfp.png";
+			DbContext.SaveChanges();
 		}
 	}
 }

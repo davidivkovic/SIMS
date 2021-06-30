@@ -29,8 +29,7 @@
 				<p class="mt-1 font-medium tracking-tight">Don't miss out, share the news with your friends!
 				</p>
 			</div>
-			<img class="object-cover h-screen"
-				src="https://images.unsplash.com/photo-1510172951991-856a654063f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=100">
+			<img class="object-cover h-screen" src='@("/assets/" + "photo-1510172951991-856a654063f9.jfif")'>
 		</div>
 		<div class="flex flex-col items-center justify-center flex-1 w-full text-sm bg-white">
 			<div class="w-4/5 md:w-2/3 2xl:w-1/2 3xl:w-2/5">
@@ -45,11 +44,10 @@
 				</div>
 				<button
 					class="inline-flex items-center justify-center w-full px-2 py-2.5 mt-10 transition-colors border rounded-lg focus:outline-none hover:bg-gray-50">
-					<div>
-						<img class="w-6 h-6 p-1"
-							src="https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png" />
+					<div class="flex items-center -ml-1 space-x-1.5">
+						<img class="w-5 h-5" src='@("/assets/" + "google.png")' />
+						<p class="-ml-1 font-medium">Sign in with Google</p>
 					</div>
-					<span class="ml-2 font-medium">Sign in with Google</span>
 				</button>
 				<form @onsubmit="() => OnSubmit()">
 					<p class="mt-5 text-center">or</p>
