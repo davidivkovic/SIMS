@@ -87,8 +87,8 @@ namespace TailwindBlazorElectron
 				});
 
 				browserWindow.SetMenuBarVisibility(false);
-				browserWindow.OnReadyToShow += () => browserWindow.Show();
 				browserWindow.SetTitle("BookShelf");
+				browserWindow.OnReadyToShow += () => browserWindow.Show();
 			});
 		}
 	}
