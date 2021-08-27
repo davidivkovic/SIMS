@@ -1,7 +1,7 @@
 # Biblioteka 📚
 Projekat razvijen tokom kursa Specifikacija i Modelovanje Softvera 2021
 
-# Aplikacija gde se vidi prelepa naslovna strana /s🖌💻
+# Naslovna strana 🖌💻
 ![PrvaImplementacijaNaslovneStrane](https://user-images.githubusercontent.com/16724395/121714266-f744da80-cadd-11eb-8433-7a31ae9aeee5.png)
 
 # Napravljeno pomoću 🛠
